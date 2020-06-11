@@ -15,13 +15,13 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('status');
-            $table->string('bill_address');
-            $table->date('date_validation');
+            $table->string('status')->nullable();
+            $table->string('bill_address')->nullable();
+            $table->date('date_validation')->nullable();
             $table->timestamps();
 
             $table->bigInteger('status_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->bigInteger('delivery_id')->unsigned();
             $table->foreign('delivery_id')->references('id')->on('deliveries');
             $table->bigInteger('user_id')->unsigned();
