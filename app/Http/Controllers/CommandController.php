@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Command as Command;
 use App\User as User;
 use App\Delivery as Delivery;
-//use App\Status as Status;
+use App\Status as Status;
 
 class CommandController extends Controller
 {
