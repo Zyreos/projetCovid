@@ -14,7 +14,8 @@ class CreateCommandsTable extends Migration
     public function up()
     {
         Schema::create('commands', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('status');
             $table->timestamps();
         });
     }
