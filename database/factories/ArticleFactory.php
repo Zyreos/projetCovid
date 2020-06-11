@@ -10,6 +10,6 @@ $factory->define(Article::class, function (Faker $faker) {
         'name' => $faker->firstName,
         'price' => $faker->numberBetween(50, 150),
         'description' => $faker->text,
-        'dimension' => $faker->shuffleString(10),
+        'dimensions' => $faker->shuffleString(10),
     ];
 });

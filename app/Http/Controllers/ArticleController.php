@@ -45,7 +45,7 @@ class ArticleController extends Controller
 
         $article -> save();
 
-        return redirect('articles/' . $event->id);
+        return redirect('articles/' . $article->id);
     }
 
     /**
@@ -90,7 +90,7 @@ class ArticleController extends Controller
 
         $article -> save();
 
-        return redirect('articles/' . $event->id);
+        return redirect('articles/' . $article->id);
     }
 
     /**
