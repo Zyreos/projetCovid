@@ -37,11 +37,15 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $article = new Article;
-        $article -> model = $request -> input('name');
-        $article -> prize = $request -> input('price');
+        $article -> name = $request -> input('name');
+        $article -> price = $request -> input('price');
         $article -> description = $request -> input('description');
+        $article -> dimensions = $request -> input('dimensions');
+        $article -> quantity = 0;
 
         $article -> save();
+
+        return redirect('articles/' . $event->id);
     }
 
     /**
@@ -78,13 +82,15 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $article = Article::find($id);
-        $article -> model = $request -> input('name');
-        $article -> prize = $request -> input('price');
+        $article -> name = $request -> input('name');
+        $article -> price = $request -> input('price');
         $article -> description = $request -> input('description');
+        $article -> dimensions = $request -> input('dimensions');
+        $article -> quantity = 0;
 
         $article -> save();
 
-        return("Article Updated");
+        return redirect('articles/' . $event->id);
     }
 
     /**
