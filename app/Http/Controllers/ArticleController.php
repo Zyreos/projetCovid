@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        return view('articles.index', array('articles'=> $articles));
     }
 
     /**
@@ -24,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -35,7 +36,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article;
+        $article -> model = $request -> input('name');
+        $article -> prize = $request -> input('price');
+        $article -> description = $request -> input('description');
+
+        $article -> save();
     }
 
     /**
@@ -46,7 +52,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id);
+        return view('articles.show', array('article'=> $article));
     }
 
     /**
@@ -57,7 +64,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('articles.edit', array('article' => $article));
     }
 
     /**
@@ -69,7 +77,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article -> model = $request -> input('name');
+        $article -> prize = $request -> input('price');
+        $article -> description = $request -> input('description');
+
+        $article -> save();
+
+        return("Article Updated");
     }
 
     /**
@@ -80,6 +95,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article -> destroy($id);
+        return redirect('articles');
     }
 }
