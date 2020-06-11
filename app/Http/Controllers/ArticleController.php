@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Article;
 
 class ArticleController extends Controller
 {
@@ -45,7 +46,7 @@ class ArticleController extends Controller
 
         $article -> save();
 
-        return redirect('articles/' . $event->id);
+        return redirect('articles/' . $article->id);
     }
 
     /**
@@ -90,7 +91,7 @@ class ArticleController extends Controller
 
         $article -> save();
 
-        return redirect('articles/' . $event->id);
+        return redirect('articles/' . $article->id);
     }
 
     /**
