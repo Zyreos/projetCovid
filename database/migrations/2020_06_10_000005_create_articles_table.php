@@ -18,7 +18,8 @@ class CreateArticlesTable extends Migration
             $table->string('name');
             $table->double('price');
             $table->longText('description');
-            $table->integer('quantity');
+            $table->string('dimensions');
+            $table->integer('quantity')->nullable();
             $table->timestamps();
 
             $table->bigInteger('category_id')->unsigned();
