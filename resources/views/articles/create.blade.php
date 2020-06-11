@@ -25,6 +25,10 @@
             </div>
 
             <div>
+              <input type="text" name="dimensions" placeholder="Dimensions du produit">
+            </div>
+
+            <div>
               <button type="submit"> Ajouter </button>
               <a href="/articles"> Annuler </a>
             </div>

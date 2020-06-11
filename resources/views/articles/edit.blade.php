@@ -26,6 +26,10 @@
         </div>
 
         <div>
+          <input type="text" name="dimensions" value="{{ $article-> dimensions }}" placeholder="Nouvelles dimensions">
+        </div>
+
+        <div>
           <button type="submit"> Editer </button>
           <a href="/articles/{{$article->id}}"> Annuler </a>
         </div>

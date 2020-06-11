@@ -12,6 +12,7 @@
           <li>Nom: {{ $article->model }}</li>
           <li>Prix: {{ $article->prize }}</li>
           <li>Description: {{ $article->description }}</li>
+          <li>Dimensions: {{ $article->dimensions }}</li>
         </ul>
 
     <a href="/articles/{{ $article->id }}/edit"> Edition </a>

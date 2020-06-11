@@ -12,6 +12,7 @@
         <li>Nom: {{ $article->name }}</li>
         <li>Prix: {{ $article->price }}</li>
         <li>Description: {{ $article->description }}</li>
+        <li>Dimensions: {{ $article->dimensions }}</li>
     </ul>
     @endforeach
 
