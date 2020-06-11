@@ -18,6 +18,7 @@ class CreateCommandsTable extends Migration
             $table->string('status')->nullable();
             $table->string('bill_address')->nullable();
             $table->date('date_validation')->nullable();
+            $table->integer('total_definitive');
             $table->timestamps();
 
             $table->bigInteger('status_id')->unsigned();
