@@ -46,6 +46,8 @@ class CommandController extends Controller
         $command -> user_id = $request -> input('user_id');
         $command -> status_id = $request -> input('status_id');
         $command -> delivery_id = $request -> input('delivery_id');
+
+        $command -> save();
     }
 
     /**
