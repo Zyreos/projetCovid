@@ -29,6 +29,13 @@
             </div>
 
             <div>
+                <select name="Catégorie" size="1">
+                    <option>Support
+                    <option>Poster
+                    <option>Impression
+                </select>
+            <div>
+
               <button type="submit"> Ajouter </button>
               <a href="/articles"> Annuler </a>
             </div>

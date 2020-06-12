@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
-use App\Category as Category;
+use App\Category;
 
 class ArticleController extends Controller
 {
+    
+
+    /*public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }*/
+
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +34,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        
+        //$categoryNames = $category -> name;
         return view('articles.create');
     }
 
@@ -92,6 +101,7 @@ class ArticleController extends Controller
         $article -> price = $request -> input('price');
         $article -> description = $request -> input('description');
         $article -> dimensions = $request -> input('dimensions');
+        $article -> category_id = $request -> input('category_id');
         $article -> quantity = 0;
 
         $article -> save();
