@@ -21,7 +21,7 @@ class CreateCommandsTable extends Migration
             $table->integer('total_definitive');
             $table->timestamps();
 
-            $table->bigInteger('status_id')->unsigned();
+            $table->bigInteger('status_id')->unsigned()->nullable();
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->bigInteger('delivery_id')->unsigned();
             $table->foreign('delivery_id')->references('id')->on('deliveries');

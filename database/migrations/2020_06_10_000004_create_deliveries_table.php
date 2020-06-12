@@ -16,7 +16,10 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('mode');
-            $table->string('address');
+            $table->string('address1');
+            $table->string('address2');
+            $table->integer('postalCode');
+            $table->string('country');
             $table->integer('price');
             $table->timestamps();
         });
