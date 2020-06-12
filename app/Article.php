@@ -16,7 +16,7 @@ class Article extends Model
         'category_id'
     ];
 
-    public function article()
+    public function category()
     {
         return $this->belongsTo('App\Category', 'foreign_key');
     }
