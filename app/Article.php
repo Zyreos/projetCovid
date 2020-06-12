@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    //
+
+    protected $fillable = [
+        'name',
+        'price',
+        'description',
+        'dimensions',
+        'quantity',
+        'category_id'
+    ];
+
     public function article()
     {
         return $this->belongsTo('App\Category', 'foreign_key');

@@ -11,5 +11,6 @@ $factory->define(Article::class, function (Faker $faker) {
         'price' => $faker->numberBetween(50, 150),
         'description' => $faker->text,
         'dimensions' => $faker->shuffleString(10),
+        'category_id' => $faker->numberBetween(1,3),
     ];
 });
