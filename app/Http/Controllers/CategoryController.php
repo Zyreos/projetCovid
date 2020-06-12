@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("categories.create");
     }
 
     /**
@@ -26,18 +27,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $category = new Category();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $category->name = $request->input('name');
+
+        return redirect("categories/" .$category->id);
     }
 
     /**
@@ -48,7 +42,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->
+        return view("categories/" . );
     }
 
     /**
