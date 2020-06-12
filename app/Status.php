@@ -9,6 +9,6 @@ class Status extends Model
     //
     public function commands()
     {
-        return $this->hasMany('App\Command', 'foreign_key');
+        return $this->hasMany('App\Command', 'command_id');
     }
 }

@@ -18,16 +18,16 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Category', 'foreign_key');
+        return $this->belongsTo('App\Category', 'category_id');
     }
 
     public function pictures()
     {
-        return $this->hasMany('App\Picture', 'foreign_key');
+        return $this->hasMany('App\Picture', 'picture_id');
     }
 
     public function commands()
     {
-        return $this->belongsToMany('App\Command', 'foreign_key');
+        return $this->belongsToMany('App\Command', 'baskets');
     }
 }
