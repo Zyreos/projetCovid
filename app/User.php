@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function commands()
+    {
+        return $this->hasMany('App\Command', 'foreign_key');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Role', 'foreign_key');
+    }
 }

@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Delivery extends Model
 {
     //
+    public function command()
+    {
+        return $this->hasOne('App\Command', 'foreign_key');
+    }
 }
