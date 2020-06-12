@@ -30,6 +30,10 @@
         </div>
 
         <div>
+          <input type="number" name="category_id" value="{{ $article->category_id }}" placeholder="Nouvelle catégorie">
+        <div>
+
+        <div>
           <button type="submit"> Editer </button>
           <a href="/articles/{{$article->id}}"> Annuler </a>
         </div>
