@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
+use App\Category as Category;
 
 class ArticleController extends Controller
 {
@@ -38,13 +39,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $article = new Article;
-        $article -> name = $request -> input('name');
-        $article -> price = $request -> input('price');
-        $article -> description = $request -> input('description');
-        $article -> dimensions = $request -> input('dimensions');
-        $article -> quantity = 0;
+        $article->name = $request->input('name');
+        $article->price = $request->input('price');
+        $article->description = $request->input('description');
+        $article->dimensions = $request->input('dimensions');
+        $article->quantity = 0;
 
-        $article -> save();
+        $category = $request->input('category_id');
+        $article->category_id = $category->id;
+
+
+        $article-> save();
 
         return redirect('articles/' . $article->id);
     }
