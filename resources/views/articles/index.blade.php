@@ -13,7 +13,11 @@
         <li>Prix: {{ $article->price }}</li>
         <li>Description: {{ $article->description }}</li>
         <li>Dimensions: {{ $article->dimensions }}</li>
-        <li>Catégorie: {{ $article->category_id }}</li>
+        @foreach($categories as $category)
+            @if($article->category_id = $category->category_id)
+        <li>Catégorie: {{ $category->name }}</li>
+            @endif
+        @endforeach
     </ul>
     @endforeach
 

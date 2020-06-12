@@ -31,7 +31,7 @@
             <div>
                 <select name="Catégorie" size="1">
                     @foreach ($categories as $category)
-                        <option> Catégorie {{ $category->id }}
+                        <option> Catégorie {{ $category->name }}
                     @endforeach
                 </select>
             <div>
