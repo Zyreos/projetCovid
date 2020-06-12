@@ -13,6 +13,7 @@
         <li>Prix: {{ $article->price }}</li>
         <li>Description: {{ $article->description }}</li>
         <li>Dimensions: {{ $article->dimensions }}</li>
+        <li>Catégorie: {{ $article->category_id }}</li>
     </ul>
     @endforeach
 

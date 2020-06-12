@@ -30,9 +30,9 @@
 
             <div>
                 <select name="Catégorie" size="1">
-                    <option>Support
-                    <option>Poster
-                    <option>Impression
+                    @foreach ($categories as $category)
+                        <option> Catégorie {{ $category->id }}
+                    @endforeach
                 </select>
             <div>
 

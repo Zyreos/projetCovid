@@ -9,7 +9,7 @@ use App\Category;
 
 class ArticleController extends Controller
 {
-    
+
 
     /*public function __construct(Category $category)
     {
@@ -34,9 +34,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        
-        //$categoryNames = $category -> name;
-        return view('articles.create');
+        $categories = Category::all();
+        return view('articles.create', compact('categories' ));
     }
 
     /**
@@ -54,8 +53,8 @@ class ArticleController extends Controller
         $article->dimensions = $request->input('dimensions');
         $article->quantity = 0;
 
-        $category = $request->input('category_id');
-        $article->category_id = $category->id;
+
+        $article->category_id = $request->input('category_id');
 
 
         $article-> save();
