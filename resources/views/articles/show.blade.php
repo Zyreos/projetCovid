@@ -9,12 +9,12 @@
     <h1>Article {{ $article->id }}</h1>
 
         <ul>
-          <li>Nom: {{ $article->model }}</li>
-          <li>Prix: {{ $article->prize }}</li>
+          <li>Nom: {{ $article->name }}</li>
+          <li>Prix: {{ $article->price }}</li>
           <li>Description: {{ $article->description }}</li>
           <li>Dimensions: {{ $article->dimensions }}</li>
             @foreach($categories as $category)
-                @if($article->category_id = $category->category_id)
+                @if( $category->id == $article->category_id)
                     <li>Catégorie: {{ $category->name }}</li>
                 @endif
             @endforeach
