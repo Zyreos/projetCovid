@@ -10,6 +10,17 @@ class CategoryController extends Controller
 {
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,11 +38,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
+        Category::create($request->all());
 
-        $category->name = $request->input('name');
-
-        return redirect("categories/" .$category->id);
+        return view('categories.index');
     }
 
     /**
@@ -42,7 +51,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-       //
+       $category = Category::find($id);
+       echo $category;
+
+       return view('categories.edit', compact($category));
     }
 
     /**
@@ -54,7 +66,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Category::update($request->all($id));
+        return view('categories.index');
     }
 
     /**

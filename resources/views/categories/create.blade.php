@@ -13,11 +13,11 @@
             @csrf
 
             <div>
-                <input type="text" name="name" placeholder="Nom de la gatégorie">
+                <input type="text" name="name" placeholder="Nom de la catégorie">
             </div>
 
             <button type="submit"> Ajouter </button>
-            <a href="/articles"> Annuler </a>
+            <a href="/catégorie"> Annuler </a>
 
         </form>
     </section>
