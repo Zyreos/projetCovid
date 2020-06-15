@@ -15,7 +15,6 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('status')->nullable();
             $table->string('bill_address')->nullable();
             $table->date('date_validation')->nullable();
             $table->integer('total_definitive');

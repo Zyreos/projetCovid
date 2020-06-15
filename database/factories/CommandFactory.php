@@ -9,6 +9,10 @@ $factory->define(Command::class, function (Faker $faker) {
 
         'bill_address' => $faker-> address,
         'date_validation' => $faker->date(),
+        'total_definitive' => $faker->numberBetween(69,369),
+        //'user_id' => factory(\App\User::class),
+        //'status_id' => factory(App\Status::class),
+        'delivery_id' => factory(App\Delivery::class)
 
     ];
 });

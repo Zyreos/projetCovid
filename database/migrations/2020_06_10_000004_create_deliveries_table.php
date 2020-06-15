@@ -17,8 +17,9 @@ class CreateDeliveriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('mode');
             $table->string('address1');
-            $table->string('address2');
-            $table->integer('postalCode');
+            $table->string('address2')->nullable();
+            $table->integer('postal_code');
+            $table->string('city');
             $table->string('country');
             $table->integer('price');
             $table->timestamps();
