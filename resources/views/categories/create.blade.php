@@ -9,7 +9,7 @@
     <section class="creation">
         <h1 class="t1">Création d'une catégorie</h1>
 
-        <form action="/categories" method="POST">
+        <form action="{{route('categories.store')}}" method="POST">
             @csrf
 
             <div>

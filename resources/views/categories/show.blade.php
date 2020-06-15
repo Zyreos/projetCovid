@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h1>Category {{ $category->id }}</h1>
+    <h1>Catégorie {{ $category->id }}</h1>
 
     <ul>
         <li>Nom: {{ $category->name }}</li>

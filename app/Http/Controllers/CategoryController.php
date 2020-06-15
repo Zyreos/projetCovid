@@ -39,8 +39,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
-
-        return view('categories.index');
+        return redirect()->route('categories.index')->with('info', 'La catégorie a bien été créé');
     }
 
     public function show($id)
