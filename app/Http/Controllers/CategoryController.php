@@ -59,7 +59,7 @@ class CategoryController extends Controller
        $category = Category::find($id);
        //echo $category;
 
-       return view('categories.edit', compact($category));
+       return view('categories.edit', compact('category'));
     }
 
     /**
@@ -69,10 +69,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        Category::update($request->all($id));
-        return view('categories.index');
+        $category->update($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
