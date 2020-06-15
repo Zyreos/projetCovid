@@ -9,6 +9,6 @@ class Picture extends Model
     //
     public function article()
     {
-        return $this->belongsTo('App\Article', 'article_id');
+        return $this->belongsTo('App\Article', 'id');
     }
 }

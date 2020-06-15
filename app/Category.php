@@ -13,6 +13,6 @@ class Category extends Model
 
     public function articles()
     {
-        return $this->hasMany('App\Article', 'article_id');
+        return $this->hasMany('App\Article','category_id');
     }
 }

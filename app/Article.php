@@ -16,14 +16,19 @@ class Article extends Model
         'category_id'
     ];
 
+    /**
+     * @var mixed
+     */
+    private $category_id;
+
     public function category()
     {
-        return $this->belongsTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Category', 'id');
     }
 
     public function pictures()
     {
-        return $this->hasMany('App\Picture', 'picture_id');
+        return $this->hasMany('App\Picture', 'id');
     }
 
     public function commands()
