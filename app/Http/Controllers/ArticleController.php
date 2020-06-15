@@ -73,7 +73,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //$article = Article::find($);
+        //$article = Article::find($id);
         //$categories = Category::all();
         $category = $article->category->name;
         return view('articles.show',compact('article','category'));

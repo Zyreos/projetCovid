@@ -23,16 +23,16 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Category', 'id');
+        return $this->belongsTo('App\Category');
     }
 
     public function pictures()
     {
-        return $this->hasMany('App\Picture', 'id');
+        return $this->hasMany('App\Picture');
     }
 
     public function commands()
     {
-        return $this->belongsToMany('App\Command', 'baskets');
+        return $this->belongsToMany('App\Command');
     }
 }

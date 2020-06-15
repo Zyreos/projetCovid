@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     public function commands()
     {
-        return $this->hasMany('App\Command', 'id');
+        return $this->hasMany('App\Command');
     }
 
     public function role()
     {
-        return $this->belongsTo('App\Role', 'role_id');
+        return $this->belongsTo('App\Role');
     }
 }

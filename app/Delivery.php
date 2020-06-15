@@ -9,6 +9,6 @@ class Delivery extends Model
     //
     public function command()
     {
-        return $this->hasOne('App\Command', 'id');
+        return $this->hasOne('App\Command');
     }
 }
