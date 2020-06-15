@@ -24,6 +24,6 @@
         <input type="submit" value="Supprimer" />
     </form>
 
-    <a href="/users"> Retourner à la liste des articles </a>
+    <a href="/users"> Retourner à la liste des comptes </a>
 
 @endsection

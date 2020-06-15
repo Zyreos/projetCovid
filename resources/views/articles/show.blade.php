@@ -17,7 +17,13 @@
         </ul>
 
     <a href="/articles/{{ $article->id }}/edit"> Edition </a>
-    <a href="/articles/{{ $article->id }}/delete"> Suppression </a>
+
+    <form method="POST" action="/articles/{{ $article->id }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="submit" value="Supprimer" />
+    </form>
+
     <a href="/articles"> Retourner à la liste des articles </a>
 
 @endsection

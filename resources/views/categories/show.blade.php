@@ -13,7 +13,13 @@
     </ul>
 
     <a href="/categories/{{ $category->id }}/edit"> Edition </a>
-    <a href="/categories/{{ $category->id }}/delete"> Suppression </a>
-    <a href="/articles"> Retourner à la liste des articles </a>
+
+    <form method="POST" action="/categories/{{ $category->id }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="submit" value="Supprimer" />
+    </form>
+
+    <a href="/catégories"> Retourner à la liste des catégories </a>
 
 @endsection
