@@ -71,12 +71,12 @@ class ArticleController extends Controller
      * @param Article $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Article $id)
     {
-        //$article = Article::find($id);
-        //$categories = Category::all();
-        $category = $article->category->name;
-        return view('articles.show',compact('article','category'));
+        $article = Article::find($id);
+        $categories = Category::all();
+        //$category = $article->category->name;
+        return view('articles.show',compact('article','categories'));
     }
 
     /**
