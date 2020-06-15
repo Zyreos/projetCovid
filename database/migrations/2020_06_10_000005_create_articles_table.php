@@ -22,8 +22,8 @@ class CreateArticlesTable extends Migration
             $table->integer('quantity')->nullable();
             $table->timestamps();
 
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedbigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('restrict');
 
         });
     }

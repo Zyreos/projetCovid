@@ -9,7 +9,7 @@
     <section class="creation">
         <h1 class="t1">Création d'un article</h1>
 
-        <form action="/articles" method="POST">
+        <form action="{{route('articles.store')}}" method="POST" >
             @csrf
 
             <div>
@@ -27,18 +27,19 @@
             <div>
               <input type="text" name="dimensions" placeholder="Dimensions du produit">
             </div>
-
-            <div>
-                <select name="Catégorie" size="1">
-                    @foreach ($categories as $category)
-                        <option> Catégorie {{ $category->name }}
-                    @endforeach
-                </select>
-            <div>
+                    <div class="field">
+                        <label class="label">Catégorie</label>
+                        <div class="select">
+                            <select name="category_id">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
               <button type="submit"> Ajouter </button>
               <a href="/articles"> Annuler </a>
-            </div>
         </form>
     </section>
 
