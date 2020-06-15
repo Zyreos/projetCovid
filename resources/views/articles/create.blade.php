@@ -27,7 +27,6 @@
             <div>
               <input type="text" name="dimensions" placeholder="Dimensions du produit">
             </div>
-                    <div class="field">
                         <label class="label">Catégorie</label>
                         <div class="select">
                             <select name="category_id">
@@ -36,7 +35,6 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
 
               <button type="submit"> Ajouter </button>
               <a href="/articles"> Annuler </a>

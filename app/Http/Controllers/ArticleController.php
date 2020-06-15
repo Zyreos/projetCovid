@@ -68,7 +68,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Article $article
      * @return \Illuminate\Http\Response
      */
     public function show(Article $article)
@@ -88,7 +88,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view('articles.edit', array('article' => $article));
+        $categories = Category::all();
+        return view('articles.edit', compact('article', 'categories'));
     }
 
     /**
@@ -98,19 +99,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        $article = Article::find($id);
-        $article -> name = $request -> input('name');
-        $article -> price = $request -> input('price');
-        $article -> description = $request -> input('description');
-        $article -> dimensions = $request -> input('dimensions');
-        $article -> category_id = $request -> input('category_id');
-        $article -> quantity = 0;
-
-        $article -> save();
-
-        return redirect('articles/' . $article->id);
+        $article->update($request->all());
+        return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
     }
 
     /**

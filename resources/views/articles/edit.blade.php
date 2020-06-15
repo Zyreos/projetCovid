@@ -29,9 +29,14 @@
           <input type="text" name="dimensions" value="{{ $article-> dimensions }}" placeholder="Nouvelles dimensions">
         </div>
 
-        <div>
-          <input type="number" name="category_id" value="{{ $article->category_id }}" placeholder="Nouvelle catégorie">
-        <div>
+        <label class="label">Catégorie</label>
+        <div class="select">
+            <select name="category_id">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
         <div>
           <button type="submit"> Editer </button>
