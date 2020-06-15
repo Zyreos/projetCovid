@@ -25,7 +25,7 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         $categories = Category::all();
-        return view('articles.index', compact('articles'), compact('categories'));
+        return view('articles.index', compact('articles','categories'));
     }
 
     /**
@@ -47,21 +47,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article;
+        /*$article = new Article;
         $article->name = $request->input('name');
         $article->price = $request->input('price');
         $article->description = $request->input('description');
         $article->dimensions = $request->input('dimensions');
-        $article->quantity = 0;
+        $article->quantity = 0;*/
 
-        $category = $request->input('id');
+        //$category = $request->input('id');
 
-        $article->category_id = $category->id;
+        //$article->category_id = $category->id;
 
+        Article::create($request->all());
 
-        $article-> save();
-
-        return redirect('articles/' . $article->id);
+        //$article-> save();
+        return redirect()->route('articles.index')->with('info', 'Larticle a bien été créé');
+        //return redirect('articles/' . $article->id);
     }
 
     /**
@@ -70,11 +71,12 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
-        $categories = Category::all();
-        return view('articles.show', array('article'=> $article),compact('categories'));
+        //$article = Article::find($);
+        //$categories = Category::all();
+        $category = $article->category->name;
+        return view('articles.show',compact('article','category'));
     }
 
     /**

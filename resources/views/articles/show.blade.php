@@ -13,11 +13,7 @@
           <li>Prix: {{ $article->price }}</li>
           <li>Description: {{ $article->description }}</li>
           <li>Dimensions: {{ $article->dimensions }}</li>
-            @foreach($categories as $category)
-                @if( $category->id == $article->category_id)
-                    <li>Catégorie: {{ $category->name }}</li>
-                @endif
-            @endforeach
+          <li>Caté : {{$category}}</li>
         </ul>
 
     <a href="/articles/{{ $article->id }}/edit"> Edition </a>
