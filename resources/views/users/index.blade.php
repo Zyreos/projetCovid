@@ -6,17 +6,20 @@
 
 @section('content')
 
-    @foreach ($user as $user)
-        <h1> Article {{ $user->id }} </h1>
+    @foreach ($users as $user)
+        <h1> User {{ $user->id }} </h1>
         <ul>
             <li>Nom: {{ $user->name }}</li>
             <li>E-mail: {{ $user->email }}</li>
+            <li>Entreprise: {{ $user->company }}</li>
+            <li>Numéro de téléphone {{ $user->phone_number }}</li>
             @foreach($roles as $role)
                 @if($role->id == $user->role_id)
-                    <li>Catégorie: {{ $role->name }}</li>
+                    <li>Rôle: {{ $role->name }}</li>
                 @endif
             @endforeach
         </ul>
+        <a href="/users/{{$user->id}}"> Voir </a>
     @endforeach
 
 @endsection

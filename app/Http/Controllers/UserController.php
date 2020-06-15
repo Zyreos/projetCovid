@@ -17,7 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.view', compact('users'));
+        $roles = Role::all();
+        return view('users.index', compact('users','roles'));
     }
 
     /**
@@ -77,7 +78,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->all());
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('info', 'Le compte a bien été misà jour');
     }
 
     /**
@@ -90,6 +91,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user-> destroy($id);
-        return redirect('user');
+        return redirect('users');
     }
 }
