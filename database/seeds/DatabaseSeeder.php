@@ -21,30 +21,13 @@ class DatabaseSeeder extends Seeder
             while (--$i) {
                 $category->articles()->save(factory(App\Article::class)->make());
             }
-        });
+    });
 
-        /*factory(App\Role::class, 4)->create()->each(function ($role) {
+        factory(App\Role::class, 4)->create()->each(function ($role) {
             $i = 4;
             while (--$i) {
                 $role->users()->save(factory(App\User::class)->make());
             }
-        });*/
-
-        factory(App\Command::class,20)->create()->each(function ($command) {
-
-            $j = 20;
-            while (--$j) {
-                //$command->deliveries()->save(factory(App\Delivery::class)->make());
-                $command->statuses()->save(factory(App\Status::class)->make());
-            }
-
-            factory(App\Role::class, 4)->create()->each(function ($role) {
-                $i = 4;
-                while (--$i) {
-                    $role->users()->save(factory(App\User::class)->make());
-                }
-            });
-
         });
 
     }
