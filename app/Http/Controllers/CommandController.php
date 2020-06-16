@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Command;
 use App\User;
 use App\Delivery;
-use App\Addresse;
+use App\Address;
 use App\Status;
 
 class CommandController extends Controller
@@ -36,7 +36,7 @@ class CommandController extends Controller
     {
         $statuses = Status::all();
         $deliveries = Delivery::all();
-        $addresses = Addresse::all();
+        $addresses = Address::all();
         $users = User::all();
         return view('commands.create', compact('statuses', 'deliveries','addresses','users' ));
     }
@@ -64,8 +64,8 @@ class CommandController extends Controller
         $command = Command::find($id);
         $status = $command->status->name;
         $delivery = $command->delivery->mode;
-        //$delivery_address = $command->delivery->address;
-        //$bill_address = $command->address->
+        $delivery_address = $command->delivery->address->country;
+        $bill_address = $command->address->address1;
         $user = $command->user->name;
         return view('commands.show', compact('command','status','delivery','address','user'));
     }
@@ -83,7 +83,7 @@ class CommandController extends Controller
         $deliveries = Delivery::all();
         $addresses = Address::all();
         $users = User::all();
-        return view('commands.edit', compact('commands','statuses', 'deliveries','addresses','users' ));
+        return view('commands.edit', compact('command','statuses', 'deliveries','addresses','users' ));
     }
 
     /**
@@ -96,7 +96,7 @@ class CommandController extends Controller
     public function update(Request $request, Command $command)
     {
         $command->update($request->all());
-        return redirect()->route('command.index');
+        return redirect()->route('commands.index');
     }
 
     /**
