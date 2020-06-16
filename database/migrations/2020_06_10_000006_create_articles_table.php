@@ -23,7 +23,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
 
             $table->unsignedbigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
 
         });
     }
