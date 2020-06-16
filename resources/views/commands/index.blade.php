@@ -21,7 +21,7 @@
                 @if($delivery->id == $command->delivery_id)
                     <li>Mode de livraison : {{ $delivery->mode }}</li>
                     <li>Adresse : {{ $delivery->address1}} {{ $delivery->address2}}</li>
-                    <li>Code postal : {{ $delivery->postCode }}</li>
+                    <li>Code postal : {{ $delivery->postcode }}</li>
                     <li>Ville : {{ $delivery->city }}</li>
                     <li>Pays : {{ $delivery->country }}</li>
                 @endif

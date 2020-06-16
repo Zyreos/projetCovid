@@ -32,7 +32,10 @@ class CommandController extends Controller
      */
     public function create()
     {
-        return view('commands.create');
+        $statuses = Status::all();
+        $deliveries = Delivery::all();
+        $users = User::all();
+        return view('commands.create', compact('statuses', 'deliveries','users' ));
     }
 
     /**
