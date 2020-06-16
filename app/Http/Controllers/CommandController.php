@@ -64,10 +64,11 @@ class CommandController extends Controller
         $command = Command::find($id);
         $status = $command->status->name;
         $delivery = $command->delivery->mode;
-        $delivery_address = $command->delivery->address->country;
-        $bill_address = $command->address->address1;
-        $user = $command->user->name;
-        return view('commands.show', compact('command','status','delivery','address','user'));
+        $delivery_address = $command->delivery->address;
+        $bill_address = $command->address;
+        $user = $command->user;
+        $user_id = session('user');
+        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','user_id'));
     }
 
     /**
