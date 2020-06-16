@@ -10,7 +10,7 @@ $factory->define(Article::class, function (Faker $faker) {
         'name' => $faker->firstName,
         'price' => $faker->numberBetween(50, 150),
         'description' => $faker->text,
-        'dimensions' => $faker->shuffleString(10),
+        'dimensions' => $faker->text,
         //'category_id' => factory(App\Category::class),
     ];
 });

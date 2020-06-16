@@ -1,0 +1,153 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #F0EFEF;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #F0EFEF;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  position: relative;
+}
+
+.links {
+  display: flex;
+  width: 20%;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  cursor: pointer;
+  width: 625px;
+  height: 100px;
+}
+
+.auth {
+  display: flex;
+  margin-left: 25%;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  padding: 20px;
+}
+
+.auth img {
+  width: 55px;
+  height: 55px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #F0EFEF;
+}
+
+.footer {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  position: relative;
+}
+
+.footer_links {
+  display: flex;
+  align-items: center;
+}
+
+.footer_links a {
+  padding-left: 50px;
+}
+
+.logo {
+  width: 625px;
+  height: 100px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 10%;
+}
+
+.social img {
+  width: 50px;
+  height: 50px;
+  margin-right: 3%;
+}
+
+.categ_images {
+  display: flex;
+  margin-left: 10%;
+}
+
+.categ_images img {
+  margin: 3% 3% 1%;
+  border: solid;
+  border-color: #AEC0C9;
+}
+
+.categ_buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.categ_buttons button {
+  background-color: #CE1126;
+  color: #FFFFFF;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 50px;
+}
+
+/*# sourceMappingURL=index_articles.css.map */

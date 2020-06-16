@@ -1,0 +1,46 @@
+@import 'general';
+
+.nav_bar 
+{
+    display: flex;
+    background-color: $red;
+    height: 100px;
+    position: relative;
+}
+
+.links
+{   
+    display: flex;
+    width: 20%;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.logo 
+{
+    cursor: pointer;
+    width: 625px;
+    height: 100px;
+}
+
+.auth 
+{
+    display: flex;
+    margin-left: 25%;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    padding: 20px;
+    
+}
+
+.auth img {
+    width: 55px;
+    height: 55px;
+}
+
+
+
+

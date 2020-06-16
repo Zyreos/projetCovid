@@ -1,0 +1,33 @@
+@import 'general';
+@import 'nav_bar';
+@import 'footer';
+
+.categ_images
+{
+    display: flex;
+    margin-left: 10%;
+}
+
+.categ_images img 
+{
+    margin: 3% 3% 1%;
+    border: solid;
+    border-color: $grey;
+}
+
+.categ_buttons
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.categ_buttons button
+{
+    background-color: $red;
+    color: $white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    height: 50px;
+}
