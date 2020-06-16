@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Command as Command;
-use App\User as User;
-use App\Delivery as Delivery;
-use App\Status as Status;
+use App\Command;
+use App\User;
+use App\Delivery;
+use App\Addresse;
+use App\Status;
 
 class CommandController extends Controller
 {
@@ -21,8 +22,9 @@ class CommandController extends Controller
         $commands = Command::all();
         $statuses = Status::all();
         $deliveries = Delivery::all();
+        $addresses = Address::all();
         $users = User::all();
-        return view('commands.index', compact('commands','statuses', 'deliveries','users' ));
+        return view('commands.index', compact('commands','statuses', 'deliveries','addresses','users' ));
     }
 
     /**
@@ -34,8 +36,9 @@ class CommandController extends Controller
     {
         $statuses = Status::all();
         $deliveries = Delivery::all();
+        $addresses = Addresse::all();
         $users = User::all();
-        return view('commands.create', compact('statuses', 'deliveries','users' ));
+        return view('commands.create', compact('statuses', 'deliveries','addresses','users' ));
     }
 
     /**
@@ -46,14 +49,8 @@ class CommandController extends Controller
      */
     public function store(Request $request)
     {
-        $command = new Command;
-        $command -> date_validation = date("Y-m-d H:i:s");
-        $command -> total_definitive = $request -> input('total_definitive');
-        $command -> user_id = $request -> input('user_id');
-        $command -> status_id = $request -> input('status_id');
-        $command -> delivery_id = $request -> input('delivery_id');
-
-        $command -> save();
+        Command::create($request->all());
+        return redirect()->route('commands.index');
     }
 
     /**
@@ -65,7 +62,12 @@ class CommandController extends Controller
     public function show($id)
     {
         $command = Command::find($id);
-        return view('commands.show', array('command'=> $command));
+        $status = $command->status->name;
+        $delivery = $command->delivery->mode;
+        //$delivery_address = $command->delivery->address;
+        //$bill_address = $command->address->
+        $user = $command->user->name;
+        return view('commands.show', compact('command','status','delivery','address','user'));
     }
 
     /**
@@ -77,8 +79,11 @@ class CommandController extends Controller
     public function edit($id)
     {
         $command = Command::find($id);
-
-        return view('commands.edit', array('command'=> $command));
+        $statuses = Status::all();
+        $deliveries = Delivery::all();
+        $addresses = Address::all();
+        $users = User::all();
+        return view('commands.edit', compact('commands','statuses', 'deliveries','addresses','users' ));
     }
 
     /**
@@ -88,18 +93,10 @@ class CommandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Command $command)
     {
-        $command = Command::find($id);
-        $command -> date_validation = date("Y-m-d H:i:s");
-        $command -> total_definitive = $request -> input('total_definitive');
-        $command -> user_id = $request -> input('user_id');
-        $command -> status_id = $request -> input('status_id');
-        $command -> delivery_id = $request -> input('delivery_id');
-
-        $command-> save();
-
-        return("Command Updated");
+        $command->update($request->all());
+        return redirect()->route('command.index');
     }
 
     /**
