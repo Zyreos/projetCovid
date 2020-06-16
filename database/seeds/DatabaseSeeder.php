@@ -18,21 +18,20 @@ class DatabaseSeeder extends Seeder
         //$this->call(CategoryTableSeeder::class);
         //$this->call(RoleTableSeeder::class);
         //$this->call(ArticlesTableSeeder::class);
-        //$this->call(CommandsTableSeeder::class);
+        $this->call(CommandsTableSeeder::class);
 
         factory(App\Category::class, 3)->create()->each(function ($category) {
             $i = 3;
             while (--$i) {
                 $category->articles()->save(factory(App\Article::class)->make());
+
             }
         });
 
-        factory(App\Role::class, 4)->create()->each(function ($role) {
-            $i = 4;
-            while (--$i) {
-                $role->users()->save(factory(App\User::class)->make());
-            }
-        });
+
+
+        $this->call(CommandsTableSeeder::class);
+
         /*factory(App\Command::class,20)->create()->each(function ($command) {
 
             $j = 2;
