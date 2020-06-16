@@ -46,14 +46,7 @@ class CommandController extends Controller
      */
     public function store(Request $request)
     {
-        $command = new Command;
-        $command -> date_validation = date("Y-m-d H:i:s");
-        $command -> total_definitive = $request -> input('total_definitive');
-        $command -> user_id = $request -> input('user_id');
-        $command -> status_id = $request -> input('status_id');
-        $command -> delivery_id = $request -> input('delivery_id');
-
-        $command -> save();
+        //
     }
 
     /**
