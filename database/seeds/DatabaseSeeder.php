@@ -11,10 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        Eloquent::unguard();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         //$this->call(CategoryTableSeeder::class);
         //$this->call(RoleTableSeeder::class);
         //$this->call(ArticlesTableSeeder::class);
-        //$this->call(UserSeeder::class);
+        //$this->call(CommandsTableSeeder::class);
 
         factory(App\Category::class, 3)->create()->each(function ($category) {
             $i = 3;
@@ -23,29 +27,24 @@ class DatabaseSeeder extends Seeder
             }
         });
 
-        /*factory(App\Role::class, 4)->create()->each(function ($role) {
+        factory(App\Role::class, 4)->create()->each(function ($role) {
             $i = 4;
             while (--$i) {
                 $role->users()->save(factory(App\User::class)->make());
             }
-        });*/
+        });
+        /*factory(App\Command::class,20)->create()->each(function ($command) {
 
-        factory(App\Command::class,20)->create()->each(function ($command) {
-
-            $j = 20;
+            $j = 2;
             while (--$j) {
-                //$command->deliveries()->save(factory(App\Delivery::class)->make());
+                $command->deliveries()->save(factory(App\Delivery::class)->make());
                 $command->statuses()->save(factory(App\Status::class)->make());
+                $command->users()->save(factory(App\User::class)->make());
             }
 
-            factory(App\Role::class, 4)->create()->each(function ($role) {
-                $i = 4;
-                while (--$i) {
-                    $role->users()->save(factory(App\User::class)->make());
-                }
-            });
+        });*/
 
-        });
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
     }
 }
