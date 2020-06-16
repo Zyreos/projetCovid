@@ -19,7 +19,10 @@ class CommandController extends Controller
     public function index()
     {
         $commands = Command::all();
-        return view('commands.index', array('commands'=> $commands));
+        $statuses = Status::all();
+        $deliveries = Delivery::all();
+        $users = User::all();
+        return view('commands.index', compact('commands','statuses', 'deliveries','users' ));
     }
 
     /**
@@ -71,6 +74,7 @@ class CommandController extends Controller
     public function edit($id)
     {
         $command = Command::find($id);
+
         return view('commands.edit', array('command'=> $command));
     }
 
