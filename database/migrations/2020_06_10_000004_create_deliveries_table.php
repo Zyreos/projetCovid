@@ -18,7 +18,8 @@ class CreateDeliveriesTable extends Migration
             $table->string('mode');
             $table->string('address1');
             $table->string('address2');
-            $table->integer('postalCode');
+            $table->integer('postcode');
+            $table->string('city');
             $table->string('country');
             $table->integer('price');
             $table->timestamps();

@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    //
+    protected $fillable = [
+        'name'
+    ];
+
     public function commands()
     {
         return $this->hasMany('App\Command');

@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Command extends Model
 {
-    //
+    protected $fillable = [
+        'bill_address',
+        'date_validation',
+        'total',
+        'status_id',
+        'delivery_id',
+        'user_id'
+
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
