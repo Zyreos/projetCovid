@@ -20,7 +20,7 @@ class CreateDeliveriesTable extends Migration
             $table->timestamps();
 
             $table->unsignedbigInteger('address_id')->unsigned();
-            $table->foreign('address')->references('id')->on('addresses');
+            $table->foreign('address_id')->references('id')->on('addresses');
 
         });
     }
