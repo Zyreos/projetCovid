@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(ArticlesTableSeeder::class);
         //$this->call(UserSeeder::class);
         $this->call(StatusTableSeeder::class);
+        $this->call(AddressTableSeeder::class);
 
         factory(App\Category::class, 3)->create()->each(function ($category) {
             $i = 3;

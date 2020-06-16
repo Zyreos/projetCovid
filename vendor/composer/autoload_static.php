@@ -485,7 +485,8 @@ class ComposerStaticInit389f69b8b7b5fc8687f1643a5182cf7d
     );
 
     public static $classMap = array (
-        'App\\Addresses' => __DIR__ . '/../..' . '/app/Addresses.php',
+        'AddressTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AddressTableSeeder.php',
+        'App\\Address' => __DIR__ . '/../..' . '/app/Address.php',
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Command' => __DIR__ . '/../..' . '/app/Command.php',
