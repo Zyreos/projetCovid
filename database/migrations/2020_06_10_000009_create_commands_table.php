@@ -16,7 +16,7 @@ class CreateCommandsTable extends Migration
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date_validation')->nullable();
-            $table->integer('total');
+            $table->integer('total')->nullable();
             $table->timestamps();
 
             $table->bigInteger('status_id')->unsigned()->nullable();

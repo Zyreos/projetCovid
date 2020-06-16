@@ -20,6 +20,7 @@ class CreateAddressesTable extends Migration
             $table->integer('postcode');
             $table->string('city');
             $table->string('country');
+            $table->boolean('is_bill');
             $table->timestamps();
         });
     }

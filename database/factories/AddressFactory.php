@@ -12,5 +12,6 @@ $factory->define(Address::class, function (Faker $faker) {
         'postcode' => $faker->numberBetween(0,200),
         'city' => $faker->city,
         'country' => $faker->country,
+        'is_bill' => $faker->boolean
     ];
 });
