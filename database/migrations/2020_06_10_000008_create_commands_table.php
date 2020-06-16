@@ -22,7 +22,7 @@ class CreateCommandsTable extends Migration
 
             $table->bigInteger('status_id')->unsigned()->nullable();
             $table->foreign('status_id')->references('id')->on('statuses');
-            $table->bigInteger('delivery_id')->unsigned();
+            $table->bigInteger('delivery_id')->unsigned()->nullable();
             $table->foreign('delivery_id')->references('id')->on('deliveries');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
