@@ -42,7 +42,7 @@
 
             <div class="social">
                 <img src="img/facebook.png" alt="facebook">
-                <img src="img/linkedin.png" alt="linkedin">
+                <img src="img/linked.png" alt="linkedin">
             </div>
 
         </footer>
