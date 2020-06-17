@@ -6,7 +6,6 @@
 
 @section('content')
 
-    <section class="creation">
         <h1 class="t1">Edition d'une commande</h1>
 
         <form action="/commands/{{$command->id}}" method="POST" >
@@ -22,7 +21,7 @@
 
             <label class="label">Statut</label>
             <div class="select">
-                <select name="satus_id">
+                <select name="status_id">
                     @foreach($statuses as $status)
                         <option value="{{ $status->id }}">{{ $status->name }}</option>
                     @endforeach
@@ -36,11 +35,20 @@
                     @endforeach
                 </select>
             </div>
+
+            <button type="submit"> Ajouter </button>
+            <a href="/commands"> Annuler </a>
+
+        </form>
+
+        <h1 class="t1">Création d'une addresse de facturation</h1>
+        <form action="{{route('addresses.store')}}" method="POST" >
+            @csrf
             <div>
-                <input type="text" name="{{$address->address1}}" placeholder="Addresse 1">
+                <input type="text" name="address1"  placeholder="Addresse 1">
             </div>
             <div>
-                <input type="text" name="address" placeholder="Addresse 2">
+                <input type="text" name="address2" placeholder="Addresse 2">
             </div>
             <div>
                 <input type="number" name="postcode" placeholder="Code postal">
@@ -51,11 +59,14 @@
             <div>
                 <input type="text" name="country" placeholder="Pays">
             </div>
-
-            <button type="submit"> Ajouter </button>
-            <a href="/commands"> Annuler </a>
+            <div>
+                <input type="text" name="country" placeholder="Pays">
+            </div>
+            <div>
+                <input type="hidden" name="is_bill" value="1">
+            </div>
+            <button type="submit"> Ajouter addresse </button>
         </form>
-    </section>
 
 @endsection
 

@@ -50,7 +50,7 @@ class CommandController extends Controller
     public function store(Request $request)
     {
         Command::create($request->all());
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.edit');
     }
 
     /**
@@ -82,9 +82,8 @@ class CommandController extends Controller
         $command = Command::find($id);
         $statuses = Status::all();
         $deliveries = Delivery::all();
-        $addresses = Address::all();
         $users = User::all();
-        return view('commands.edit', compact('command','statuses', 'deliveries','addresses','users' ));
+        return view('commands.edit', compact('command','statuses', 'deliveries','users' ));
     }
 
     /**

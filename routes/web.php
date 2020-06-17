@@ -33,3 +33,7 @@ Route::resource('users','UserController');
 
 Route::resource('commands', 'CommandController');
 
+Route::resource('addresses', 'AddressController');
+
+//Route::post('/commands/edit', 'AddressController@create');
+//Route::put('/commands/edit', 'AddressController@store');
