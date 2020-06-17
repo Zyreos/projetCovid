@@ -26,6 +26,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('homeLaravel');
 
 Route::resource('articles', 'ArticleController');
-//Route::get('articles/{id}/delete', 'ArticleController@destroy');
 
 Route::resource('categories','CategoryController');
+
+Route::resource('users','UserController');
+
+Route::resource('commands', 'CommandController');
+

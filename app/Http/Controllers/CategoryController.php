@@ -10,6 +10,17 @@ class CategoryController extends Controller
 {
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,11 +38,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('info', 'La catégorie a bien été créé');
+    }
 
-        $category->name = $request->input('name');
-
-        return redirect("categories/" .$category->id);
+    public function show($id)
+    {
+        $category = Category::find($id);
+        return view('categories.show',compact('category'));
     }
 
     /**
@@ -42,8 +56,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $this->
-        return view("categories/" . );
+       $category = Category::find($id);
+       //echo $category;
+
+       return view('categories.edit', compact('category'));
     }
 
     /**
@@ -53,9 +69,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -66,6 +83,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category-> destroy($id);
+        return redirect('categories');
     }
 }

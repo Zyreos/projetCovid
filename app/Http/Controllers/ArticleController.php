@@ -47,35 +47,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        /*$article = new Article;
-        $article->name = $request->input('name');
-        $article->price = $request->input('price');
-        $article->description = $request->input('description');
-        $article->dimensions = $request->input('dimensions');
-        $article->quantity = 0;*/
-
-        //$category = $request->input('id');
-
-        //$article->category_id = $category->id;
 
         Article::create($request->all());
-
-        //$article-> save();
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été créé');
-        //return redirect('articles/' . $article->id);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $article = Article::find($id);
-        $category = Category::all();
-        //$category = $article->category->name;
+        $category = $article->category->name;
         return view('articles.show',compact('article','category'));
     }
 
@@ -88,7 +75,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view('articles.edit', array('article' => $article));
+        $categories = Category::all();
+        return view('articles.edit', compact('article', 'categories'));
     }
 
     /**
@@ -98,19 +86,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        $article = Article::find($id);
-        $article -> name = $request -> input('name');
-        $article -> price = $request -> input('price');
-        $article -> description = $request -> input('description');
-        $article -> dimensions = $request -> input('dimensions');
-        $article -> category_id = $request -> input('category_id');
-        $article -> quantity = 0;
-
-        $article -> save();
-
-        return redirect('articles/' . $article->id);
+        $article->update($request->all());
+        return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
     }
 
     /**
@@ -122,7 +101,7 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
-        $article -> destroy($id);
+        $article->destroy($id);
         return redirect('articles');
     }
 }

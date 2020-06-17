@@ -9,15 +9,15 @@
     <section class="creation">
         <h1 class="t1">Création d'une catégorie</h1>
 
-        <form action="/categories" method="POST">
+        <form action="{{route('categories.store')}}" method="POST">
             @csrf
 
             <div>
-                <input type="text" name="name" placeholder="Nom de la gatégorie">
+                <input type="text" name="name" placeholder="Nom de la catégorie">
             </div>
 
             <button type="submit"> Ajouter </button>
-            <a href="/articles"> Annuler </a>
+            <a href="/catégorie"> Annuler </a>
 
         </form>
     </section>

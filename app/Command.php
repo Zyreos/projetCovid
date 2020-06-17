@@ -6,25 +6,39 @@ use Illuminate\Database\Eloquent\Model;
 
 class Command extends Model
 {
-    //
+    protected $fillable = [
+        'date_validation',
+        'total',
+        'status_id',
+        'delivery_id',
+        'user_id',
+        'address_id'
+
+    ];
+
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User');
     }
 
     public function status()
     {
-        return $this->belongsTo('App\Status', 'status_id');
+        return $this->belongsTo('App\Status');
     }
 
     public function delivery()
     {
-        return $this->belongsTo('App\Delivery', 'delivery_id');
+        return $this->belongsTo('App\Delivery');
+    }
+
+    public function address()
+    {
+        return $this->belongsTo('App\Address');
     }
 
     public function articles()
     {
-        return $this->belongsToMany('App\Article', 'baskets');
+        return $this->belongsToMany('App\Article');
     }
 
 
