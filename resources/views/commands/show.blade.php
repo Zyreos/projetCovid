@@ -24,6 +24,18 @@
         <li>Ville: {{$delivery_address->city}}</li>
         <li>Pays: {{$delivery_address->country}}</li>
         <li>{{$big_user}}</li>
+        <br/>
+        @if(DateTime::diff($big_user->created_at))
+            <h1 class="t1">Création d'une commande</h1>
+
+            <form action="{{route('commands.store')}}" method="POST" >
+                @csrf
+
+                <button type="submit"> Ajouter </button>
+                <a href="/commands"> Annuler </a>
+            </form>
+        @endif
+
     </ul>
 
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>

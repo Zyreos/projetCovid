@@ -48,10 +48,11 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        Command::create(['user_id' => Auth::id()]);
-        return redirect()->route('commands.index');
+        $command = new Command();
+        $command->user_id = Auth::id();
+        return $command->save();
     }
 
     /**
@@ -60,7 +61,7 @@ class CommandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $command = Command::find($id);
         $status = $command->status->name;
@@ -68,7 +69,7 @@ class CommandController extends Controller
         $delivery_address = $command->delivery->address;
         $bill_address = $command->address;
         $user = $command->user;
-        $big_user = Auth::id();
+        $big_user = Auth::user();
         return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
     }
 

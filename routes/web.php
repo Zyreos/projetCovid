@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('homeLaravel');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('homeLaravel');
+Route::get('/home', 'HomeController@index');
 
 Route::resource('articles', 'ArticleController');
 
