@@ -58,23 +58,35 @@
         <a href="#"><button>Impressions</button></a>
     </div>
 
+    <div class="lign">
+    </div>
+
 
     <!-- Articles -->
+    <section class="articles_container">
+        @foreach ($articles as $article)
+        <!--<h1> Article {{ $article->id }} </h1>
 
-    @foreach ($articles as $article)
-    <h1> Article {{ $article->id }} </h1>
+        @foreach($categories as $category)
+                @if($category->id == $article->category_id)
+            <li class="article_category">Catégorie: {{ $category->name }}</li>
+                @endif
+            @endforeach-->
 
-    @foreach($categories as $category)
-            @if($category->id == $article->category_id)
-        <li class="article_category">Catégorie: {{ $category->name }}</li>
-            @endif
+        <article class="article">
+            <div id="image1" class="article_image"></div>
+            <div class="article_lign"></div>
+            <div class="article_info">
+                <h1>{{ $article->name }}</h1>
+                <h2>{{ $article->dimensions }}</h2>
+                <strong>{{ $article->price }} €</strong> 
+            </div>
+            <div class="buy_button">
+                <a href="#"><button>Ajouter au panier</button></a>
+            </div>
+        </article>
+        
         @endforeach
-
-    <ul class="article_info">
-        <li class="article_name">Nom: {{ $article->name }}</li>
-        <li class="article_dimensions">Dimensions: {{ $article->dimensions }}</li>
-        <li class="article_price">Prix: {{ $article->price }}</li>
-    </ul>
-    @endforeach
+    </section>
 
 @endsection
