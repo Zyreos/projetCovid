@@ -23,7 +23,7 @@
         <li>Code postal: {{$delivery_address->postcode}}</li>
         <li>Ville: {{$delivery_address->city}}</li>
         <li>Pays: {{$delivery_address->country}}</li>
-        <li>{{$user_id}}</li>
+        <li>{{$big_user}}</li>
     </ul>
 
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>

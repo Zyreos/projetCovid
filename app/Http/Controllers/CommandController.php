@@ -9,6 +9,7 @@ use App\User;
 use App\Delivery;
 use App\Address;
 use App\Status;
+use Illuminate\Support\Facades\Auth;
 
 class CommandController extends Controller
 {
@@ -38,7 +39,7 @@ class CommandController extends Controller
         $deliveries = Delivery::all();
         $addresses = Address::all();
         $users = User::all();
-        return view('commands.create', compact('statuses', 'deliveries','addresses','users' ));
+        return view('commands.create', compact('statuses', 'deliveries','addresses','users'));
     }
 
     /**
@@ -49,7 +50,7 @@ class CommandController extends Controller
      */
     public function store(Request $request)
     {
-        Command::create($request->all());
+        Command::create(['user_id' => Auth::id()]);
         return redirect()->route('commands.index');
     }
 
@@ -67,8 +68,8 @@ class CommandController extends Controller
         $delivery_address = $command->delivery->address;
         $bill_address = $command->address;
         $user = $command->user;
-        $user_id = session('user');
-        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','user_id'));
+        $big_user = Auth::id();
+        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
     }
 
     /**

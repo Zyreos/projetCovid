@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\CommandController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -53,6 +54,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'company' => ['string','max:255'],
+            'phone_number' => ['required','string','max:10'],
+            'role_id' => ['required'],
         ]);
     }
 
@@ -64,10 +68,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $commandController = new CommandController();
+        $commandController->create();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'company' => $data['company'],
+            'phone_number' => $data['phone_number'],
+            'role_id' => $data['role_id'],
         ]);
     }
 }
