@@ -149,7 +149,7 @@ class CommandController extends Controller
     {
         $command->update($request->all());
         Address::create($request->all());
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.index')->withInput();
 
     }
         /**
