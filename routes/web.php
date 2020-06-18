@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcomeLaravel');
 });
 
 Auth::routes();
@@ -37,3 +37,6 @@ Route::resource('addresses', 'AddressController');
 
 //Route::post('/commands/edit', 'AddressController@create');
 //Route::put('/commands/edit', 'AddressController@store');
+
+//very good idea !!!!!!!
+Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');

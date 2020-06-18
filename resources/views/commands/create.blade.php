@@ -17,6 +17,14 @@
                 <option value="{{ $user->id }}">{{ $user->name}}</option>
             @endforeach
             </select>
+
+                <select name="articles[]" multiple>
+                    @foreach($articles as $article)
+                        <option value="{{ $article->id }}" {{ in_array($article->id, old('articles') ?: []) ? 'selected' : '' }}>{{ $article->name }}</option>
+                    @endforeach
+                </select>
+
+
             <button type="submit"> Ajouter </button>
             <a href="/commands"> Annuler </a>
             </div>

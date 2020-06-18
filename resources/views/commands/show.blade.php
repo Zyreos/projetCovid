@@ -24,6 +24,12 @@
         <li>Ville: {{$delivery_address->city}}</li>
         <li>Pays: {{$delivery_address->country}}</li>
         <li>User :{{$user->name}}</li>
+    <!-- Il faut conserver ce code :)-->
+        <br/>
+        <h1> Les articles de la commande</h1>
+        @foreach($command->articles as $article)
+            <li>{{ $article->name }}</li>
+        @endforeach
     </ul>
 
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>

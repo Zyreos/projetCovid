@@ -9,6 +9,7 @@ use App\User;
 use App\Delivery;
 use App\Address;
 use App\Status;
+use App\Article;
 
 class CommandController extends Controller
 {
@@ -38,7 +39,8 @@ class CommandController extends Controller
         $deliveries = Delivery::all();
         $addresses = Address::all();
         $users = User::all();
-        return view('commands.create', compact('statuses', 'deliveries','addresses','users' ));
+        $articles = Article::all();
+        return view('commands.create', compact('statuses', 'deliveries','addresses','users','articles' ));
     }
 
     /**
@@ -49,8 +51,13 @@ class CommandController extends Controller
      */
     public function store(Request $request)
     {
-        Command::create($request->all());
-        return redirect()->route('commands.edit');
+        //ceci est le code qui fonctionne sans les articles
+        //Command::create($request->all());
+
+        //ceci est un test pour la relation avec article
+        $command = Command::create($request->all());
+        $command->articles()->attach($request->articles);
+        return redirect()->route('commands.index');
     }
 
     /**
@@ -68,6 +75,8 @@ class CommandController extends Controller
         $bill_address = $command->address;
         $user = $command->user;
         $user_id = session('user');
+        //ceci est un test pour la relation avec article
+        $command->with('articles')->get();
         return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','user_id'));
     }
 
@@ -96,6 +105,8 @@ class CommandController extends Controller
     public function update(Request $request, Command $command)
     {
         $command->update($request->all());
+        //ceci est un test
+        $command->articles()->sync($request->articles);
         return redirect()->route('commands.index');
     }
 
