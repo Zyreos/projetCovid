@@ -11,9 +11,15 @@
 
         <form action="{{route('commands.store')}}" method="POST" >
             @csrf
-
+            <div class="select">
+            <select name="user_id">
+            @foreach($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name}}</option>
+            @endforeach
+            </select>
             <button type="submit"> Ajouter </button>
             <a href="/commands"> Annuler </a>
+            </div>
         </form>
     </section>
 

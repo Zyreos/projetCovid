@@ -1,0 +1,55 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #F0EFEF;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  position: relative;
+}
+
+.links {
+  display: flex;
+  width: 20%;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  cursor: pointer;
+  width: 625px;
+  height: 100px;
+}
+
+.auth {
+  display: flex;
+  margin-left: 25%;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  padding: 20px;
+}
+
+.auth img {
+  width: 55px;
+  height: 55px;
+}
+
+/*# sourceMappingURL=nav_bar.css.map */
