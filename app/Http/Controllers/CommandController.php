@@ -12,6 +12,7 @@ use App\Status;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
 
+
 class CommandController extends Controller
 {
     /**
@@ -128,13 +129,14 @@ class CommandController extends Controller
         return redirect()->route('commands.index');
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editWithAddress($id)
+    public function createAddress($id)
     {
         $command = Command::find($id);
         $statuses = Status::all();
@@ -145,13 +147,37 @@ class CommandController extends Controller
     }
 
 
-    public function updateWithAddress(Request $request, Command $command)
+    public function storeAddress(Request $request, Command $command)
     {
         $command->update($request->all());
         Address::create($request->all());
-        return redirect()->route('commands.index')->withInput();
+        return redirect()->route('commands.updateWithAddress', [$command])->withInput();
+        //return $command->update();
+        //return redirect()->action('CommandController@edit',['command']);
 
     }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithAddress(Request $request, Command $command)
+    {
+
+        $command->update($request->all());
+        var_dump (old('postcode'));
+        die();
+        return redirect()->route('commands.index');
+        //return redirect('commands.index');
+
+    }
+
+
+
         /**
      * Remove the specified resource from storage.
      *

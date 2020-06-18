@@ -33,15 +33,16 @@ Route::resource('users','UserController');
 
 Route::resource('commands', 'CommandController');
 
-Route::get('/commands/{command}/edit', 'CommandController@edit')->name('commands.edit');
+Route::get('/commands/{id}/edit', 'CommandController@edit')->name('commands.edit');
 
 Route::post('/commands/{command}/update', 'CommandController@update')->name('commands.update');
 
-Route::get('/commands/{command}/editWithAddress', 'CommandController@editWithAddress')->name('commands.editFacturation');
+Route::get('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
 
-Route::post('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
+Route::get('/commands/{command}/editFacturation', 'CommandController@createAddress')->name('commands.editFacturation');
 
-//Route::resource('addresses', 'AddressController');
+Route::post('/commands/{command}/storeAddress', 'CommandController@storeAddress')->name('commands.storeAddress');
+
 
 //Route::post('/commands/edit', 'AddressController@create');
 //Route::put('/commands/edit', 'AddressController@store');

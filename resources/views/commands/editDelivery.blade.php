@@ -8,7 +8,7 @@
 
     <h1 class="t1">Edition d'une commande</h1>
 
-    <form action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
+    <form action="{{ route('commands.update', $command->id) }}" method="POST" >
         @csrf
         <div>
             <input type="date" name="date_validation" placeholder="Date de validation">
