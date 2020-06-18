@@ -26,7 +26,7 @@
 
     <a href="/articles"> Retourner à la liste des articles </a>
 
-    <form action="/commands/" method="POST">
+    <form action="/articles/{{$article}}/updateWithArticle" method="POST">
         @csrf
         {{ method_field('PATCH') }}
 
