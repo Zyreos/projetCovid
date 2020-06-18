@@ -38,6 +38,6 @@ Route::resource('addresses', 'AddressController');
 
 //Route::post('/commands/edit', 'AddressController@create');
 //Route::put('/commands/edit', 'AddressController@store');
-Route::post('articles/{article}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('updateArticle');
+//Route::post('articles/{article}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('updateWithArticle');
 //very good idea !!!!!!!
 Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');
