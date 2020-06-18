@@ -25,16 +25,6 @@
         <li>Pays: {{$delivery_address->country}}</li>
         <li>{{$big_user}}</li>
         <br/>
-        @if(DateTime::diff($big_user->created_at))
-            <h1 class="t1">Création d'une commande</h1>
-
-            <form action="{{route('commands.store')}}" method="POST" >
-                @csrf
-
-                <button type="submit"> Ajouter </button>
-                <a href="/commands"> Annuler </a>
-            </form>
-        @endif
 
         <li>User :{{$user->name}}</li>
     <!-- Il faut conserver ce code :)-->
@@ -45,6 +35,8 @@
         @endforeach
     </ul>
 
+    <a href="/commands/{{ $command->id }}/editWithAddress"> Edition avec addresse de facturation </a>
+    <br/>
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>
 
     <form method="POST" action="/commands/{{ $command->id }}">

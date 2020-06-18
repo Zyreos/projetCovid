@@ -50,13 +50,13 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Resquest $request)
     {
-        $command = new Command();
-        $command->user_id = Auth::id();
-        return $command->save();
+        //$command = new Command();
+        //$command->user_id = Auth::id();
+        //return $command->save();
         //ceci est le code qui fonctionne sans les articles
-        //Command::create($request->all());
+        //1Command::create($request->all());
 
         //ceci est un test pour la relation avec article
         $command = Command::create($request->all());
@@ -110,12 +110,49 @@ class CommandController extends Controller
     public function update(Request $request, Command $command)
     {
         $command->update($request->all());
+        return redirect()->route('commands.index');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithArticle(Request $request, Command $command)
+    {
+        $command->update($request->all());
         //ceci est un test
         $command->articles()->sync($request->articles);
         return redirect()->route('commands.index');
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editWithAddress($id)
+    {
+        $command = Command::find($id);
+        $statuses = Status::all();
+        $deliveries = Delivery::all();
+        $users = User::all();
+        $address = new Address;
+        return view('commands.editFacturation', compact('command','statuses', 'deliveries','users', 'address' ));
+    }
+
+
+    public function updateWithAddress(Request $request, Command $command)
+    {
+        $command->update($request->all());
+        Address::create($request->all());
+        return redirect()->route('commands.index');
+
+    }
+        /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
