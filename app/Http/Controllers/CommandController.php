@@ -10,6 +10,7 @@ use App\Delivery;
 use App\Address;
 use App\Status;
 use Illuminate\Support\Facades\Auth;
+use App\Article;
 
 class CommandController extends Controller
 {
@@ -39,7 +40,8 @@ class CommandController extends Controller
         $deliveries = Delivery::all();
         $addresses = Address::all();
         $users = User::all();
-        return view('commands.create', compact('statuses', 'deliveries','addresses','users'));
+        $articles = Article::all();
+        return view('commands.create', compact('statuses', 'deliveries','addresses','users','articles' ));
     }
 
     /**
@@ -53,6 +55,13 @@ class CommandController extends Controller
         $command = new Command();
         $command->user_id = Auth::id();
         return $command->save();
+        //ceci est le code qui fonctionne sans les articles
+        //Command::create($request->all());
+
+        //ceci est un test pour la relation avec article
+        $command = Command::create($request->all());
+        $command->articles()->attach($request->articles);
+        return redirect()->route('commands.index');
     }
 
     /**
@@ -70,6 +79,9 @@ class CommandController extends Controller
         $bill_address = $command->address;
         $user = $command->user;
         $big_user = Auth::user();
+
+        //ceci est un test pour la relation avec article
+        $command->with('articles')->get();
         return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
     }
 
@@ -84,9 +96,8 @@ class CommandController extends Controller
         $command = Command::find($id);
         $statuses = Status::all();
         $deliveries = Delivery::all();
-        $addresses = Address::all();
         $users = User::all();
-        return view('commands.edit', compact('command','statuses', 'deliveries','addresses','users' ));
+        return view('commands.edit', compact('command','statuses', 'deliveries','users' ));
     }
 
     /**
@@ -99,6 +110,8 @@ class CommandController extends Controller
     public function update(Request $request, Command $command)
     {
         $command->update($request->all());
+        //ceci est un test
+        $command->articles()->sync($request->articles);
         return redirect()->route('commands.index');
     }
 
