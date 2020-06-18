@@ -26,12 +26,11 @@
 
     <a href="/articles"> Retourner à la liste des articles </a>
 
-    <form action="/commands/{{$command->id}}" method="POST">
+    <form action="/commands/" method="POST">
         @csrf
         {{ method_field('PATCH') }}
 
         <input type="hidden" name="article_id" value="{{ $article->id }}"/>
-        <input type="hidden" name="user_id" value="{{ session('user') }}"/>
 
         <button type="submit"> Ajouter à la commande</button>
     </form>
