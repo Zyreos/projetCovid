@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('homeLaravel');
 
+Route::resource('/welcome', 'ArticleController');
+
 Route::resource('articles', 'ArticleController');
 
 Route::resource('categories','CategoryController');
