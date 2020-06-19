@@ -146,12 +146,10 @@ h3 {
   .footer {
     background-color: #FFFFFF;
   }
-
-  .footer_links {
+  .footer .footer_links {
     display: none;
   }
-
-  .social {
+  .footer .social {
     display: none;
   }
 }

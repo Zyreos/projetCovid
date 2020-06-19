@@ -45,15 +45,16 @@
 @media screen and (max-width: 1199px) {
     .footer {
         background-color: $white;
+        
+        .footer_links{
+            display: none;
+        }
+
+        .social {
+            display: none;
+        }
     }
 
-    .footer_links{
-        display: none;
-    }
-
-    .social {
-        display: none;
-    }
 
     
 }
