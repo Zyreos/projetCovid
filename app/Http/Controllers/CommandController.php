@@ -77,10 +77,9 @@ class CommandController extends Controller
         $command = Command::find($id);
         if ($command->status_id!=null){$status = $command->status->name;}
         if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
-        //if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
+        if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
         if ($command->address_id!=null){$bill_address = $command->address;}
-
-        //$bill_address = $command->address;
+        
         $user = $command->user;
         $big_user = Auth::user();
 
