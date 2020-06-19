@@ -122,10 +122,12 @@ class CommandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateWithArticle(Request $request)
+    public function updateWithArticle(Request $request, Command $command)
     {
+        $article = Article::findOrFail($request->id);
+
         //$command = Command::where('user_id' ,'=', $command->user_id)->get();
-        //$command->articles()->sync($request->articles);
+        $command->articles()->attach($article);
         return redirect()->route('commands.index');
     }
 

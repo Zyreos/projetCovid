@@ -62,11 +62,17 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
+        $commands = Command::all();
+        foreach ($commands as $command) {
+            if ($command->user_id == Auth::id()) {
+                $good_command = $command;
 
+            }
+        }
+        //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
         $article = Article::find($id);
         $category = $article->category->name;
-        return view('articles.show',compact('article','category', 'command'));
+        return view('articles.show',compact('article','category', 'good_command'));
     }
 
     /**
