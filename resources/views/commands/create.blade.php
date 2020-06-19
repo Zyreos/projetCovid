@@ -24,7 +24,6 @@
                     @endforeach
                 </select>
 
-
             <button type="submit"> Ajouter </button>
             <a href="/commands"> Annuler </a>
             </div>

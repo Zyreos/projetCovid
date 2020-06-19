@@ -114,21 +114,6 @@ class CommandController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateWithArticle(Request $request, Command $command)
-    {
-        $command->update($request->all());
-        //ceci est un test
-        $command->articles()->sync($request->articles);
-        return redirect()->route('commands.index');
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -153,6 +138,22 @@ class CommandController extends Controller
 
     }
         /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithArticle(Request $request, Command $command)
+    {
+        $article = Article::findOrFail($request->id);
+
+        //$command = Command::where('user_id' ,'=', $command->user_id)->get();
+        $command->articles()->attach($article);
+        return redirect()->route('commands.index');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

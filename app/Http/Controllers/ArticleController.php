@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Command;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -47,7 +49,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
         Article::create($request->all());
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été créé');
 
@@ -61,9 +62,17 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        $commands = Command::all();
+        foreach ($commands as $command) {
+            if ($command->user_id == Auth::id()) {
+                $good_command = $command;
+
+            }
+        }
+        //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
         $article = Article::find($id);
         $category = $article->category->name;
-        return view('articles.show',compact('article','category'));
+        return view('articles.show',compact('article','category', 'good_command'));
     }
 
     /**

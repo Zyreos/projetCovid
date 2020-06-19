@@ -26,14 +26,14 @@
 
     <a href="/articles"> Retourner à la liste des articles </a>
 
-    <form action="/commands/{{$command->id}}" method="POST">
+    <form action="{{route('commands.updateWithArticle', $good_command)}}" method="POST">
         @csrf
-        {{ method_field('PATCH') }}
 
-        <input type="hidden" name="article_id" value="{{ $article->id }}"/>
-        <input type="hidden" name="user_id" value="{{ session('user') }}"/>
+        <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+        <input id="quantity" name="quantity" type="number" value="1" min="1">
+        <label for="quantity">Quantité</label>
 
-        <button type="submit"> Ajouter à la commande</button>
+        <button type="submit" id="addCommand"> Ajouter à la commande</button>
     </form>
 
 @endsection

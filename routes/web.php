@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('articles', 'ArticleController');
 
+
 Route::resource('categories','CategoryController');
 
 Route::resource('users','UserController');
@@ -45,6 +46,6 @@ Route::post('/commands/{command}/updateWithAddress', 'CommandController@updateWi
 
 //Route::post('/commands/edit', 'AddressController@create');
 //Route::put('/commands/edit', 'AddressController@store');
-
+Route::post('commands/{command}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('commands.updateWithArticle');
 //very good idea !!!!!!!
 //Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');
