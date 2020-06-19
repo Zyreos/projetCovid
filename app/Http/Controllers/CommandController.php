@@ -79,7 +79,7 @@ class CommandController extends Controller
         if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
         if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
         if ($command->address_id!=null){$bill_address = $command->address;}
-        
+
         $user = $command->user;
         $big_user = Auth::user();
 
@@ -148,8 +148,15 @@ class CommandController extends Controller
         return view('commands.editFacturation', compact('command','statuses', 'deliveries','users', 'address' ));
     }
 
-
-    public function upadteWithAddress(Request $request, Command $command, Address $address)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithAddress(Request $request, Command $command, Address $address)
     {
         $inputs = $request->input();
         $address_id = $address::create($inputs)->id;
@@ -159,6 +166,62 @@ class CommandController extends Controller
 
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createDeliveryWithAddress($id)
+    {
+        $command = Command::find($id);
+        $statuses = Status::all();
+        $users = User::all();
+        $delivery = new Delivery;
+        $address = new Address;
+        return view('commands.editDelivery', compact('command','statuses', 'delivery','users', 'address' ));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @param Delivery $delivery
+     * @return \Illuminate\Http\Response
+     */
+
+    public function updateWithDelivery(Request $request, Command $command, Address $address, Delivery $delivery)
+    {
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        //$inputs = $request->input();
+        //$delivery_id = $delivery::create($inputs)->id;
+        //$delivery->address_id = $address_id;
+        //$delivery::create($request->all());
+        $delivery->mode = $request -> input('mode');
+        $delivery->price = $request -> input('price');
+        $delivery->address_id = $address_id;
+        $delivery->save();
+        $delivery_id = $delivery->id;
+
+        /*$delivery= Delivery::create(['mode'=> $request->input(),
+                          'price'=> $request->input(),
+                           'address_id'=> $address_id]);*/
+
+        /*$inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $command->address_id = $address_id;
+        $command->update($request->all());*/
+
+        $command->delivery_id = $delivery_id;
+        $command->update($request->all());
+        //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
+        //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
+        return redirect()->route('commands.index');
+
+    }
         /**
      * Remove the specified resource from storage.
      *

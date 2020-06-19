@@ -37,7 +37,10 @@
 
     <a href="/commands/{{ $command->id }}/editFacturation"> Edition avec addresse de facturation </a>
     <br/>
+    <a href="/commands/{{ $command->id }}/editDelivery"> Edition de livraison</a>
+    <br/>
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>
+
 
     <form method="POST" action="/commands/{{ $command->id }}">
         {{ csrf_field() }}

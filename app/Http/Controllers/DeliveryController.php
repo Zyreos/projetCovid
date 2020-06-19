@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
+use App\Delivery;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -37,6 +39,16 @@ class DeliveryController extends Controller
     {
         //
     }
+
+    /*public function updateWithAddress1(Request $request, Address $address, Delivery $delivery)
+    {
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $delivery->address_id = $address_id;
+        $delivery->update($request->all());
+        return redirect()->route('commands.index');
+
+    }*/
 
     /**
      * Display the specified resource.

@@ -8,7 +8,7 @@
 
     <h1 class="t1">Edition d'une commande</h1>
 
-    <form action="{{ route('commands.update', $command->id) }}" method="POST" >
+    <form action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
         @csrf
         <div>
             <input type="date" name="date_validation" placeholder="Date de validation">
@@ -26,16 +26,17 @@
                 @endforeach
             </select>
         </div>
-        <label class="label"> Mode de livraison</label>
-        <div class="select">
-            <select name="delivery_id">
-                @foreach($deliveries as $delivery)
-                    <option value="{{ $delivery->id }}">{{ $delivery->mode }}</option>
-                @endforeach
-            </select>
+
+        <h1>Sélection du mode livraison</h1>
+        <div>
+            <input type="checkbox" name="mode" value="domicile" checked>
+            <label for="subscribeNews">Livraison à Domicile</label>
+        </div>
+        <div>
+            <input type="number" name="price" placeholder="Prix" value="7">
         </div>
 
-        <h1 class="t1">Création d'une addresse de facturation</h1>
+        <h1 class="t1">Création d'une addresse de livraison à domicile </h1>
         <div>
             <input type="text" name="address1"  placeholder="Addresse 1">
         </div>
@@ -47,9 +48,6 @@
         </div>
         <div>
             <input type="text" name="city" placeholder="Ville">
-        </div>
-        <div>
-            <input type="text" name="country" placeholder="Pays">
         </div>
         <div>
             <input type="text" name="country" placeholder="Pays">
