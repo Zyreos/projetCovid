@@ -29,9 +29,20 @@
 
         <h1>Sélection du mode livraison</h1>
         <div>
-            <input type="checkbox" name="mode" value="domicile" checked>
-            <label for="subscribeNews">Livraison à Domicile</label>
+            <input type="radio" name="mode" value="domicile" id="chk1" checked>
+            <label>Livraison à Domicile</label>
         </div>
+        <div>
+            <input type="radio" name="mode" value="retrait"id="chk2" >
+            <label>Livraison en retrait</label>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#chk2').click(function(){
+                        location=''; // link of your desired page.
+                });
+            });
+        </script>
         <div>
             <input type="number" name="price" placeholder="Prix" value="7">
         </div>
