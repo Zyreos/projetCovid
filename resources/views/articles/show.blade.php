@@ -38,6 +38,17 @@
 
                 <button type="submit" id="addCommand"> Ajouter à la commande</button>
             </form>
+        @elseif(Auth::user() && !($command->status_id == 1))
+            <form action="{{route('commands.store')}}" method="POST">
+                @csrf
+
+                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                <input id="quantity" name="quantity" type="number" value="1" min="1">
+                <label for="quantity">Quantité</label>
+
+                <button type="submit" id="addCommand"> Ajouter à la commande</button>
+            </form>
+
         @endif
 
     @endforeach
