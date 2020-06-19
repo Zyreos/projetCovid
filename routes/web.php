@@ -37,11 +37,8 @@ Route::get('/commands/{id}/edit', 'CommandController@edit')->name('commands.edit
 
 Route::post('/commands/{command}/update', 'CommandController@update')->name('commands.update');
 
-Route::get('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
-
 Route::get('/commands/{command}/editFacturation', 'CommandController@createAddress')->name('commands.editFacturation');
-
-Route::post('/commands/{command}/storeAddress', 'CommandController@storeAddress')->name('commands.storeAddress');
+Route::get('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
 
 
 //Route::post('/commands/edit', 'AddressController@create');

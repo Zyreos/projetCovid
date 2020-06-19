@@ -11,6 +11,7 @@ use App\Address;
 use App\Status;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
+use Illuminate\Support\Facades\Session;
 
 
 class CommandController extends Controller
@@ -74,10 +75,12 @@ class CommandController extends Controller
     public function show($id, Request $request)
     {
         $command = Command::find($id);
-        $status = $command->status->name;
-        $delivery = $command->delivery->mode;
-        $delivery_address = $command->delivery->address;
-        $bill_address = $command->address;
+        if ($command->status_id!=null){$status = $command->status->name;}
+        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        //if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
+        if ($command->address_id!=null){$bill_address = $command->address;}
+
+        //$bill_address = $command->address;
         $user = $command->user;
         $big_user = Auth::user();
 
@@ -147,36 +150,15 @@ class CommandController extends Controller
     }
 
 
-    public function storeAddress(Request $request, Command $command)
+    public function upadteWithAddress(Request $request, Command $command, Address $address)
     {
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $command->address_id = $address_id;
         $command->update($request->all());
-        Address::create($request->all());
-        return redirect()->route('commands.updateWithAddress', [$command])->withInput();
-        //return $command->update();
-        //return redirect()->action('CommandController@edit',['command']);
-
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param Command $command
-     * @return \Illuminate\Http\Response
-     */
-    public function updateWithAddress(Request $request, Command $command)
-    {
-
-        $command->update($request->all());
-        var_dump (old('postcode'));
-        die();
         return redirect()->route('commands.index');
-        //return redirect('commands.index');
 
     }
-
-
 
         /**
      * Remove the specified resource from storage.
