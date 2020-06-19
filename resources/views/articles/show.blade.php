@@ -26,14 +26,22 @@
 
     <a href="/articles"> Retourner à la liste des articles </a>
 
-    <form action="{{route('commands.updateWithArticle', $good_command)}}" method="POST">
-        @csrf
+    @foreach($commands as $command)
 
-        <input type="hidden" id="id" name="id" value="{{ $article->id }}">
-        <input id="quantity" name="quantity" type="number" value="1" min="1">
-        <label for="quantity">Quantité</label>
+        @if ($command->user_id == Auth::id() && $command->status_id == '1')
+            <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
+                @csrf
 
-        <button type="submit" id="addCommand"> Ajouter à la commande</button>
-    </form>
+                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                <input id="quantity" name="quantity" type="number" value="1" min="1">
+                <label for="quantity">Quantité</label>
+
+                <button type="submit" id="addCommand"> Ajouter à la commande</button>
+            </form>
+        @endif
+
+    @endforeach
+
+
 
 @endsection

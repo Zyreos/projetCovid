@@ -57,9 +57,9 @@ class CommandController extends Controller
         //return $command->save();
         //ceci est le code qui fonctionne sans les articles
         //1Command::create($request->all());
-
         //ceci est un test pour la relation avec article
-        $command = Command::create($request->all());
+        $command = Command::create(['status_id' => $request->input('1'),
+                                    'user_id' => Auth::id()]);
         $command->articles()->attach($request->articles);
         return redirect()->route('commands.index');
     }
