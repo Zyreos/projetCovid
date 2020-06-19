@@ -46,17 +46,21 @@
 
     <!-- Categories -->
 
-    <div class="categ_images">
-        <img src="img/support.png" alt="Support_gel">
-        <img src="img/poster.jpg" alt="Poster">
-        <img src="img/impression.jpg" alt="Impression">
-    </div>
+    <section class="categ_container">
 
-    <div class="categ_buttons">
-        <a href="#"><button>Supports</button></a>
-        <a href="#"><button>Posters</button></a>
-        <a href="#"><button>Impressions</button></a>
-    </div>
+        <div class="categ_image">
+            <img src="img/support.png" alt="Support_gel">
+            <h1><a href="#"><button>Supports</button></a></h1>
+        </div>
+        <div class="categ_image">
+            <img src="img/poster.jpg" alt="Poster">
+            <h1><a href="#"><button>Posters</button></a></h1>
+        </div>
+        <div class="categ_image">
+            <img src="img/impression.jpg" alt="Impression">
+            <h1><a href="#"><button>Impressions</button></a></h1>
+        </div>
+    </section>
 
     <div class="lign">
     </div>
@@ -78,8 +82,8 @@
             <div class="article_lign"></div>
             <div class="article_info">
                 <h1>{{ $article->name }}</h1>
-                <h2>{{ $article->dimensions }}</h2>
-                <strong>{{ $article->price }} €</strong> 
+                <h3>{{ $article->dimensions }}</h3>
+                <h2>{{ $article->price }} €</h2> 
             </div>
             <div class="buy_button">
                 <a href="#"><button>Ajouter au panier</button></a>

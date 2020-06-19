@@ -5,7 +5,8 @@
     display: flex;
     background-color: $red;
     height: 100px;
-    position: relative;
+    top: 0;
+    
 }
 
 .links
@@ -15,12 +16,17 @@
     padding: 20px;
     align-items: center;
     justify-content: space-around;
-    
 }
 
-.logo 
+.links a
 {
-    cursor: pointer;
+    font-family: $lato;
+    font-size: $lato-normal;
+    color: $white;
+}
+
+.logo
+{
     width: 625px;
     height: 100px;
 }
@@ -36,11 +42,32 @@
     
 }
 
-.auth img {
+.auth img 
+{
     width: 55px;
     height: 55px;
 }
 
 
+@media screen and (max-width: 1199px) {
+    .nav_bar {
+        background-color: $white;
+        .links {
+            display: none;
+            
+        }
 
+        .auth {
+            display: none;
+            
+        }
 
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            top: 0;
+        }
+    }  
+}
