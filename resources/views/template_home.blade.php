@@ -15,8 +15,9 @@
     </head>
     <body>
         <header class="nav_bar">
-            <img class="logo" src="img/Capture.png" alt="logo">
-            
+            <div class="logo">
+                <img class="logo" src="img/Capture.png" alt="logo">
+            </div>  
             <div class="links">
                 <a href="#">ACCUEIL</a>
                 <a href="#">PRODUITS</a>
