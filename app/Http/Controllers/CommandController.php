@@ -204,7 +204,56 @@ class CommandController extends Controller
         $delivery->price = $request -> input('price');
         $delivery->address_id = $address_id;
         $delivery->save();
+
         $delivery_id = $delivery->id;
+        $command->delivery_id = $delivery_id;
+        $command->update($request->all());
+        //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
+        //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
+        return redirect()->route('commands.index');
+
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createDeliveryWithAddressRetrait($id)
+    {
+        $command = Command::find($id);
+        $statuses = Status::all();
+        $users = User::all();
+        $delivery = new Delivery;
+        $addresses = Address::all();
+        return view('commands.editDeliveryRetrait', compact('command','statuses', 'delivery','users', 'addresses' ));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @param Delivery $delivery
+     * @return \Illuminate\Http\Response
+     */
+
+    public function updateWithDeliveryRetrait(Request $request, Command $command, Address $address, Delivery $delivery)
+    {
+        //$inputs = $request->input();
+        //$delivery_id = $delivery::create($inputs)->id;
+        //$delivery->address_id = $address_id;
+        //$delivery::create($request->all());
+        //$inputs = $request->input();
+        //$address_id = $address($inputs)->id;
+        //$delivery->mode = $request->input('mode');
+        //$delivery->price = $request->input('price');
+        //$delivery->address_id = $address->id;
+        //$delivery->save();
+        //$delivery_id = $delivery->id;
 
         /*$delivery= Delivery::create(['mode'=> $request->input(),
                           'price'=> $request->input(),
@@ -215,13 +264,26 @@ class CommandController extends Controller
         $command->address_id = $address_id;
         $command->update($request->all());*/
 
+        //$delivery->mode = $request -> input('mode');
+        //$delivery->price = $request -> input('price');
+        //$delivery->address_id = $address->id;
+        //$delivery->save();
+        $inputs = $request->input();
+        $delivery_id = $delivery::create($inputs)->id;
+
+        //$delivery_id = $delivery->id;
         $command->delivery_id = $delivery_id;
-        $command->update($request->all());
+        $command->total = $request->input('total');
+        $command->save();
+
+        //$command->delivery_id = $delivery_id;
+        //$command->update($request->all());
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
         return redirect()->route('commands.index');
 
     }
+
         /**
      * Remove the specified resource from storage.
      *

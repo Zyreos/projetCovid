@@ -42,6 +42,9 @@ Route::post('/commands/{command}/updateWithAddress', 'CommandController@updateWi
 
 Route::get('/commands/{command}/editDelivery', 'CommandController@createDeliveryWithAddress')->name('commands.editDelivery');
 Route::post('/commands/{command}/updateWithDelivery', 'CommandController@updateWithDelivery')->name('commands.updateWithDelivery');
+
+Route::get('/commands/{command}/editDeliveryRetrait', 'CommandController@createDeliveryWithAddressRetrait')->name('commands.editDeliveryRetrait');
+Route::post('/commands/{command}/updateWithDeliveryRetrait', 'CommandController@updateWithDeliveryRetrait')->name('commands.updateWithDeliveryRetrait');
 //Route::get('/commands/{command}/updateWithAddress1', 'DeliveryController@updateWithAddress1')->name('deliveries.updateWithAddress1');
 //Route::post('/commands/{command}/updateWithDeliveryWithAddress', 'CommandController@updateWithDeliveryWithAddress')->name('commands.updateWithDeliveryWithAddress');
 
