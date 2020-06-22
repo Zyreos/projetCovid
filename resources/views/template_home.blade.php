@@ -17,13 +17,8 @@
         <header>
             <nav class="nav_bar">
             <div class="logo">
-<<<<<<< HEAD
-                <img class="logo" src="img/Capture.png" alt="logo">
-            </div>
-=======
                 <img class="logo" src="/img/Capture.png" alt="logo">
             </div>  
->>>>>>> Adrien
             <div class="links">
                 <a class="accueil" href="#">ACCUEIL</a>
                 <a href="#">PRODUITS</a>
@@ -40,13 +35,8 @@
         @yield('content')
 
         <footer class="footer">
-<<<<<<< HEAD
-            <img class="logo" src="img/Capture.png" alt="logo">
-
-=======
             <img class="logo" src="/img/Capture.png" alt="logo">
             
->>>>>>> Adrien
             <div class="footer_links">
                 <a href="#">Politique de confidentialité</a>
                 <a href="#">Conditions générales de vente</a>
