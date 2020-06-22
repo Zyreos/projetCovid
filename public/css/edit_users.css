@@ -1,19 +1,407 @@
-/* Error: expected selector.
- *    ,
- * 10 | <<<<<<< HEAD
- *    | ^
- *    '
- *   resources\sass\_general.scss 10:1   @import
- *   resources\sass\nav_bar.scss 1:9     @import
- *   resources\sass\edit_users.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: expected selector.\a    \2577 \a 10 \2502  <<<<<<< HEAD\d\a    \2502  ^\a    \2575 \a   resources\\sass\\_general.scss 10:1   @import\a   resources\\sass\\nav_bar.scss 1:9     @import\a   resources\\sass\\edit_users.scss 1:9  root stylesheet";
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  margin: 15px;
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 30px auto 20px auto;
+}
+
+h3 {
+  margin: 5px;
+  font-size: 16px;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  top: 0;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  width: 20%;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+
+.links a {
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.logo {
+  width: 625px;
+  height: 100px;
+}
+
+.auth {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  height: 100px;
+}
+
+.auth img {
+  width: 55px;
+  height: 55px;
+  margin: 10px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .nav_bar {
+        background-color: $red;
+        .links {
+            display: none;
+
+        }
+
+        .auth {
+            display: none;
+
+        }
+
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            top: 0;
+        }
+    }
+}*/
+@media screen and (max-width: 1199px) {
+  .accueil {
+    display: none;
+  }
+
+  .auth {
+    width: 25%;
+  }
+
+  .links {
+    width: 15%;
+  }
+
+  .logo {
+    background-color: #FFFFFF;
+    width: 520px;
+  }
+
+  .logo img {
+    width: 520px;
+    height: 90px;
+    margin: 5px 0 5px 0;
+  }
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  margin: 15px;
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 30px auto 20px auto;
+}
+
+h3 {
+  margin: 5px;
+  font-size: 16px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  margin: 15px;
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 30px auto 20px auto;
+}
+
+h3 {
+  margin: 5px;
+  font-size: 16px;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  top: 0;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  width: 20%;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+
+.links a {
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.logo {
+  width: 625px;
+  height: 100px;
+}
+
+.auth {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  height: 100px;
+}
+
+.auth img {
+  width: 55px;
+  height: 55px;
+  margin: 10px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .nav_bar {
+        background-color: $red;
+        .links {
+            display: none;
+
+        }
+
+        .auth {
+            display: none;
+
+        }
+
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            top: 0;
+        }
+    }
+}*/
+@media screen and (max-width: 1199px) {
+  .accueil {
+    display: none;
+  }
+
+  .auth {
+    width: 25%;
+  }
+
+  .links {
+    width: 15%;
+  }
+
+  .logo {
+    background-color: #FFFFFF;
+    width: 520px;
+  }
+
+  .logo img {
+    width: 520px;
+    height: 90px;
+    margin: 5px 0 5px 0;
+  }
+}
+.footer {
+  display: flex;
+  background-color: #CE1126;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer_links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer_links a {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0 10px 0 10px;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 0 20px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .footer {
+        background-color: $white;
+
+        .footer_links{
+            display: none;
+        }
+
+        .social {
+            display: none;
+        }
+    }
+
+}*/
+@media screen and (max-width: 1199px) {
+  .logo {
+    background-color: #FFFFFF;
+    width: 520px;
+  }
+
+  .social {
+    display: none;
+  }
+}
+.form_container {
+  display: flex;
+  width: 900px;
+  margin-top: 50px;
+}
+
+.nav_user {
+  margin: 23px 150px auto 150px;
+}
+
+.menu {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: #CE1126;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.menu a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+input[type=text] {
+  width: 900px;
+  height: 50px;
+  padding: 12px;
+  margin: 8px 0;
+  display: flex;
+  border: 2px solid #AEC0C9;
+}
+
+button[type=submit] {
+  width: 200px;
+  height: 50px;
+  background-color: #CE1126;
+  color: #FFFFFF;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.user_button {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.cancel {
+  width: 100px;
+  height: 50px;
+  background-color: #CE1126;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=edit_users.css.map */
