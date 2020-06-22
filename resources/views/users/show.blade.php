@@ -8,6 +8,11 @@
     
     <section class="user_container">
         <div class="user_infos">
+
+            <div>
+                <p>Nom</p>
+                <p>{{ $user->last_name }}</p>
+            </div>
             <ul>
                 <li>{{ $user->last_name }}</li>
                 <li>{{ $user->first_name }}</li>

@@ -239,5 +239,72 @@ h3 {
     display: none;
   }
 }
+.form_container {
+  display: flex;
+  width: 900px;
+  margin-top: 50px;
+}
 
-/*# sourceMappingURL=show_users.css.map */
+.nav_user {
+  margin: 23px 150px auto 150px;
+}
+
+.menu {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  background-color: #CE1126;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.menu a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+input[type=text] {
+  width: 900px;
+  height: 50px;
+  padding: 12px;
+  margin: 8px 0;
+  display: flex;
+  border: 2px solid #AEC0C9;
+}
+
+button[type=submit] {
+  width: 200px;
+  height: 50px;
+  background-color: #CE1126;
+  color: #FFFFFF;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.user_button {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.cancel {
+  width: 100px;
+  height: 50px;
+  background-color: #CE1126;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=edit_users.css.map */
