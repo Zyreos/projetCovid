@@ -33,13 +33,13 @@
             <label>Livraison à Domicile</label>
         </div>
         <div>
-            <input type="radio" name="mode" value="retrait"id="chk2" checked>
+            <input type="radio" name="mode" value="retrait" id="chk2" checked>
             <label>Livraison en retrait</label>
         </div>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#chk1').click(function(){
-                        location=''; // link of your desired page.
+                    window.location.href = "{{ route('commands.editDelivery', [$command->id])}}";
                 });
             });
         </script>
