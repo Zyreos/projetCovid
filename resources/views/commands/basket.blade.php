@@ -13,16 +13,18 @@
 
         @foreach($articles as $article)
             <li>Article name: {{$article->name}}</li>
+            <li>Article id: {{$article->id}}</li>
             <li>Article price: {{$article->price}}</li>
             <li>Article quantity: {{$article->quantity}}</li>
 
             <form action="{{route('articles.updateQuantity', $article)}}" method="POST">
                 @csrf
-                <input id="quantity" name="quantity" type="number" value="1" min="1">
+                <input id="quantity" name="quantity" value="{{$article->quantity}}" min="1">
                 <label for="quantity">Quantité</label>
                 <button type="submit">Valider la quantité</button>
             </form>
         @endforeach
+
     </ul>
 
 @endsection

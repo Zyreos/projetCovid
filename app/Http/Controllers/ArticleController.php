@@ -105,8 +105,13 @@ class ArticleController extends Controller
      */
     public function updateQuantity(Request $request, Article $article)
     {
-        $article->update($request->quantity);
-        return redirect()->route('commands.basket');
+        $article->update(['quantity' => $request->quantity]);
+        /*$command = Command::all();
+        $command = Command::where('command_id' ,'=', $command->id)->get();*/
+        //$article->update($request->all());
+                /*$article->quantity = $request->input('quantity');
+        $article->save();*/
+        return redirect()->back();
     }
 
     /**
