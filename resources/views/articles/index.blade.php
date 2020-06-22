@@ -62,8 +62,7 @@
         </div>
     </section>
 
-    <div class="lign">
-    </div>
+    <hr class="lign">
 
     <!--Test JS pour trier les articles en fonctions des catégories
 
@@ -92,11 +91,11 @@
 
         <article class="article">
             <div id="image1" class="article_image"></div>
-            <div class="article_lign"></div>
+            <hr class="article_lign">
             <div class="article_info">
                 <h1>{{ $article->name }}</h1>
                 <h3>{{ $article->dimensions }}</h3>
-                <h2>{{ $article->price }} €</h2> 
+                <h2>{{ $article->price }} €</h2>
             </div>
             <div class="buy_button">
                 <a href="#"><button>Ajouter au panier</button></a>

@@ -1,25 +1,28 @@
 @import 'general';
 
-.nav_bar 
+.nav_bar
 {
     display: flex;
     background-color: $red;
     height: 100px;
     top: 0;
-    
+    width: 100%;
+
 }
 
 .links
-{   
+{
     display: flex;
     width: 20%;
-    padding: 20px;
+    height: 100px;
     align-items: center;
     justify-content: space-around;
+    margin-left: 10px;
 }
 
 .links a
 {
+    margin:10px;
     font-family: $lato;
     font-size: $lato-normal;
     color: $white;
@@ -31,35 +34,37 @@
     height: 100px;
 }
 
-.auth 
+.auth
 {
+    position: absolute;
+    right : 0;
     display: flex;
-    margin-left: 25%;
     align-items: center;
     justify-content: space-around;
     width: 20%;
-    padding: 20px;
-    
+    height: 100px;
+
 }
 
-.auth img 
+.auth img
 {
     width: 55px;
     height: 55px;
+    margin : 10px
 }
 
 
-@media screen and (max-width: 1199px) {
+/*@media screen and (max-width: 1199px) {
     .nav_bar {
-        background-color: $white;
+        background-color: $red;
         .links {
             display: none;
-            
+
         }
 
         .auth {
             display: none;
-            
+
         }
 
         .logo {
@@ -69,5 +74,38 @@
             margin: 0 auto;
             top: 0;
         }
-    }  
+    }
+}*/
+
+@media screen and (max-width: 1199px) {
+
+    .accueil
+    {
+        display: none;
+    }
+
+    .auth
+    {
+        width: 25%;
+    }
+
+    .links
+    {
+        width: 15%;
+    }
+
+    .logo
+    {
+        background-color: $white;
+        width: 520px;
+
+    }
+
+    .logo img
+    {
+        width: 520px;
+        height: 90px;
+        margin : 5px 0 5px 0;
+    }
+
 }
