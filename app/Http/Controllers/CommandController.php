@@ -50,7 +50,7 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Resquest $request)
+    public function store(Request $request)
     {
         //$command = new Command();
         //$command->user_id = Auth::id();
@@ -58,9 +58,13 @@ class CommandController extends Controller
         //ceci est le code qui fonctionne sans les articles
         //1Command::create($request->all());
         //ceci est un test pour la relation avec article
-        $command = Command::create(['status_id' => $request->input('1'),
+
+        $command = Command::create(['status_id' => 1,
                                     'user_id' => Auth::id()]);
-        $command->articles()->attach($request->articles);
+
+        $article = Article::findOrFail($request->id);
+        $article_quantity = Article::findOrFail($request->quantity);
+        $command->articles()->attach($article);
         return redirect()->route('commands.index');
     }
 
@@ -74,15 +78,18 @@ class CommandController extends Controller
     {
         $command = Command::find($id);
         $status = $command->status->name;
+        $user = $command->user;
+        $article_quantity = Article::find($request->name);
+
         $delivery = $command->delivery->mode;
         $delivery_address = $command->delivery->address;
         $bill_address = $command->address;
-        $user = $command->user;
+
         $big_user = Auth::user();
 
         //ceci est un test pour la relation avec article
         $command->with('articles')->get();
-        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
+        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user', 'article_quantity'));
     }
 
     /**
