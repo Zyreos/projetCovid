@@ -1,0 +1,77 @@
+@import 'nav_bar';
+@import 'footer';
+
+
+
+
+.form_container{
+    display: flex;
+    width: 900px;
+    margin-top: 50px;
+}
+
+.nav_user{
+    margin: 23px 150px auto 150px;
+}
+.menu{
+    display: flex;
+    width: 200px;
+    height: 50px;
+    background-color: $red;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.menu a{
+    color: $white;
+    text-decoration: none;
+    
+}
+
+input[type=text] 
+{
+    width: 900px;
+    height: 50px;
+    padding: 12px;
+    margin: 8px 0;
+    display: flex;
+    border: 2px solid $grey;
+}
+
+button[type=submit] 
+{
+    width: 200px;
+    height: 50px;
+    background-color: $red;
+    color: $white;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.user_button{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+}
+
+.cancel
+{
+    width: 100px;
+    height: 50px;
+    background-color: $red;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel a{
+    color: $white;
+    text-decoration: none;
+}
+
