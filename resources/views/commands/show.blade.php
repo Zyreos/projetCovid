@@ -8,8 +8,6 @@
 
     <h1>Commande {{ $command->id }}</h1>
 
-    <h1>Article Quantity : {{$article_quantity}}</h1>
-
     <ul>
         <li>Utilisateur: {{ $user->name }}</li>
 

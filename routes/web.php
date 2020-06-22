@@ -35,6 +35,9 @@ Route::resource('categories','CategoryController');
 Route::resource('users','UserController');
 
 Route::resource('commands', 'CommandController');
+Route::get('commands/{command}/basket', 'CommandController@basket')->name('commands.basket');
+
+Route::post('articles/{articles}/update','ArticleController@updateQuantity')->name('articles.updateQuantity');
 
 Route::get('/commands/{command}/edit', 'CommandController@edit')->name('commands.edit');
 

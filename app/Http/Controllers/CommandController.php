@@ -68,6 +68,16 @@ class CommandController extends Controller
         return redirect()->route('commands.index');
     }
 
+    public function basket($id) {
+        $command = Command::find($id);
+        $user = $command->user;
+
+        $articles = $command->articles;
+;
+
+        return view('commands.basket',compact('command','user','articles'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -79,7 +89,6 @@ class CommandController extends Controller
         $command = Command::find($id);
         $status = $command->status->name;
         $user = $command->user;
-        $article_quantity = Article::find($request->name);
 
         $delivery = $command->delivery->mode;
         $delivery_address = $command->delivery->address;
@@ -89,7 +98,7 @@ class CommandController extends Controller
 
         //ceci est un test pour la relation avec article
         $command->with('articles')->get();
-        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user', 'article_quantity'));
+        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
     }
 
     /**
