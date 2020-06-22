@@ -115,23 +115,7 @@ class CommandController extends Controller
         $command->update($request->all());
         return redirect()->route('commands.index');
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateWithArticle(Request $request, Command $command)
-    {
-        $command->update($request->all());
-        //ceci est un test
-        $command->articles()->sync($request->articles);
-        return redirect()->route('commands.index');
-    }
-
-
+    
     /**
      * Show the form for editing the specified resource.
      *
