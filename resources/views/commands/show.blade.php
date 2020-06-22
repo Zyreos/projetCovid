@@ -23,10 +23,24 @@
         <li>Code postal: {{$delivery_address->postcode}}</li>
         <li>Ville: {{$delivery_address->city}}</li>
         <li>Pays: {{$delivery_address->country}}</li>
-        <li>{{$user_id}}</li>
+        <li>{{$big_user}}</li>
+        <br/>
+
+        <li>User :{{$user->name}}</li>
+    <!-- Il faut conserver ce code :)-->
+        <br/>
+        <h1> Les articles de la commande</h1>
+        @foreach($command->articles as $article)
+            <li>{{ $article->name }}</li>
+        @endforeach
     </ul>
 
+    <a href="/commands/{{ $command->id }}/editFacturation"> Edition avec addresse de facturation </a>
+    <br/>
+    <a href="/commands/{{ $command->id }}/editDelivery"> Edition de livraison</a>
+    <br/>
     <a href="/commands/{{ $command->id }}/edit"> Edition </a>
+
 
     <form method="POST" action="/commands/{{ $command->id }}">
         {{ csrf_field() }}

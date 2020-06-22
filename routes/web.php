@@ -14,24 +14,48 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcomeLaravel');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('homeLaravel');
+Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('homeLaravel');
+Route::get('/home', 'HomeController@index');
 
 Route::resource('/welcome', 'ArticleController');
 
 Route::resource('articles', 'ArticleController');
+
 
 Route::resource('categories','CategoryController');
 
 Route::resource('users','UserController');
 
 Route::resource('commands', 'CommandController');
+Route::get('commands/{command}/basket', 'CommandController@basket')->name('commands.basket');
 
+Route::post('articles/{articles}/update','ArticleController@updateQuantity')->name('articles.updateQuantity');
+
+Route::get('/commands/{id}/edit', 'CommandController@edit')->name('commands.edit');
+
+Route::post('/commands/{command}/update', 'CommandController@update')->name('commands.update');
+
+Route::get('/commands/{command}/editFacturation', 'CommandController@createAddress')->name('commands.editFacturation');
+Route::post('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
+
+Route::get('/commands/{command}/editDelivery', 'CommandController@createDeliveryWithAddress')->name('commands.editDelivery');
+Route::post('/commands/{command}/updateWithDelivery', 'CommandController@updateWithDelivery')->name('commands.updateWithDelivery');
+
+Route::get('/commands/{command}/editDeliveryRetrait', 'CommandController@createDeliveryWithAddressRetrait')->name('commands.editDeliveryRetrait');
+Route::post('/commands/{command}/updateWithDeliveryRetrait', 'CommandController@updateWithDeliveryRetrait')->name('commands.updateWithDeliveryRetrait');
+//Route::get('/commands/{command}/updateWithAddress1', 'DeliveryController@updateWithAddress1')->name('deliveries.updateWithAddress1');
+//Route::post('/commands/{command}/updateWithDeliveryWithAddress', 'CommandController@updateWithDeliveryWithAddress')->name('commands.updateWithDeliveryWithAddress');
+
+//Route::post('/commands/edit', 'AddressController@create');
+//Route::put('/commands/edit', 'AddressController@store');
+Route::post('commands/{command}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('commands.updateWithArticle');
+//very good idea !!!!!!!
+//Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');

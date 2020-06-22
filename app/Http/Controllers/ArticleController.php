@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Command;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -47,7 +49,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
         Article::create($request->all());
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été créé');
 
@@ -61,9 +62,12 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        $commands = Command::all();
+
+        //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
         $article = Article::find($id);
         $category = $article->category->name;
-        return view('articles.show',compact('article','category'));
+        return view('articles.show',compact('article','category', 'commands'));
     }
 
     /**
@@ -90,6 +94,19 @@ class ArticleController extends Controller
     {
         $article->update($request->all());
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateQuantity(Request $request, Article $article)
+    {
+        $article->update($request->quantity);
+        return redirect()->route('commands.basket');
     }
 
     /**

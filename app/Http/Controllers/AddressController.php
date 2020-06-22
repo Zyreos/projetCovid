@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Address;
-use App\Delivery;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Address;
 
-class DeliveryController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,16 +19,6 @@ class DeliveryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,18 +26,9 @@ class DeliveryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /*public function updateWithAddress1(Request $request, Address $address, Delivery $delivery)
-    {
-        $inputs = $request->input();
-        $address_id = $address::create($inputs)->id;
-        $delivery->address_id = $address_id;
-        $delivery->update($request->all());
+        Address::create($request->all());
         return redirect()->route('commands.index');
-
-    }*/
+    }
 
     /**
      * Display the specified resource.

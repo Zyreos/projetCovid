@@ -40,5 +40,4 @@
             @endforeach
         </ul>
     @endforeach
-
 @endsection

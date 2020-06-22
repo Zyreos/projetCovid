@@ -19,7 +19,7 @@ class CreateDeliveriesTable extends Migration
             $table->integer('price');
             $table->timestamps();
 
-            $table->unsignedbigInteger('address_id')->unsigned();
+            $table->unsignedbigInteger('address_id')->unsigned()->nullable();
             $table->foreign('address_id')->references('id')->on('addresses');
 
         });
