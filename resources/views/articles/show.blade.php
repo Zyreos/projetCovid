@@ -26,7 +26,7 @@
 
     <a href="/articles"> Retourner à la liste des articles </a>
 
-    @if(!Auth::user() && (!$commands || $commands=="[]"))
+    @if(!Auth::user() && (!$commands || $commands=="[]") || !Auth::user())
 
         <input type="hidden" id="id" name="id" value="{{ $article->id }}">
         <!--<input id="quantity" name="quantity" type="number" value="1" min="1">

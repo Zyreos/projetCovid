@@ -105,7 +105,8 @@ class ArticleController extends Controller
      */
     public function updateQuantity(Request $request, Article $article)
     {
-        $article->update(['quantity' => $request->quantity]);
+        $article->update(['quantity' => $request->quantity,
+                          'total_price' => $request->total_price]);
         /*$command = Command::all();
         $command = Command::where('command_id' ,'=', $command->id)->get();*/
         //$article->update($request->all());

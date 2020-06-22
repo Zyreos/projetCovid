@@ -75,8 +75,6 @@ class CommandController extends Controller
         $user = $command->user;
 
         $articles = $command->articles;
-;
-
         return view('commands.basket',compact('command','user','articles'));
     }
 
@@ -129,7 +127,7 @@ class CommandController extends Controller
         $command->update($request->all());
         return redirect()->route('commands.index');
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -295,6 +293,7 @@ class CommandController extends Controller
 
         //$command = Command::where('user_id' ,'=', $command->user_id)->get();
         $command->articles()->attach($article);
+        $command->update(['total' ]);
         return redirect()->route('commands.index');
     }
 

@@ -21,6 +21,8 @@
                 @csrf
                 <input id="quantity" name="quantity" value="{{$article->quantity}}" min="1">
                 <label for="quantity">Quantité</label>
+                <p>{{$article->price * $article->quantity}}</p>
+                <input type="hidden" id="total_price" name="total_price" value="{{$article->price * $article->quantity}}">
                 <button type="submit">Valider la quantité</button>
             </form>
         @endforeach

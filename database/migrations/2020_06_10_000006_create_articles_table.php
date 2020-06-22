@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->double('price');
+            $table->double('total_price')->nullable();
             $table->longText('description');
             $table->string('dimensions');
             $table->integer('quantity')->nullable();
