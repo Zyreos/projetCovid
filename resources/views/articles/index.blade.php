@@ -8,16 +8,16 @@
 @section('content')
 
     <!-- Carousel -->
-    
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        
+
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarouse1" data-slide-to="1"></li>
             <li data-target="#myCarouse1" data-slide-to="2"></li>
         </ol>
 
-        
+
         <div class="carousel-inner">
             <div class="item active">
                 <img src="img/monacoWeb.jpg" alt="Monaco" style="width:100%;">
@@ -26,13 +26,13 @@
             <div class="item">
                 <img src="img/covidsignWeb.jpg" alt="Panneau_Covid" style="width:100%;">
             </div>
-            
+
             <div class="item">
                 <img src="img/gelWeb.jpg" alt="Gel_mains" style="width:100%;">
             </div>
         </div>
 
-        
+
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
@@ -53,13 +53,26 @@
     </div>
 
     <div class="categ_buttons">
-        <a href="#"><button>Supports</button></a>
+        <a id="category1" href="#"><button>Supports</button></a>
         <a href="#"><button>Posters</button></a>
         <a href="#"><button>Impressions</button></a>
     </div>
 
     <div class="lign">
     </div>
+
+    <!--Test JS pour trier les articles en fonctions des catégories
+
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $('#category1').click(function(){
+                    if()
+                    ;
+                });
+            });
+        </script>-->
+
+
 
 
     <!-- Articles -->
@@ -79,13 +92,13 @@
             <div class="article_info">
                 <h1>{{ $article->name }}</h1>
                 <h2>{{ $article->dimensions }}</h2>
-                <strong>{{ $article->price }} €</strong> 
+                <strong>{{ $article->price }} €</strong>
             </div>
             <div class="buy_button">
                 <a href="#"><button>Ajouter au panier</button></a>
             </div>
         </article>
-        
+
         @endforeach
     </section>
 
