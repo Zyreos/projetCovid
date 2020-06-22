@@ -36,15 +36,20 @@ Route::resource('users','UserController');
 
 Route::resource('commands', 'CommandController');
 
-Route::get('/commands/{command}/edit', 'CommandController@edit')->name('commands.edit');
+Route::get('/commands/{id}/edit', 'CommandController@edit')->name('commands.edit');
 
 Route::post('/commands/{command}/update', 'CommandController@update')->name('commands.update');
 
-Route::get('/commands/{command}/editWithAddress', 'CommandController@editWithAddress')->name('commands.editFacturation');
-
+Route::get('/commands/{command}/editFacturation', 'CommandController@createAddress')->name('commands.editFacturation');
 Route::post('/commands/{command}/updateWithAddress', 'CommandController@updateWithAddress')->name('commands.updateWithAddress');
 
-//Route::resource('addresses', 'AddressController');
+Route::get('/commands/{command}/editDelivery', 'CommandController@createDeliveryWithAddress')->name('commands.editDelivery');
+Route::post('/commands/{command}/updateWithDelivery', 'CommandController@updateWithDelivery')->name('commands.updateWithDelivery');
+
+Route::get('/commands/{command}/editDeliveryRetrait', 'CommandController@createDeliveryWithAddressRetrait')->name('commands.editDeliveryRetrait');
+Route::post('/commands/{command}/updateWithDeliveryRetrait', 'CommandController@updateWithDeliveryRetrait')->name('commands.updateWithDeliveryRetrait');
+//Route::get('/commands/{command}/updateWithAddress1', 'DeliveryController@updateWithAddress1')->name('deliveries.updateWithAddress1');
+//Route::post('/commands/{command}/updateWithDeliveryWithAddress', 'CommandController@updateWithDeliveryWithAddress')->name('commands.updateWithDeliveryWithAddress');
 
 //Route::post('/commands/edit', 'AddressController@create');
 //Route::put('/commands/edit', 'AddressController@store');

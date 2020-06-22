@@ -52,9 +52,6 @@
                     <input type="text" name="country" placeholder="Pays">
                 </div>
                 <div>
-                    <input type="text" name="country" placeholder="Pays">
-                </div>
-                <div>
                     <input type="hidden" name="is_bill" value="1">
                 </div>
 

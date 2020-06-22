@@ -11,6 +11,8 @@ use App\Address;
 use App\Status;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
+use Illuminate\Support\Facades\Session;
+
 
 class CommandController extends Controller
 {
@@ -73,10 +75,11 @@ class CommandController extends Controller
     public function show($id, Request $request)
     {
         $command = Command::find($id);
-        $status = $command->status->name;
-        $delivery = $command->delivery->mode;
-        $delivery_address = $command->delivery->address;
-        $bill_address = $command->address;
+        if ($command->status_id!=null){$status = $command->status->name;}
+        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
+        if ($command->address_id!=null){$bill_address = $command->address;}
+
         $user = $command->user;
         $big_user = Auth::user();
 
@@ -114,12 +117,28 @@ class CommandController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithArticle(Request $request, Command $command)
+    {
+        $command->update($request->all());
+        //ceci est un test
+        $command->articles()->sync($request->articles);
+        return redirect()->route('commands.index');
+    }
+
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editWithAddress($id)
+    public function createAddress($id)
     {
         $command = Command::find($id);
         $statuses = Status::all();
@@ -129,14 +148,142 @@ class CommandController extends Controller
         return view('commands.editFacturation', compact('command','statuses', 'deliveries','users', 'address' ));
     }
 
-
-    public function updateWithAddress(Request $request, Command $command)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithAddress(Request $request, Command $command, Address $address)
     {
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $command->address_id = $address_id;
         $command->update($request->all());
-        Address::create($request->all());
-        return redirect()->route('commands.index')->withInput();
+        return redirect()->route('commands.index');
 
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createDeliveryWithAddress($id)
+    {
+        $command = Command::find($id);
+        $statuses = Status::all();
+        $users = User::all();
+        $delivery = new Delivery;
+        $address = new Address;
+        return view('commands.editDelivery', compact('command','statuses', 'delivery','users', 'address' ));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @param Delivery $delivery
+     * @return \Illuminate\Http\Response
+     */
+
+    public function updateWithDelivery(Request $request, Command $command, Address $address, Delivery $delivery)
+    {
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        //$inputs = $request->input();
+        //$delivery_id = $delivery::create($inputs)->id;
+        //$delivery->address_id = $address_id;
+        //$delivery::create($request->all());
+        $delivery->mode = $request -> input('mode');
+        $delivery->price = $request -> input('price');
+        $delivery->address_id = $address_id;
+        $delivery->save();
+
+        $delivery_id = $delivery->id;
+        $command->delivery_id = $delivery_id;
+        $command->update($request->all());
+        //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
+        //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
+        return redirect()->route('commands.index');
+
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createDeliveryWithAddressRetrait($id)
+    {
+        $command = Command::find($id);
+        $statuses = Status::all();
+        $users = User::all();
+        $delivery = new Delivery;
+        $addresses = Address::all();
+        return view('commands.editDeliveryRetrait', compact('command','statuses', 'delivery','users', 'addresses' ));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Command $command
+     * @param Address $address
+     * @param Delivery $delivery
+     * @return \Illuminate\Http\Response
+     */
+
+    public function updateWithDeliveryRetrait(Request $request, Command $command, Address $address, Delivery $delivery)
+    {
+        //$inputs = $request->input();
+        //$delivery_id = $delivery::create($inputs)->id;
+        //$delivery->address_id = $address_id;
+        //$delivery::create($request->all());
+        //$inputs = $request->input();
+        //$address_id = $address($inputs)->id;
+        //$delivery->mode = $request->input('mode');
+        //$delivery->price = $request->input('price');
+        //$delivery->address_id = $address->id;
+        //$delivery->save();
+        //$delivery_id = $delivery->id;
+
+        /*$delivery= Delivery::create(['mode'=> $request->input(),
+                          'price'=> $request->input(),
+                           'address_id'=> $address_id]);*/
+
+        /*$inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $command->address_id = $address_id;
+        $command->update($request->all());*/
+
+        //$delivery->mode = $request -> input('mode');
+        //$delivery->price = $request -> input('price');
+        //$delivery->address_id = $address->id;
+        //$delivery->save();
+        $inputs = $request->input();
+        $delivery_id = $delivery::create($inputs)->id;
+
+        //$delivery_id = $delivery->id;
+        $command->delivery_id = $delivery_id;
+        $command->total = $request->input('total');
+        $command->save();
+
+        //$command->delivery_id = $delivery_id;
+        //$command->update($request->all());
+        //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
+        //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
+        return redirect()->route('commands.index');
+
+    }
+
         /**
      * Update the specified resource in storage.
      *

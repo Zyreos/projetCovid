@@ -39,6 +39,4 @@
         <a href="/commands"> Annuler </a>
 
     </form>
-
-
 @endsection

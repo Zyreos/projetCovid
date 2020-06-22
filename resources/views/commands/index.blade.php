@@ -40,5 +40,4 @@
             @endforeach
         </ul>
     @endforeach
-    <h1>value="{{ old('postcode') }}"</h1>
 @endsection
