@@ -63,14 +63,7 @@ class ArticleController extends Controller
     public function show($id)
     {
         $commands = Command::all();
-        /*foreach ($commands as $command) {
 
-            if ($command->user_id == Auth::id() && $command->status_id == '1') {
-                $good_command = $command;
-            } elseif (Auth::user() && !($command->status_id == 1)) {
-                redirect()->action();
-            }
-        }*/
         //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
         $article = Article::find($id);
         $category = $article->category->name;
@@ -101,6 +94,19 @@ class ArticleController extends Controller
     {
         $article->update($request->all());
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateQuantity(Request $request, Article $article)
+    {
+        $article->update($request->quantity);
+        return redirect()->route('commands.basket');
     }
 
     /**

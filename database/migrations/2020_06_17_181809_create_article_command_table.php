@@ -16,7 +16,8 @@ class CreateArticleCommandTable extends Migration
         Schema::create('article_command', function (Blueprint $table) {
             $table->bigIncrements('id');
             //retirer le nullable
-            $table->integer("total_order")->nullable();
+            $table->integer('total_order')->nullable();
+
             $table->timestamps();
 
             $table->bigInteger('command_id')->unsigned();

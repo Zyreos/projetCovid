@@ -52,7 +52,7 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Resquest $request)
+    public function store(Request $request)
     {
         //$command = new Command();
         //$command->user_id = Auth::id();
@@ -60,10 +60,24 @@ class CommandController extends Controller
         //ceci est le code qui fonctionne sans les articles
         //1Command::create($request->all());
         //ceci est un test pour la relation avec article
-        $command = Command::create(['status_id' => $request->input('1'),
+
+        $command = Command::create(['status_id' => 1,
                                     'user_id' => Auth::id()]);
-        $command->articles()->attach($request->articles);
+
+        $article = Article::findOrFail($request->id);
+        $article_quantity = Article::findOrFail($request->quantity);
+        $command->articles()->attach($article);
         return redirect()->route('commands.index');
+    }
+
+    public function basket($id) {
+        $command = Command::find($id);
+        $user = $command->user;
+
+        $articles = $command->articles;
+;
+
+        return view('commands.basket',compact('command','user','articles'));
     }
 
     /**
