@@ -1,5 +1,5 @@
 @import 'general';
-@import 'nav_bar';
+
 
 .footer
 {
@@ -60,18 +60,20 @@
 }*/
 
 @media screen and (max-width: 1199px) {
-    .logo
-    {
-        background-color: $white;
-        width: 520px;
 
-    }
 
     .social {
         display: none;
     }
 
+}
 
+@media screen and (max-width: 710px){
 
+    .footer_links a
+    {
+        font-size: 10px;
+        margin-right: 2px;
+    }
 
 }

@@ -93,9 +93,9 @@
             <div id="image1" class="article_image"></div>
             <hr class="article_lign">
             <div class="article_info">
-                <h1>{{ $article->name }}</h1>
-                <h3>{{ $article->dimensions }}</h3>
-                <h2>{{ $article->price }} €</h2>
+                <h1 class="name" >{{ $article->name }}</h1>
+                <h3 class="dimension">{{ $article->dimensions }}</h3>
+                <h2 class="price">{{ $article->price }} €</h2>
             </div>
             <div class="buy_button">
                 <a href="#"><button>Ajouter au panier</button></a>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcomeLaravel');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -28,6 +28,8 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/welcome', 'ArticleController');
 
 Route::resource('articles', 'ArticleController');
+
+Route::get('/', 'ArticleController@index')->name('welcome');
 
 
 Route::resource('categories','CategoryController');

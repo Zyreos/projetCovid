@@ -2,26 +2,27 @@
 @import 'nav_bar';
 @import 'footer';
 
-.categ_images
-{
-    display: flex;
-    margin-left: 10%;
-}
 
-.categ_images img
-{
-    margin: 3% 3% 1%;
-    border: solid;
-    border-color: $grey;
-}
-
-.categ_buttons
+.categ_container
 {
     display: flex;
     justify-content: space-evenly;
 }
 
-.categ_buttons button
+.categ_image
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3% 0 1% 0;
+}
+
+.categ_image img
+{
+    border: solid $grey;
+}
+
+.categ_image button
 {
     background-color: $red;
     color: $white;
@@ -38,7 +39,7 @@
     align-content: center;
     background-color: $grey;
     height: 2px;
-    width: 1455px;
+    width: 90%;
     margin: 50px auto 50px auto;
 }
 
@@ -51,13 +52,14 @@
 
 .article
 {
+    display: flex;
+    flex-direction: column;
     background-color: $white;
     border: 2px solid $grey;
     width: 460px;
     height: 560px;
     padding: 20px;
     margin: 20px 60px 70px 70px;
-
 }
 
 .article_image
@@ -67,7 +69,6 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 20px;
     display: block;
     margin: 0 auto;
 }
@@ -108,9 +109,37 @@
     width: 150px;
     height: 50px;
     font-size: 16px;
+    font-weight: bold;
 }
 
-/*@media screen and (max-width: 767px) {
+.name
+{
+    margin: 15px;
+    font-size: $lato-normal;
+}
+
+.price
+{
+    font-size: $lato-normal;
+    font-weight: bold;
+    margin: 30px auto 20px auto;
+}
+
+.dimension
+{
+    margin: 5px;
+    font-size: $lato-small;
+}
+
+
+@media screen and (max-width: 805px) {
+    .categ_container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 805px) {
     .article {
         width: fit-content;
     }
@@ -119,14 +148,14 @@
         flex-direction: column;
         align-items: center;
     }
-}*/
+}
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1225px) {
 
-    .categ_img
+    .categ_image img
     {
-        width: 100px;
-        height: 100px;
+        width: 256px;
+        height: 183px;
     }
 
 }

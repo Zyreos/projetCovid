@@ -112,12 +112,49 @@
     font-weight: bold;
 }
 
+.name
+{
+    margin: 15px;
+    font-size: $lato-normal;
+}
+
+.price
+{
+    font-size: $lato-normal;
+    font-weight: bold;
+    margin: 30px auto 20px auto;
+}
+
+.dimension
+{
+    margin: 5px;
+    font-size: $lato-small;
+}
+
+
+@media screen and (max-width: 800px) {
+    .categ_container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .article {
+        width: fit-content;
+    }
+
+    .articles-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 @media screen and (max-width: 1225px) {
 
     .categ_image img
     {
-        width: 306px;
+        width: 256px;
         height: 183px;
     }
 
