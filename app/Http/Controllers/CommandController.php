@@ -26,9 +26,8 @@ class CommandController extends Controller
         $commands = Command::all();
         $statuses = Status::all();
         $deliveries = Delivery::all();
-        $addresses = Address::all();
         $users = User::all();
-        return view('commands.index', compact('commands','statuses', 'deliveries','addresses','users' ));
+        return view('commands.index', compact('commands','statuses', 'deliveries','users' ));
     }
 
     /**
@@ -135,8 +134,10 @@ class CommandController extends Controller
     public function createAddress($id)
     {
         $command = Command::find($id);
+        $statuses = Status::all();
+        $users = User::all();
         $address = new Address;
-        return view('commands.editFacturation', compact('command',  'address' ));
+        return view('commands.editFacturation', compact('command','statuses','users', 'address' ));
     }
 
     /**
@@ -151,7 +152,7 @@ class CommandController extends Controller
     {
         $inputs = $request->input();
         $address_id = $address::create($inputs)->id;
-        $command->address_id = $address_id;
+        $command->addresses()->attach($address_id);
         $command->update($request->all());
         return redirect()->route('commands.index');
 

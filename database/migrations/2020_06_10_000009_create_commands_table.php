@@ -25,8 +25,8 @@ class CreateCommandsTable extends Migration
             $table->foreign('delivery_id')->references('id')->on('deliveries');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedbigInteger('address_id')->unsigned()->nullable();
-            $table->foreign('address_id')->references('id')->on('addresses');
+            //$table->unsignedbigInteger('address_id')->unsigned()->nullable();
+            //$table->foreign('address_id')->references('id')->on('addresses');
 
         });
     }

@@ -20,7 +20,7 @@ class Address extends Model
 
     public function commands()
     {
-        return $this->hasMany('App\Command');
+        return $this->belongsToMany('App\Command');
     }
 
     /*public function delivery()
