@@ -13,43 +13,42 @@
     </div>
 
     <h1 class="t1">Adrese de Facturation</h1>
-    <hr>
-
+    <hr>ll
 
     <form action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
         @csrf
 
         <div>
             <label>Prénom
-                <input type="text" name="first_name" value="{{Auth::name()}}">
+                <input type="text" name="first_name" value="Jolie">
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="{{Auth::name()}}">
+                <input type="text" name="last_name" value="Pute">
             </label>
 
             <label>Téléphone
-                <input type="number" name="phone_number" value="{{Auth::phone_number()}}">
+                <input type="number" name="phone_number" value="0123456789">
             </label>
 
             <label>Adresse 1
-                <input type="text" name="address1"  placeholder="Addresse 1">
+                <input type="text" name="address1">
             </label>
 
             <label>Adresse2
-                <input type="text" name="address2" placeholder="Addresse 2">
+                <input type="text" name="address2">
             </label>
 
             <label>Ville
-                <input type="text" name="city" placeholder="Ville">
+                <input type="text" name="city">
             </label>
 
             <label>Code Postal
-                <input type="number" name="postcode" placeholder="Code postal">
+                <input type="number" name="postcode">
             </label>
 
             <label>Pays
-                <input type="text" name="country" placeholder="Pays">
+                <input type="text" name="country">
             </label>
         </div>
 

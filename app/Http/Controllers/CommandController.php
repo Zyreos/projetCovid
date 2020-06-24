@@ -125,11 +125,8 @@ class CommandController extends Controller
     public function createAddress($id)
     {
         $command = Command::find($id);
-        $statuses = Status::all();
-        $deliveries = Delivery::all();
-        $users = User::all();
         $address = new Address;
-        return view('commands.editFacturation', compact('command','statuses', 'deliveries','users', 'address' ));
+        return view('commands.editFacturation', compact('command',  'address' ));
     }
 
     /**
