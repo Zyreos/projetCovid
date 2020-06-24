@@ -52,7 +52,7 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Resquest $request)
+    public function store(Request $request)
     {
         //$command = new Command();
         //$command->user_id = Auth::id();
@@ -74,7 +74,7 @@ class CommandController extends Controller
      */
     public function show($id, Request $request)
     {
-        $command = Command::find($id);
+        /*$command = Command::find($id);
         if ($command->status_id!=null){$status = $command->status->name;}
         if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
         if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
@@ -84,8 +84,18 @@ class CommandController extends Controller
         $big_user = Auth::user();
 
         //ceci est un test pour la relation avec article
-        $command->with('articles')->get();
-        return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
+        $command->with('articles')->get();*/
+        //return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
+
+        $command = Command::find($id);
+        $command->with('addresses')->get();
+
+        if ($command->status_id!=null){$status = $command->status->name;}
+        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        $user = $command->user;
+
+        return view('commands.show', compact('command', 'status', 'delivery', 'user'));
+
     }
 
     /**
