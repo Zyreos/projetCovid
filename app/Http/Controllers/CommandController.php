@@ -85,7 +85,7 @@ class CommandController extends Controller
 
         //ceci est un test pour la relation avec article
         $command->with('articles')->get();
-        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
+        return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
     }
 
     /**
@@ -115,7 +115,7 @@ class CommandController extends Controller
         $command->update($request->all());
         return redirect()->route('commands.index');
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
