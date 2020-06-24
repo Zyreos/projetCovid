@@ -33,7 +33,7 @@
             <label>Livraison à Domicile</label>
         </div>
         <div>
-            <input type="radio" name="mode" value="retrait" id="chk2" checked>
+            <input type="radio" name="delivery" value="retrait" id="chk2" checked>
             <label>Livraison en retrait</label>
         </div>
         <script type="text/javascript">
@@ -49,11 +49,11 @@
 
         <label class="label"> Addresses disponibles :</label>
         <div class="select">
-            <select name="address_id">
+            <select name="id">
                 @foreach($addresses as $address)
                     <option value="{{ $address->id }}">{{ $address->address1}}</option>
                 @endforeach
-            </select>
+            </select name="id">
         </div>
 
         <button type="submit"> Ajouter </button>

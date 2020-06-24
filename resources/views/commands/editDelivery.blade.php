@@ -17,11 +17,12 @@
         @csrf
 
 
-            <input type="radio" name="mode" value="domicile" id="chk1" checked>
+            <input type="radio" name="delivery_id" value="{{$goodDelivery->id}}" id="chk1" checked>
             <label>Livraison à Domicile</label>
 
-            <input type="radio" name="mode" value="retrait" id="chk2" >
+            <input type="radio" name="mode" id="chk2" >
             <label>Livraison en retrait</label>
+
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -32,6 +33,17 @@
         </script>
 
         <div>
+            <label>Prénom
+                <input type="text" name="first_name" value="Jolie">
+            </label>
+
+            <label>Nom
+                <input type="text" name="last_name" value="Pute">
+            </label>
+
+            <label>Téléphone
+                <input type="number" name="phone_number" value="0123456789">
+            </label>
 
             <label> Adresse 1
                 <input type="text" name="address1"  placeholder="Addresse 1">
