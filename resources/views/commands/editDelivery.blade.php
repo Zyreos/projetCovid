@@ -1,40 +1,47 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/editFacturation.css') }}" />
 @endsection
 
 @section('content')
 
-    <div>
-    <h1>1 LIVRAISON</h1>
-    <h3>2 PAIEMENT</h3>
-    <h3>3 VERIFICATION</h3>
+    <div class="command_steps">
+        <h1 class="off_step">1 LIVRAISON</h1>
+        <h3 class="current_step">2 PAIEMENT</h3>
+        <h3 class="off_step">3 VERIFICATION</h3>
     </div>
-    <hr>
+    <hr class="little_hr">
 
-    <h2>Adresse de livraison</h2>
-    <hr>
-    <section>
+    <!--<div class="title_group">
+    <h2 class="title">Adresse de livraison</h2>
+    <hr class="under_title">
+    </div>-->
+
+
     <form action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
         @csrf
 
-            <input type="radio" name="delivery_id" value="{{$goodDelivery->id}}" id="chk1" checked>
-            <label>Livraison à Domicile</label>
 
-            <input type="radio" name="mode" id="chk2" >
-            <label>Livraison en retrait</label>
+        <section class="global_body">
+        <div class="create_address">
+            <div class="title_group">
+                <h2 class="title">Adresse de livraison</h2>
+                <hr class="under_title">
+            </div>
+            <div class="choice">
 
+                <input type="radio" name="delivery_id" value="{{$goodDelivery->id}}" id="chk1" checked><label for="chk1">Livraison à Domicile</label>
+                <input type="radio" name="mode" id="chk2" ><label for="chk2">Livraison en retrait</label>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#chk2').click(function(){
+                            window.location.href = "{{ route('commands.editDeliveryRetrait', [$command->id])}}";
+                        });
+                    });
+                </script>
+            </div>
 
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#chk2').click(function(){
-                    window.location.href = "{{ route('commands.editDeliveryRetrait', [$command->id])}}";
-                });
-            });
-        </script>
-
-        <div>
             <label>Prénom
                 <input type="text" name="first_name" value="Jolie">
             </label>
@@ -71,23 +78,18 @@
 
         </div>
 
-        <div>
-            <h2>Récapitulatif de la commande</h2>
+        <div class="recap_div">
 
-            <p>Sous-total : {{$command->total}} € </p>
-            <p>Livraison : {{$goodDelivery->price}}€</p>
-
-            <input type="hidden" name="price" value="10">
-
-            <hr>
-            <p>TOTAL : {{$command->total + $goodDelivery->price}} €</p>
+            <h2 class="sec_title">Récapitulatif de la commande</h2>
+            <p class="global_infos">Sous-total :</p><p class="global_infos">{{$command->total}} € </p>
+            <p class="global_infos">Livraison :</p><p class="global_infos">{{$goodDelivery->price}}€</p>
+            <hr class="recap_hr">
+            <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total + $goodDelivery->price}} €</p>
 
             <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
-            <button type="submit"> Continuer </button>
+            <button class="submit_button" type="submit"> CONTINUER </button>
 
         </div>
-
-
 
     </form>
     </section>
