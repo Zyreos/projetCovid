@@ -6,36 +6,22 @@
 
 @section('content')
 
-<h1 class="t1">Edition d'une commande</h1>
+    <h1>1 LIVRAISON</h1>
+    <h3>2 PAIEMENT</h3>
+    <h3>3 VERIFICATION</h3>
 
+    <h2>Adresse de livraison</h2>
+    <hr>
+    <section>
     <form action="{{ route('commands.updateWithDeliveryRetrait', $command) }}" method="POST" >
         @csrf
-        <div>
-            <input type="date" name="date_validation" placeholder="Date de validation">
-        </div>
 
-        <div>
-            <input type="number" name="total" placeholder="Total">
-        </div>
-
-        <label class="label">Statut</label>
-        <div class="select">
-            <select name="status_id">
-                @foreach($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <h1>Sélection du mode livraison</h1>
-        <div>
-            <input type="radio" name="mode" value="domicile" id="chk1">
+            <input type="radio" name="mode" id="chk1">
             <label>Livraison à Domicile</label>
-        </div>
-        <div>
-            <input type="radio" name="delivery" value="retrait" id="chk2" checked>
-            <label>Livraison en retrait</label>
-        </div>
+
+            <input type="radio" name="delivery_id" value="{{$goodDelivery->id}}" id="chk2" checked>
+            <label>Livraison en Retrait</label>
+
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#chk1').click(function(){
@@ -43,24 +29,35 @@
                 });
             });
         </script>
-        <div>
-            <input type="number" name="price" placeholder="Prix" value="7">
-        </div>
+        <hr>
 
-        <label class="label"> Addresses disponibles :</label>
+        <div>
+        <h3>Sélectionner votre mode de livraison</h3>
         <div class="select">
             <select name="id">
                 @foreach($addresses as $address)
                     <option value="{{ $address->id }}">{{ $address->address1}}</option>
                 @endforeach
-            </select name="id">
+            </select>
+        </div>
+        </div>
+        <div>
+            <h2>Récapitulatif de la commande</h2>
+
+            <p>Sous-total : {{$command->total}} € </p>
+            <p>Livraison : {{$goodDelivery->price}}€</p>
+
+            <input type="hidden" name="price" value="10">
+
+            <hr>
+            <p>TOTAL : {{$command->total + $goodDelivery->price}} €</p>
+
+            <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
+            <button type="submit"> Continuer </button>
         </div>
 
-        <button type="submit"> Ajouter </button>
-        <a href="/commands"> Annuler </a>
-
     </form>
-
+</section>
 
 @endsection
 
