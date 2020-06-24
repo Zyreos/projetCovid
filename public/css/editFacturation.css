@@ -69,7 +69,15 @@ body {
   margin-left: 30px;
 }
 
-.global_body form {
+.title_group {
+  width: 50%;
+}
+
+.create_address {
+  width: 50%;
+}
+
+.global_body {
   display: flex;
   justify-content: space-around;
 }
@@ -132,4 +140,4 @@ body {
   margin-left: 30px;
 }
 
-/*# sourceMappingURL=editfacturation.css.map */
+/*# sourceMappingURL=editFacturation.css.map */

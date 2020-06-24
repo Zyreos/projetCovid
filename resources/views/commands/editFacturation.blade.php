@@ -13,15 +13,26 @@
     </div>
     <hr class="little_hr">
 
+    <!-- A supprimer car je l'ai déplacé
     <h1 class="title">Adresse de Facturation</h1>
-    <hr class="under_title">
+    <hr class="under_title"> -->
 
-<section class="global_body">
+<section >
 
-    <form action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
+    <form class="global_body" action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
         @csrf
 
+
+
         <div class="create_address">
+
+            <!-- j'ai ajouté une classe et modifié l'emplacement-->
+            <div class="title_group">
+                <h2 class="title">Adresse de livraison</h2>
+                <hr class="under_title">
+            </div>
+
+
             <label>Prénom
                 <input type="text" name="first_name" value="Jolie">
             </label>
@@ -64,7 +75,7 @@
             <h2 class="sec_title">Récapitulatif de la commande</h2>
             <hr class="recap_hr">
             <div class="global_infos_div">
-                <p class="global_infos">TOTAL:</p><p class="global_infos">{{$command->total}}</p>
+                <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
             </div>
             <input type="hidden" name="total" value="{{$command->total}}">
             <button class="submit_button" type="submit"> CONTINUER </button>

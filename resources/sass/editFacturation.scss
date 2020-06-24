@@ -62,11 +62,26 @@
     margin-left: 30px;
 }
 
-.global_body form
+//j'ai ajouté ceci
+.title_group
+{
+    width: 50%;
+}
+
+.create_address
+{
+    width: 50%;
+}
+
+//
+
+.global_body
 {
     display: flex;
     justify-content: space-around;
 }
+
+
 
 .create_address label
 {
@@ -133,5 +148,4 @@
     height: 235px;
     margin-left: 30px;
 }
-
 
