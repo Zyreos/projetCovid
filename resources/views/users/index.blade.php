@@ -1,7 +1,7 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/index_users.css') }}" />
 @endsection
 
 @section('content')
@@ -9,7 +9,8 @@
     @foreach ($users as $user)
         <h1> User {{ $user->id }} </h1>
         <ul>
-            <li>Nom: {{ $user->name }}</li>
+            <li>Nom: {{ $user->last_name }}</li>
+            <li>Prénom: {{ $user->first_name }}</li>
             <li>E-mail: {{ $user->email }}</li>
             <li>Entreprise: {{ $user->company }}</li>
             <li>Numéro de téléphone {{ $user->phone_number }}</li>

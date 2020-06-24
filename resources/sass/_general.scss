@@ -1,33 +1,21 @@
 @import 'variables';
 
-* 
+*
 {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
+html
+{
+    height: 100%;
+}
+
 body
 {
+    min-height:100%;
+    position: relative;
     background-color: $creme;
     font-family: $lato;
-}
-
-h1 
-{
-    margin: 15px;
-    font-size: $lato-normal;
-}
-
-h2 
-{
-    font-size: $lato-normal;
-    font-weight: bold;
-    margin: 30px auto 20px auto;
-}
-
-h3 
-{ 
-    margin: 5px;
-    font-size: $lato-small;
 }
