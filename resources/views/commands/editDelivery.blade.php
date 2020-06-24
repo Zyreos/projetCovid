@@ -1,14 +1,14 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/editFacturation.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/editDelivery.css') }}" />
 @endsection
 
 @section('content')
 
     <div class="command_steps">
-        <h1 class="off_step">1 LIVRAISON</h1>
-        <h3 class="current_step">2 PAIEMENT</h3>
+        <h1 class="current_step">1 LIVRAISON</h1>
+        <h3 class="off_step">2 PAIEMENT</h3>
         <h3 class="off_step">3 VERIFICATION</h3>
     </div>
     <hr class="little_hr">
@@ -81,10 +81,16 @@
         <div class="recap_div">
 
             <h2 class="sec_title">Récapitulatif de la commande</h2>
+            <div class="global_infos_div">
             <p class="global_infos">Sous-total :</p><p class="global_infos">{{$command->total}} € </p>
+            </div>
+                <div class="global_infos_div">
             <p class="global_infos">Livraison :</p><p class="global_infos">{{$goodDelivery->price}}€</p>
+                </div>
             <hr class="recap_hr">
+                    <div class="global_infos_div">
             <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total + $goodDelivery->price}} €</p>
+                    </div>
 
             <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
             <button class="submit_button" type="submit"> CONTINUER </button>

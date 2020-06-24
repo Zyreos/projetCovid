@@ -45,12 +45,15 @@
     font-size: $lato-big;
     color: $black;
     margin-left: 40px;
+    //et ceci qui empêche d'aller à la ligne
+    white-space: nowrap;
+    //
 }
 
 .sec_title
 {
     font-size: $lato-big;
-    color: black;
+    color: $black;
     margin-left: 40px;
 }
 

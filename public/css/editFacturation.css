@@ -54,11 +54,12 @@ body {
   font-size: 30px;
   color: #57575F;
   margin-left: 40px;
+  white-space: nowrap;
 }
 
 .sec_title {
   font-size: 30px;
-  color: black;
+  color: #57575F;
   margin-left: 40px;
 }
 
