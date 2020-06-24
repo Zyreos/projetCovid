@@ -31,9 +31,9 @@ class Command extends Model
         return $this->belongsTo('App\Delivery');
     }
 
-    public function address()
+    public function addresses()
     {
-        return $this->belongsTo('App\Address');
+        return $this->belongsToMany('App\Address');
     }
 
     public function articles()
