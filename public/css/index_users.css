@@ -26,6 +26,92 @@ h3 {
   color: #57575F;
 }
 
+.nav_bar {
+  display: flex;
+  background-color: #CE1126;
+  height: 100px;
+  top: 0;
+}
+
+.links {
+  display: flex;
+  width: 20%;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.links a {
+  font-family: "Lato", sans-serif;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.logo {
+  width: 625px;
+  height: 100px;
+}
+
+.auth {
+  display: flex;
+  margin-left: 25%;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  padding: 20px;
+}
+
+.auth img {
+  width: 55px;
+  height: 55px;
+}
+
+@media screen and (max-width: 1199px) {
+  .nav_bar {
+    background-color: #FFFFFF;
+  }
+  .nav_bar .links {
+    display: none;
+  }
+  .nav_bar .auth {
+    display: none;
+  }
+  .nav_bar .logo {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    top: 0;
+  }
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  margin: 15px;
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 30px auto 20px auto;
+}
+
+h3 {
+  margin: 5px;
+  font-size: 16px;
+  color: #57575F;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -155,4 +241,4 @@ h3 {
   }
 }
 
-/*# sourceMappingURL=footer.css.map */
+/*# sourceMappingURL=index_users.css.map */
