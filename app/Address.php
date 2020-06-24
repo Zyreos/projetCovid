@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
+        'first_name',
+        'last_name',
+        'phone_number',
         'address1',
         'address2',
         'postcode',
@@ -15,14 +18,14 @@ class Address extends Model
         'is_bill'
     ];
 
-    public function command()
+    public function commands()
     {
-        return $this->hasOne('App\Command');
+        return $this->hasMany('App\Command');
     }
 
-    public function delivery()
+    /*public function delivery()
     {
         return $this->hasOne('App\Delivery');
-    }
+    }*/
 
 }

@@ -6,36 +6,23 @@
 
 @section('content')
 
-    <h1 class="t1">Edition d'une commande</h1>
+    <h1>1 LIVRAISON</h1>
+    <h3>2 PAIEMENT</h3>
+    <h3>3 VERIFICATION</h3>
 
+    <h2>Adresse de livraison</h2>
+    <hr>
+    <section>
     <form action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
         @csrf
-        <div>
-            <input type="date" name="date_validation" placeholder="Date de validation">
-        </div>
 
-        <div>
-            <input type="number" name="total" placeholder="Total">
-        </div>
 
-        <label class="label">Statut</label>
-        <div class="select">
-            <select name="status_id">
-                @foreach($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <h1>Sélection du mode livraison</h1>
-        <div>
             <input type="radio" name="mode" value="domicile" id="chk1" checked>
             <label>Livraison à Domicile</label>
-        </div>
-        <div>
-            <input type="radio" name="mode" value="retrait"id="chk2" >
+
+            <input type="radio" name="mode" value="retrait" id="chk2" >
             <label>Livraison en retrait</label>
-        </div>
+
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#chk2').click(function(){
@@ -43,37 +30,53 @@
                 });
             });
         </script>
+
         <div>
-            <input type="number" name="price" placeholder="Prix" value="7">
+
+            <label> Adresse 1
+                <input type="text" name="address1"  placeholder="Addresse 1">
+            </label>
+
+            <label> Adresse 2
+                <input type="text" name="address2" placeholder="Addresse 2">
+            </label>
+
+            <label> Code postal
+                <input type="number" name="postcode" placeholder="Code postal">
+            </label>
+
+            <label> Ville
+                <input type="text" name="city" placeholder="Ville">
+            </label>
+
+            <label> Pays
+                <input type="text" name="country" placeholder="Pays">
+            </label>
+
+            <input type="hidden" name="is_bill" value="0">
+
         </div>
 
-        <h1 class="t1">Création d'une addresse de livraison à domicile </h1>
         <div>
-            <input type="text" name="address1"  placeholder="Addresse 1">
-        </div>
-        <div>
-            <input type="text" name="address2" placeholder="Addresse 2">
-        </div>
-        <div>
-            <input type="number" name="postcode" placeholder="Code postal">
-        </div>
-        <div>
-            <input type="text" name="city" placeholder="Ville">
-        </div>
-        <div>
-            <input type="text" name="country" placeholder="Pays">
-        </div>
-        <div>
-            <input type="hidden" name="is_bill" value="1">
+            <h2>Récapitulatif de la commande</h2>
+
+            <p>Sous-total : {{$command->total}} € </p>
+            <p>Livraison : 10€</p>
+
+            <input type="hidden" name="price" value="10">
+
+            <hr>
+            <p>TOTAL : {{$command->total + 10}} €</p>
+
+            <input type="hidden" name="total" value="{{$command->total + 10}}">
+            <button type="submit"> Continuer </button>
+
         </div>
 
 
-
-        <button type="submit"> Ajouter </button>
-        <a href="/commands"> Annuler </a>
 
     </form>
-
+    </section>
 
 @endsection
 
