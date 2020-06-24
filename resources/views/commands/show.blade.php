@@ -24,7 +24,6 @@
         <li>Code postal: {{$address->postcode}}</li>
         <li>Ville: {{$address->city}}</li>
         <li>Pays: {{$address->country}}</li>
-        <li>{{$big_user}}</li>
         <br/>
             @endif
         @endforeach
