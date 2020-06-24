@@ -21,15 +21,15 @@
 
         <div>
             <label>Prénom
-                <input type="text" name="first_name" value="{{Auth::name()}}">
+                <input type="text" name="first_name" value="Jolie">
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="{{Auth::name()}}">
+                <input type="text" name="last_name" value="Pute">
             </label>
 
             <label>Téléphone
-                <input type="number" name="phone_number" value="{{Auth::phone_number()}}">
+                <input type="number" name="phone_number" value="0123456789">
             </label>
 
             <label>Adresse 1
