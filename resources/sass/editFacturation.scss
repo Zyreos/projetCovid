@@ -157,5 +157,16 @@
     {
         flex-direction: column;
     }
+
+    .create_address label
+    {
+        font-size: $lato-normal;
+    }
+
+    .recap_div
+    {
+        margin-top: 10px;
+        margin-left: 30px;
+    }
 }
 

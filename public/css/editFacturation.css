@@ -152,6 +152,15 @@ body {
   .global_body {
     flex-direction: column;
   }
+
+  .create_address label {
+    font-size: 22px;
+  }
+
+  .recap_div {
+    margin-top: 10px;
+    margin-left: 30px;
+  }
 }
 
 /*# sourceMappingURL=editFacturation.css.map */
