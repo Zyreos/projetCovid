@@ -73,7 +73,7 @@
             <div class="global_infos_div">
                 <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
             </div>
-            <input type="hidden" name="total" value="{{$command->total}}">
+            <input type="hidden" name="total" value="{{$command->total}}€">
             <button class="submit_button" type="submit"> CONTINUER </button>
         </div>
 
