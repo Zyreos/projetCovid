@@ -12,7 +12,6 @@ class Command extends Model
         'status_id',
         'delivery_id',
         'user_id',
-        'address_id'
 
     ];
 

@@ -15,7 +15,8 @@ class Address extends Model
         'postcode',
         'city',
         'country',
-        'is_bill'
+        'is_bill',
+        'delivery_id'
     ];
 
     public function commands()
