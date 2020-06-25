@@ -23,9 +23,9 @@ class Address extends Model
         return $this->belongsToMany('App\Command');
     }
 
-    /*public function delivery()
+    public function delivery()
     {
-        return $this->hasOne('App\Delivery');
-    }*/
+        return $this->belongsTo('App\Delivery');
+    }
 
 }

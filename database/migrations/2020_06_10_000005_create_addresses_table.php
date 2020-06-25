@@ -26,8 +26,8 @@ class CreateAddressesTable extends Migration
             $table->boolean('is_bill');
             $table->timestamps();
 
-            $table->bigInteger('deliveries_id')->unsigned()->nullable();
-            $table->foreign('deliveries_id')->references('id')->on('deliveries');
+            $table->bigInteger('delivery_id')->unsigned()->nullable();
+            $table->foreign('delivery_id')->references('id')->on('deliveries');
 
         });
     }
