@@ -7,38 +7,31 @@
 @section('content')
 
     <div class="command_steps">
-    <h3 class="off_step">1 LIVRAISON</h3>
-    <h1 class="current_step">2 PAIEMENT</h1>
-    <h3 class="off_step">3 VERIFICATION</h3>
+        <h3 class="off_step">1 LIVRAISON</h3>
+        <h1 class="current_step">2 PAIEMENT</h1>
+        <h3 class="off_step">3 VERIFICATION</h3>
     </div>
     <hr class="little_hr">
 
-    <!-- A supprimer car je l'ai déplacé
-    <h1 class="title">Adresse de Facturation</h1>
-    <hr class="under_title"> -->
-
-<section >
+<section>
 
     <form class="global_body" action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
         @csrf
-
-
 
         <div class="create_address">
 
             <!-- j'ai ajouté une classe et modifié l'emplacement-->
             <div class="title_group">
-                <h2 class="title">Adresse de livraison</h2>
+                <h2 class="title">Adresse de facturation</h2>
                 <hr class="under_title">
             </div>
-
 
             <label>Prénom
                 <input type="text" name="first_name" value="Jolie">
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="Pute">
+                <input type="text" name="last_name" value="Madame">
             </label>
 
             <label>Téléphone
@@ -69,6 +62,9 @@
 
             <hr class="under_title">
 
+            <h2 class="sec_title">Information de paiement</h2>
+            <img class="paypal_img" src="/img/Paypal.png" alt="PayPayl_img">
+
         </div>
 
         <div class="recap_div">
@@ -81,12 +77,9 @@
             <button class="submit_button" type="submit"> CONTINUER </button>
         </div>
 
-
-
     </form>
 </section>
-    <h2 class="sec_title">Information de paiement</h2>
-    <img class="paypal_img" src="/img/Paypal.png">
+
 
 @endsection
 
