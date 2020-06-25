@@ -1,6 +1,6 @@
 @import "general";
 
-.command_steps
+.command-steps
 {
     margin-left: auto;
     margin-right: auto;
@@ -10,19 +10,19 @@
     align-items: center;
 }
 
-.current_step
+.current-step
 {
     font-size: $lato-normal;
     color: $black;
 }
 
-.off_step
+.off-step
 {
     font-size: $lato-small;
     color: $grey;
 }
 
-.little_hr
+.little-hr
 {
     margin-left: auto;
     margin-right: auto;
@@ -31,7 +31,7 @@
     background: $red;
 }
 
-.recap_hr
+.recap-hr
 {
     width: 440px;
     height: 2px;
@@ -50,14 +50,14 @@
     //
 }
 
-.sec_title
+.sec-title
 {
     font-size: $lato-big;
     color: $black;
     margin-left: 40px;
 }
 
-.under_title
+.under-title
 {
     width: 800px;
     height: 2px;
@@ -66,19 +66,19 @@
 }
 
 //j'ai ajouté ceci
-.title_group
+.title-group
 {
     width: 50%;
 }
 
-.create_address
+.create-address
 {
     width: 50%;
 }
 
 //
 
-.global_body
+.global-body
 {
     display: flex;
     justify-content: space-around;
@@ -86,7 +86,7 @@
 
 
 
-.create_address label
+.create-address label
 {
     font-size: $lato-small;
     color: $black;
@@ -94,7 +94,7 @@
     margin-left: 20px;
 }
 
-.create_address input
+.create-address input
 {
     width: 800px;
     height: 60px;
@@ -105,7 +105,7 @@
     margin-top: 10px;
 }
 
-.recap_div
+.recap-div
 {
     width: 600px;
     height: 250px;
@@ -118,7 +118,7 @@
     align-items: center;
 }
 
-.global_infos_div
+.global-infos-div
 {
     width: 440px;
     display: flex;
@@ -126,13 +126,13 @@
     margin: 0;
 }
 
-.global_infos
+.global-infos
 {
     font-size: $lato-normal;
     color: $black;
 }
 
-.submit_button
+.submit-button
 {
     background-color: $red;
     color: $white;
@@ -145,7 +145,7 @@
     font-weight: bold;
 }
 
-.paypal_img
+.paypal-img
 {
     width: 238px;
     height: 235px;
@@ -153,17 +153,17 @@
 }
 
 @media screen and (max-device-width: 800px) {
-    .global_body
+    .global-body
     {
         flex-direction: column;
     }
 
-    .create_address label
+    .create-address label
     {
         font-size: $lato-normal;
     }
 
-    .recap_div
+    .recap-div
     {
         margin-top: 10px;
         margin-left: 30px;

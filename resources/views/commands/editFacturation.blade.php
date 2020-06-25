@@ -6,24 +6,24 @@
 
 @section('content')
 
-    <div class="command_steps">
-        <h3 class="off_step">1 LIVRAISON</h3>
-        <h1 class="current_step">2 PAIEMENT</h1>
-        <h3 class="off_step">3 VERIFICATION</h3>
+    <div class="command-steps">
+        <h3 class="off-step">1 LIVRAISON</h3>
+        <h1 class="current-step">2 PAIEMENT</h1>
+        <h3 class="off-step">3 VERIFICATION</h3>
     </div>
-    <hr class="little_hr">
+    <hr class="little-hr">
 
 <section>
 
-    <form class="global_body" action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
+    <form class="global-body" action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
         @csrf
 
-        <div class="create_address">
+        <div class="create-address">
 
             <!-- j'ai ajouté une classe et modifié l'emplacement-->
-            <div class="title_group">
+            <div class="title-group">
                 <h2 class="title">Adresse de facturation</h2>
-                <hr class="under_title">
+                <hr class="under-title">
             </div>
 
             <label>Prénom
@@ -60,21 +60,21 @@
 
             <input type="hidden" name="is_bill" value="1">
 
-            <hr class="under_title">
+            <hr class="under-title">
 
-            <h2 class="sec_title">Information de paiement</h2>
-            <img class="paypal_img" src="/img/Paypal.png" alt="PayPayl_img">
+            <h2 class="sec-title">Information de paiement</h2>
+            <img class="paypal-img" src="/img/Paypal.png" alt="PayPayl_img">
 
         </div>
 
-        <div class="recap_div">
-            <h2 class="sec_title">Récapitulatif de la commande</h2>
-            <hr class="recap_hr">
-            <div class="global_infos_div">
-                <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
+        <div class="recap-div">
+            <h2 class="sec-title">Récapitulatif de la commande</h2>
+            <hr class="recap-hr">
+            <div class="global-infos-div">
+                <p class="global-infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
             </div>
             <input type="hidden" name="total" value="{{$command->total}}€">
-            <button class="submit_button" type="submit"> CONTINUER </button>
+            <button class="submit-button" type="submit"> CONTINUER </button>
         </div>
 
     </form>
