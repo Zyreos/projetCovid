@@ -58,3 +58,10 @@ Route::post('/commands/{command}/updateWithDeliveryRetrait', 'CommandController@
 Route::post('commands/{command}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('commands.updateWithArticle');
 //very good idea !!!!!!!
 //Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');
+
+
+//Route::get('/live_search', 'LiveSearchController@index');
+//Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
+
+Route::get('/live_search','LiveSearchController@index');
+Route::get('/live_search/search','LiveSearchController@search')->name('search');
