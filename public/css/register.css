@@ -30,7 +30,7 @@ body {
   white-space: nowrap;
 }
 
-.connexion-div {
+.inscription-div {
   margin-top: 50px;
   margin-left: 200px;
   display: flex;
@@ -38,7 +38,7 @@ body {
   align-items: center;
 }
 
-.connexion-div .basic-entry-rect {
+.inscription-div .basic-entry-rect {
   width: 800px;
   height: 60px;
   background: #FFFFFF;
@@ -48,7 +48,7 @@ body {
   margin-top: 10px;
 }
 
-.valid-remember {
+.valid-insc {
   display: flex;
   align-items: center;
   align-content: space-between;
@@ -66,18 +66,23 @@ body {
   font-weight: bold;
 }
 
+.obligatory {
+  font-size: 16px;
+  color: #CE1126;
+}
+
 @media screen and (max-device-width: 800px) {
-  .connexion-div {
-    margin-left: 50px;
+  .inscription-div {
+    margin-left: 10px;
   }
 
-  .connexion-div label {
+  .inscription-div label {
     font-size: 22px;
   }
 
-  .valid-remember {
+  .valid-insc {
     margin-top: 20px;
   }
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=register.css.map */
