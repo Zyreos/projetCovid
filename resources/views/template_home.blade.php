@@ -24,13 +24,17 @@
                 <a href="/"> <img  class="logo" src="/img/Capture.png" alt="logo"> </a>
             </div>
             <div class="links">
-                <a class="accueil" href="#">ACCUEIL</a>
-                <a href="#">PRODUITS</a>
+                <a class="accueil" href="/">ACCUEIL</a>
+                <a href="{{route('articles.index')}}">PRODUITS</a>
             </div>
 
             <div class="auth">
-                <a href="/"><img src="/img/login1.png" alt="login"> </a>
-                <a href="/"><img src="/img/user.png" alt="user"> </a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"><img src="/img/login1.png" alt="login"></a>
+                @else
+                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
+                @endif
+                <a href="{{route('users.index')}}"><img src="/img/user.png" alt="user"> </a>
                 <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
             </div>
             </nav>

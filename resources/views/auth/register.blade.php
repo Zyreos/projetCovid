@@ -11,19 +11,19 @@
                         @csrf
 
                         <div class="inscription-div">
-                            <label for="name">Prénom*
-                                <input id="name" type="text" class="basic-entry-rect @error('name') is-invalid @enderror" name="first_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <label for="name">Prénom
+                                <input id="name" type="text" class="basic-entry-rect @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
                             </label>
-                                @error('name')
+                                @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 
                             <label for="name">Nom*
-                                <input id="last-name" type="text" class="basic-entry-rect @error('name') is-invalid @enderror" name="last_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="last-name" type="text" class="basic-entry-rect @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
                             </label>
-                                @error('name')
+                                @error('last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,7 +59,7 @@
                             <label for="password">Mot de passe*
                                 <input id="password" type="password" class="basic-entry-rect @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                             </label>
-                            <p>Minimum 8 caractères dont 1 chiffre et une majuscule.</p>
+                            <!--<p>Minimum 8 caractères dont 1 chiffre et une majuscule.</p>-->
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
