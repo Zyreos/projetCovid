@@ -22,7 +22,7 @@ body {
   min-height: 100%;
 }
 
-.command_steps {
+.command-steps {
   margin-left: auto;
   margin-right: auto;
   width: 660px;
@@ -31,17 +31,17 @@ body {
   align-items: center;
 }
 
-.current_step {
+.current-step {
   font-size: 22px;
   color: #57575F;
 }
 
-.off_step {
+.off-step {
   font-size: 16px;
   color: #AEC0C9;
 }
 
-.little_hr {
+.little-hr {
   margin-left: auto;
   margin-right: auto;
   width: 660px;
@@ -49,7 +49,7 @@ body {
   background: #CE1126;
 }
 
-.recap_hr {
+.recap-hr {
   width: 440px;
   height: 2px;
   background: #CE1126;
@@ -64,40 +64,40 @@ body {
   white-space: nowrap;
 }
 
-.sec_title {
+.sec-title {
   font-size: 30px;
   color: #57575F;
   margin-left: 40px;
 }
 
-.under_title {
+.under-title {
   width: 800px;
   height: 2px;
   background: #CE1126;
   margin-left: 30px;
 }
 
-.title_group {
+.title-group {
   width: 50%;
 }
 
-.create_address {
+.create-address {
   width: 50%;
 }
 
-.global_body {
+.global-body {
   display: flex;
   justify-content: space-around;
 }
 
-.create_address label {
+.create-address label {
   font-size: 16px;
   color: #57575F;
   margin-top: 10px;
   margin-left: 20px;
 }
 
-.create_address input {
+.create-address input {
   width: 800px;
   height: 60px;
   background: #FFFFFF;
@@ -107,7 +107,7 @@ body {
   margin-top: 10px;
 }
 
-.recap_div {
+.recap-div {
   width: 600px;
   height: 250px;
   margin-right: 20px;
@@ -118,19 +118,19 @@ body {
   align-items: center;
 }
 
-.global_infos_div {
+.global-infos-div {
   width: 440px;
   display: flex;
   justify-content: space-around;
   margin: 0;
 }
 
-.global_infos {
+.global-infos {
   font-size: 22px;
   color: #57575F;
 }
 
-.submit_button {
+.submit-button {
   background-color: #CE1126;
   color: #FFFFFF;
   border: none;
@@ -142,22 +142,22 @@ body {
   font-weight: bold;
 }
 
-.paypal_img {
+.paypal-img {
   width: 238px;
   height: 235px;
   margin-left: 30px;
 }
 
 @media screen and (max-device-width: 800px) {
-  .global_body {
+  .global-body {
     flex-direction: column;
   }
 
-  .create_address label {
+  .create-address label {
     font-size: 22px;
   }
 
-  .recap_div {
+  .recap-div {
     margin-top: 10px;
     margin-left: 30px;
   }
