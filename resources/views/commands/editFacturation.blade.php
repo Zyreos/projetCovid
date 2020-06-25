@@ -38,7 +38,7 @@
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="Pute">
+                <input type="text" name="last_name" value="Madame">
             </label>
 
             <label>Téléphone
