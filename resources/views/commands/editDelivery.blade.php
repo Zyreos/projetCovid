@@ -47,11 +47,11 @@
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="Pute">
+                <input type="text" name="last_name" value="Madame">
             </label>
 
             <label>Téléphone
-                <input type="number" name="phone_number" value="0123456789">
+                <input type="text" name="phone_number" value="0123456789">
             </label>
 
             <label> Adresse 1
@@ -63,7 +63,7 @@
             </label>
 
             <label> Code postal
-                <input type="number" name="postcode" placeholder="Code postal">
+                <input type="text" name="postcode" placeholder="Code postal">
             </label>
 
             <label> Ville

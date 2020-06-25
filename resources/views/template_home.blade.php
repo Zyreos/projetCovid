@@ -17,6 +17,7 @@
 
     </head>
     <body>
+
         <header>
             <nav class="nav_bar">
             <div class="logo">
@@ -54,6 +55,5 @@
             </div>
 
         </footer>
-
     </body>
 </html>
