@@ -25,6 +25,10 @@ class CreateAddressesTable extends Migration
             $table->string('country');
             $table->boolean('is_bill');
             $table->timestamps();
+
+            $table->bigInteger('deliveries_id')->unsigned()->nullable();
+            $table->foreign('deliveries_id')->references('id')->on('deliveries');
+
         });
     }
 
