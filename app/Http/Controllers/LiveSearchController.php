@@ -19,7 +19,7 @@ class LiveSearchController extends Controller
         {
             $output="";
             $addresses=DB::table('addresses')->where('city','LIKE','%'.$request->search."%")->where('is_bill','LIKE',0)->join('deliveries','addresses.delivery_id','=','deliveries.id')->get();
-            if($addresses)
+            if($addresses && $request->search != null)
             {
                 foreach ($addresses as $key => $address) {
                     $output.='<tr>'.
