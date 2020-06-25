@@ -18,7 +18,7 @@ class LiveSearchController extends Controller
         if($request->ajax())
         {
             $output="";
-            $addresses=DB::table('addresses')->where('city','LIKE','%'.$request->search."%")->where('is_bill','LIKE',0)/*->join()*/->get();
+            $addresses=DB::table('addresses')->where('city','LIKE','%'.$request->search."%")->where('is_bill','LIKE',0)->join('deliveries','addresses.delivery_id','=','deliveries.id')->get();
             if($addresses)
             {
                 foreach ($addresses as $key => $address) {
