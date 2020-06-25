@@ -16,8 +16,8 @@ class Delivery extends Model
         return $this->hasOne('App\Command');
     }
 
-    public function address()
+    public function addresses()
     {
-        return $this->belongsTo('App\Address');
+        return $this->hasMany('App\Address');
     }
 }
