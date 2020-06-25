@@ -9,7 +9,6 @@ class Delivery extends Model
     protected $fillable = [
       'mode',
       'price',
-      'address_id'
     ];
 
     public function command()
