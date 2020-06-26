@@ -27,6 +27,10 @@ a:hover {
   cursor: pointer;
 }
 
+/*a {
+    color: $white;
+    text-decoration: none;
+}*/
 .footer {
   display: flex;
   background-color: #CE1126;

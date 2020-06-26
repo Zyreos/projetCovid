@@ -27,6 +27,10 @@ a:hover {
   cursor: pointer;
 }
 
+/*a {
+    color: $white;
+    text-decoration: none;
+}*/
 .title {
   font-size: 30px;
   color: #57575F;
@@ -68,7 +72,6 @@ a:hover {
   width: 150px;
   height: 50px;
   font-size: 22px;
-  font-weight: bold;
 }
 
 @media screen and (max-device-width: 800px) {
