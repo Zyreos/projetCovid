@@ -1,17 +1,22 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/show_users.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/users_show.css') }}" />
 @endsection
 
 @section('content')
 
     <section class="user-container">
 
-        <div class="main-infos">
-        <div class="user-infos">
+        <div class="navig-links">
+            <h2 class="button">Tableau de bord</h2>
+            <h2 class="button">Mes informations</h2>
+        </div>
 
-                <h1 class="title">Bonjour, {{$user->name}}</h1>
+        <div class="main-infos">
+        <div class="user-infos-div">
+
+                <h1 class="title">Bonjour, {{$user->first_name}} {{$user->last_name}}</h1>
 
                 <h3 class="user-infos">{{ $user->email }}</h3>
                 <h3 class="user-infos">{{ $user->company }}</h3>
@@ -23,31 +28,24 @@
 
             <table>
                 <tr>
-                    <td class="table-header">Date</td>
-                    <td class="table-header">Numéro commande</td>
-                    <td class="table-header">Montant</td>
-                    <td class="table-header">Statut</td>
+                    <th class="table-header">Date</th>
+                    <th class="table-header">Numéro commande</th>
+                    <th class="table-header">Montant</th>
+                    <th class="table-header">Statut</th>
                 </tr>
                 @foreach($commands as $command)
                     @if($command->user_id == $user->id)
                         <tr>
-                            <td class="table-row"><a href="/">{{$command->date_validation}}</a></td>
-                            <td class="table-row"><a href="/">{{$command->id}}</a></td>
-                            <td class="table-row"><a href="/">{{$command->total}} €</a></td>
-                            <td class="table-row"><a href="/">{{$command->status_id}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->date_validation}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->id}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->total}} €</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->status_id}}</a></td>
                         </tr>
                     @endif
                 @endforeach
             </table>
         </div>
         </div>
-
-        <div class="navig-links">
-            <h2 class="button">Tableau de bord</h2>
-            <h2 class="button">Mes informations</h2>
-        </div>
-
-
 
     </section>
 
