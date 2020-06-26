@@ -5,35 +5,51 @@
 @endsection
 
 @section('content')
-    
-    <section class="user_container">
-        <div class="user_infos">
 
-            <div>
-                <p>Nom</p>
-                <p>{{ $user->last_name }}</p>
-            </div>
-            <ul>
-                <li>{{ $user->last_name }}</li>
-                <li>{{ $user->first_name }}</li>
-                <li>{{ $user->company }}</li>
-                <li>{{ $user->phone_number}}</li>
-                <li>{{ $user->email }}</li>
-            </ul>
-        </div>
-        
-        <div class="users_edition">
-            <a href="/users/{{ $user->id }}/edit"> Edition </a>
+    <section class="user-container">
 
-            <form method="POST" action="/users/{{ $user->id }}">
-                {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-                <input type="submit" value="Supprimer" />
-            </form>
+        <div class="main-infos">
+        <div class="user-infos">
+
+                <h1 class="title">Bonjour, {{$user->name}}</h1>
+
+                <h3 class="user-infos">{{ $user->email }}</h3>
+                <h3 class="user-infos">{{ $user->company }}</h3>
+                <h3 class="user-infos">{{ $user->phone_number}}</h3>
         </div>
+
+        <div class="commands-infos">
+            <h1 class="title">Historique des commandes</h1>
+
+            <table>
+                <tr>
+                    <td class="table-header">Date</td>
+                    <td class="table-header">Numéro commande</td>
+                    <td class="table-header">Montant</td>
+                    <td class="table-header">Statut</td>
+                </tr>
+                @foreach($commands as $command)
+                    @if($command->user_id == $user->id)
+                        <tr>
+                            <td class="table-row"><a href="/">{{$command->date_validation}}</a></td>
+                            <td class="table-row"><a href="/">{{$command->id}}</a></td>
+                            <td class="table-row"><a href="/">{{$command->total}} €</a></td>
+                            <td class="table-row"><a href="/">{{$command->status_id}}</a></td>
+                        </tr>
+                    @endif
+                @endforeach
+            </table>
+        </div>
+        </div>
+
+        <div class="navig-links">
+            <h2 class="button">Tableau de bord</h2>
+            <h2 class="button">Mes informations</h2>
+        </div>
+
+
+
     </section>
 
-    <a href="/users"> Retourner à la liste des comptes </a>
-    
 
 @endsection

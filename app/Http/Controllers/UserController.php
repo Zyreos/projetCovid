@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Command;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
@@ -52,7 +53,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $role = $user->role->name;
-        return view('users.show',compact('user', 'role'));
+        $commands = Command::all();
+        return view('users.show',compact('user', 'role', 'commands'));
     }
 
     /**
