@@ -85,6 +85,25 @@
             $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
         </script>
 
+        <div class="recap_div">
+
+            <h2 class="sec_title">Récapitulatif de la commande</h2>
+            <div class="global_infos_div">
+                <p class="global_infos">Sous-total :</p><p class="global_infos">{{$command->total}} € </p>
+            </div>
+            <div class="global_infos_div">
+                <p class="global_infos">Livraison :</p><p class="global_infos">{{$goodDelivery->price}}€</p>
+            </div>
+            <hr class="recap_hr">
+            <div class="global_infos_div">
+                <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total + $goodDelivery->price}} €</p>
+            </div>
+
+            <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
+            <button class="submit_button" type="submit"> CONTINUER </button>
+
+        </div>
+
     </form>
 </section>
 
