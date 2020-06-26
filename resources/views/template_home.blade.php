@@ -30,9 +30,10 @@
 
             <div class="auth">
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}"><img src="/img/login1.png" alt="login"></a>
-                @else
                     <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
+
+                @else
+                    <a href="{{ route('register') }}"><img src="/img/login1.png" alt="login"></a>
                 @endif
                 <a href="{{route('users.index')}}"><img src="/img/user.png" alt="user"> </a>
                 <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>

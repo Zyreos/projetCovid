@@ -22,6 +22,11 @@ body {
   min-height: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .title {
   font-size: 30px;
   color: #57575F;
@@ -51,7 +56,7 @@ body {
 .valid-remember {
   display: flex;
   align-items: center;
-  align-content: space-between;
+  align-content: space-around;
 }
 
 .submit-button {
