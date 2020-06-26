@@ -63,3 +63,9 @@ a {
     font-weight: bold;
 }
 
+@mixin title
+{
+    font-size: $lato-big;
+    color: $black;
+}
+

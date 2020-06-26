@@ -42,8 +42,7 @@
 
 .title
 {
-    font-size: $lato-big;
-    color: $black;
+    @include title;
     margin-left: 40px;
     white-space: nowrap;
 }
