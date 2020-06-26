@@ -372,4 +372,18 @@ class CommandController extends Controller
         return view('commands.checkout', compact('command', 'user'));
 
     }
+
+    public function confirm(Request $request, Command $command)
+    {
+        $command->status_id = 2;
+        $command->date_validation = date("Y-m-d");
+        $command->save();
+        //$command->update($request->all());
+        /*var_dump(date("Y-m-d"));
+        die();*/
+
+        return view('commands.confirmation', compact('command'));
+
+    }
+
 }

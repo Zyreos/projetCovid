@@ -71,3 +71,4 @@ Route::get('/live_search/search','LiveSearchController@search')->name('search');
 
 
 Route::get('/commands/{command}/checkout', 'CommandController@checkout')->name('commands.checkout');
+Route::get('/commands/{command}/confirm', 'CommandController@confirm')->name('commands.confirm');
