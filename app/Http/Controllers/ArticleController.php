@@ -6,7 +6,9 @@ use App\Command;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
+use App\Picture;
 use App\Category;
+use App\Gestion\FileUploadGestion;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -27,7 +29,9 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         $categories = Category::all();
+        
         return view('articles.index', compact('articles','categories'));
+        
     }
 
     /**
@@ -38,7 +42,7 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('articles.create', compact('categories' ));
+        return view('articles.create', compact('categories'));
     }
 
     /**
@@ -49,7 +53,31 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        Article::create($request->all());
+        //Article::create($request->all());
+        
+        $article = new Article;
+        $article -> name = $request -> input('name');
+        $article -> price = $request -> input('price');
+        $article -> description = $request -> input('description');
+        $article -> dimensions = $request -> input('dimensions');
+        $article -> category_id = $request -> input('category_id');
+        $article -> save();
+        
+        $pictures = $request->file('pictures');
+        $extension = $pictures->getClientOriginalExtension();
+        $pictures_name = 'article_' . $article->id;
+
+        FileUploadGestion::uploadFile($pictures, $pictures_name, '/img/articles');
+
+        $path = '/img/articles/' . $pictures_name . '.' .$extension;
+
+        $pictures = new Picture;
+        $pictures -> path = $path;
+        $pictures -> article_id = $article->id;
+        $pictures -> save();
+
+        $article -> save();
+
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été créé');
 
     }
@@ -127,4 +155,5 @@ class ArticleController extends Controller
         $article->destroy($id);
         return redirect('articles');
     }
+
 }

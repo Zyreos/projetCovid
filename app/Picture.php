@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Picture extends Model
 {
     protected $fillable = [
-      'name',
-      'extension'
+      'path',
+      'article_id'
     ];
 
     public function article()
     {
-        return $this->belongsTo('App\Article');
+        return $this->hasOne('App\Article');
     }
 }

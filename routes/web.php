@@ -29,6 +29,7 @@ Route::resource('/welcome', 'ArticleController');
 
 Route::resource('articles', 'ArticleController');
 
+Route::resource('/products', 'ProductController');
 
 Route::resource('categories','CategoryController');
 
