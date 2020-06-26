@@ -31,16 +31,7 @@
         </script>
         <hr>
 
-        <div>
-        <h3>Sélectionner votre mode de livraison</h3>
-        <div class="select">
-            <select name="id">
-                @foreach($addresses as $address)
-                    <option value="{{ $address->id }}">{{ $address->address1}}</option>
-                @endforeach
-            </select>
-        </div>
-        </div>
+
         <div>
             <h2>Récapitulatif de la commande</h2>
 
@@ -56,8 +47,67 @@
             <button type="submit"> Continuer </button>
         </div>
 
+
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Addresses info </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input type="text" class="form-controller" id="search" name="search"></input>
+                        </div>
+                        <table class="table table-bordered table-hover">
+
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#search').on('keyup',function(){
+                $value=$(this).val();
+                $.ajax({
+                    type : 'get',
+                    url : '{{ route('search')}}',
+                    data:{'search':$value},
+                    success:function(data){
+                        $('tbody').html(data);
+                    }
+                });
+            })
+        </script>
+        <script type="text/javascript">
+            $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+        </script>
+
+        <div class="recap_div">
+
+            <h2 class="sec_title">Récapitulatif de la commande</h2>
+            <div class="global_infos_div">
+                <p class="global_infos">Sous-total :</p><p class="global_infos">{{$command->total}} € </p>
+            </div>
+            <div class="global_infos_div">
+                <p class="global_infos">Livraison :</p><p class="global_infos">{{$goodDelivery->price}}€</p>
+            </div>
+            <hr class="recap_hr">
+            <div class="global_infos_div">
+                <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total + $goodDelivery->price}} €</p>
+            </div>
+
+            <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
+            <button class="submit_button" type="submit"> CONTINUER </button>
+
+        </div>
+
     </form>
 </section>
+
+
 
 @endsection
 

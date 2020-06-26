@@ -242,6 +242,7 @@ class CommandController extends Controller
                 $goodDelivery = $delivery;
             }
         $addresses = Address::all();
+
         return view('commands.editDeliveryRetrait', compact('command','statuses', 'goodDelivery','users', 'addresses' ));
     }
 
@@ -292,9 +293,9 @@ class CommandController extends Controller
 
         //$command->delivery_id = $delivery_id;
 
-        $address_id = $address->id;
-        $command->addresses()->attach($address_id);
+        $address_id = $request->input('address_id');
 
+        $command->addresses()->attach($address_id);
         $command->update($request->all());
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
