@@ -1,65 +1,84 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/editFacturation.css') }}" />
 @endsection
 
 @section('content')
 
-        <h1 class="t1">Edition d'une commande</h1>
+    <div class="command-steps">
+        <h3 class="off-step">1 LIVRAISON</h3>
+        <h1 class="current-step">2 PAIEMENT</h1>
+        <h3 class="off-step">3 VERIFICATION</h3>
+    </div>
+    <hr class="little-hr">
 
-        <form action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
-            @csrf
-            <div>
-                <input type="date" name="date_validation" placeholder="Date de validation">
+<section>
+
+    <form class="global-body" action="{{ route('commands.updateWithAddress', $command->id) }}" method="POST" >
+        @csrf
+
+        <div class="create-address">
+
+            <!-- j'ai ajouté une classe et modifié l'emplacement-->
+            <div class="title-group">
+                <h2 class="title">Adresse de facturation</h2>
+                <hr class="under-title">
             </div>
 
-            <div>
-                <input type="number" name="total" placeholder="Total">
+            <label>Prénom
+                <input type="text" name="first_name" value="Jolie">
+            </label>
+
+            <label>Nom
+                <input type="text" name="last_name" value="Madame">
+            </label>
+
+            <label>Téléphone
+                <input type="text" name="phone_number" value="0123456789">
+            </label>
+
+            <label>Adresse 1
+                <input type="text" name="address1">
+            </label>
+
+            <label>Adresse2
+                <input type="text" name="address2">
+            </label>
+
+            <label>Ville
+                <input type="text" name="city">
+            </label>
+
+            <label>Code Postal
+                <input type="number" name="postcode">
+            </label>
+
+            <label>Pays
+                <input type="text" name="country">
+            </label>
+
+            <input type="hidden" name="is_bill" value="1">
+
+            <hr class="under-title">
+
+            <h2 class="sec-title">Information de paiement</h2>
+            <img class="paypal-img" src="/img/Paypal.png" alt="PayPayl_img">
+
+        </div>
+
+        <div class="recap-div">
+            <h2 class="sec-title">Récapitulatif de la commande</h2>
+            <hr class="recap-hr">
+            <div class="global-infos-div">
+                <p class="global-infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
             </div>
+            <input type="hidden" name="total" value="{{$command->total}}€">
+            <button class="submit-button" type="submit"> CONTINUER </button>
+        </div>
 
-            <label class="label">Statut</label>
-            <div class="select">
-                <select name="status_id">
-                    @foreach($statuses as $status)
-                        <option value="{{ $status->id }}">{{ $status->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <label class="label"> Mode de livraison</label>
-            <div class="select">
-                <select name="delivery_id">
-                    @foreach($deliveries as $delivery)
-                        <option value="{{ $delivery->id }}">{{ $delivery->mode }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <h1 class="t1">Création d'une addresse de facturation</h1>
-                <div>
-                    <input type="text" name="address1"  placeholder="Addresse 1">
-                </div>
-                <div>
-                    <input type="text" name="address2" placeholder="Addresse 2">
-                </div>
-                <div>
-                    <input type="number" name="postcode" placeholder="Code postal">
-                </div>
-                <div>
-                    <input type="text" name="city" placeholder="Ville">
-                </div>
-                <div>
-                    <input type="text" name="country" placeholder="Pays">
-                </div>
-                <div>
-                    <input type="hidden" name="is_bill" value="1">
-                </div>
-
-            <button type="submit"> Ajouter </button>
-            <a href="/commands"> Annuler </a>
-
-        </form>
-
+    </form>
+</section>
 
 @endsection
 

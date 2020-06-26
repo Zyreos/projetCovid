@@ -6,35 +6,48 @@
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.5/getting-started/introduction/"></script>
+
 
         <title>Les Hydroalcooliques</title>
+        <link rel="stylesheet" href="{{ asset('css/nav_bar.css') }}" />
 
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @yield('css')
 
     </head>
     <body>
-        <header class="nav_bar">
+
+        <header>
+            <nav class="nav_bar">
             <div class="logo">
-                <img class="logo" src="/img/Capture.png" alt="logo">
-            </div>  
+                <a href="/"> <img  class="logo" src="/img/Capture.png" alt="logo"> </a>
+            </div>
             <div class="links">
-                <a href="#">ACCUEIL</a>
-                <a href="#">PRODUITS</a>
+                <a class="accueil" href="/">ACCUEIL</a>
+                <a href="{{route('articles.index')}}">PRODUITS</a>
             </div>
-            
+
             <div class="auth">
-                <img src="/img/login1.png" alt="login">
-                <img src="/img/user.png" alt="user">
-                <img src="/img/smart-cart.png" alt="basket">
+                @if (Route::has('register'))
+                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
+
+                @else
+                    <a href="{{ route('register') }}"><img src="/img/login1.png" alt="login"></a>
+                @endif
+                <a href="{{route('users.index')}}"><img src="/img/user.png" alt="user"> </a>
+                <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
             </div>
+            </nav>
         </header>
 
         @yield('content')
 
         <footer class="footer">
-            <img class="logo" src="/img/Capture.png" alt="logo">
-            
+            <div class="logo">
+                <img class="logo" src="/img/Capture.png" alt="logo">
+            </div>
+
             <div class="footer_links">
                 <a href="#">Politique de confidentialité</a>
                 <a href="#">Conditions générales de vente</a>
@@ -42,11 +55,10 @@
             </div>
 
             <div class="social">
-                <img src="/img/facebook.png" alt="facebook">
-                <img src="/img/linked.png" alt="linkedin">
+                <a href="/"> <img src="/img/facebook.png" alt="facebook"> </a>
+                <a href="/"> <img src="/img/linked.png" alt="linkedin"> </a>
             </div>
 
         </footer>
-
     </body>
 </html>

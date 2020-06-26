@@ -1,4 +1,5 @@
 * {
+<<<<<<< HEAD
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -140,22 +141,155 @@ h3 {
   color: #57575F;
 }
 
+=======
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  background-color: #CE1126;
+  position: absolute;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer_links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer_links a {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0 10px 0 10px;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 0 20px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .footer {
+        background-color: $white;
+
+        .footer_links{
+            display: none;
+        }
+
+        .social {
+            display: none;
+        }
+    }
+
+}*/
+@media screen and (max-width: 1199px) {
+  .social {
+    display: none;
+  }
+}
+@media screen and (max-width: 710px) {
+  .footer_links a {
+    font-size: 10px;
+    margin-right: 2px;
+  }
+}
+>>>>>>> Front
 .nav_bar {
   display: flex;
   background-color: #CE1126;
   height: 100px;
   top: 0;
+<<<<<<< HEAD
+=======
+  width: 100%;
+>>>>>>> Front
 }
 
 .links {
   display: flex;
   width: 20%;
+<<<<<<< HEAD
   padding: 20px;
   align-items: center;
   justify-content: space-around;
 }
 
 .links a {
+=======
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+
+.links a {
+  margin: 10px;
+>>>>>>> Front
   font-family: "Lato", sans-serif;
   font-size: 22px;
   color: #FFFFFF;
@@ -167,17 +301,28 @@ h3 {
 }
 
 .auth {
+<<<<<<< HEAD
   display: flex;
   margin-left: 25%;
   align-items: center;
   justify-content: space-around;
   width: 20%;
   padding: 20px;
+=======
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  height: 100px;
+>>>>>>> Front
 }
 
 .auth img {
   width: 55px;
   height: 55px;
+<<<<<<< HEAD
 }
 
 @media screen and (max-width: 1199px) {
@@ -202,31 +347,189 @@ h3 {
   display: flex;
   background-color: #CE1126;
   align-items: center;
+=======
+  margin: 10px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .nav_bar {
+        background-color: $red;
+        .links {
+            display: none;
+
+        }
+
+        .auth {
+            display: none;
+
+        }
+
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            top: 0;
+        }
+    }
+}*/
+@media screen and (max-width: 1199px) {
+  .accueil {
+    display: none;
+  }
+
+  .auth {
+    width: 25%;
+  }
+
+  .auth img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .links {
+    width: 15%;
+  }
+
+  .logo img {
+    width: 470px;
+    height: 90px;
+    margin: 5px 0 5px 0;
+  }
+
+  .logo {
+    background-color: #FFFFFF;
+    width: 470px;
+  }
+}
+@media screen and (max-width: 805px) {
+  .auth img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo img {
+    width: 370px;
+    height: 70px;
+    margin: 15px 0 15px 0;
+  }
+
+  .logo {
+    width: 370px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .nav_bar {
+    height: 70px;
+  }
+
+  .logo img {
+    width: 235px;
+    height: 50px;
+    margin: 10px 0 10px 0;
+  }
+
+  .logo {
+    width: 235px;
+    height: 70px;
+  }
+
+  .links {
+    height: 70px;
+  }
+
+  .links a {
+    font-size: 13px;
+    margin-left: 20px;
+  }
+
+  .auth {
+    width: auto;
+    height: 70px;
+  }
+
+  .auth img {
+    width: 33px;
+    height: 33px;
+    margin: 3Px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  background-color: #CE1126;
+  position: absolute;
+  align-items: center;
+  bottom: 0;
+>>>>>>> Front
   width: 100%;
 }
 
 .footer_links {
   display: flex;
+<<<<<<< HEAD
+=======
+  justify-content: space-around;
+  width: 100%;
+>>>>>>> Front
 }
 
 .footer_links a {
   font-family: "Lato", sans-serif;
   font-size: 16px;
   color: #FFFFFF;
+<<<<<<< HEAD
   padding-left: 50px;
+=======
+  margin: 0 10px 0 10px;
+  text-align: center;
+>>>>>>> Front
 }
 
 .social {
   display: flex;
+<<<<<<< HEAD
   align-items: center;
   justify-content: space-evenly;
   width: 10%;
   margin: auto 30px auto 350px;
+=======
+  justify-content: space-evenly;
+>>>>>>> Front
 }
 
 .social img {
   width: 50px;
   height: 50px;
+<<<<<<< HEAD
 }
 
 @media screen and (max-width: 1199px) {
@@ -238,6 +541,34 @@ h3 {
   }
   .footer .social {
     display: none;
+=======
+  margin: 0 10px 0 20px;
+}
+
+/*@media screen and (max-width: 1199px) {
+    .footer {
+        background-color: $white;
+
+        .footer_links{
+            display: none;
+        }
+
+        .social {
+            display: none;
+        }
+    }
+
+}*/
+@media screen and (max-width: 1199px) {
+  .social {
+    display: none;
+  }
+}
+@media screen and (max-width: 710px) {
+  .footer_links a {
+    font-size: 10px;
+    margin-right: 2px;
+>>>>>>> Front
   }
 }
 

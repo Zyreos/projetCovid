@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.command-steps {
+  margin-left: auto;
+  margin-right: auto;
+  width: 660px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.current-step {
+  font-size: 22px;
+  color: #57575F;
+}
+
+.off-step {
+  font-size: 16px;
+  color: #AEC0C9;
+}
+
+.little-hr {
+  margin-left: auto;
+  margin-right: auto;
+  width: 660px;
+  height: 2px;
+  background: #CE1126;
+}
+
+.recap-hr {
+  width: 440px;
+  height: 2px;
+  background: #CE1126;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 30px;
+  color: #57575F;
+  margin-left: 40px;
+  white-space: nowrap;
+}
+
+.sec-title {
+  font-size: 30px;
+  color: #57575F;
+  margin-left: 40px;
+}
+
+.under-title {
+  width: 800px;
+  height: 2px;
+  background: #CE1126;
+  margin-left: 30px;
+}
+
+.title-group {
+  width: 50%;
+}
+
+.create-address {
+  width: 50%;
+}
+
+.global-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.create-address label {
+  font-size: 16px;
+  color: #57575F;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.create-address input {
+  width: 800px;
+  height: 60px;
+  background: #FFFFFF;
+  border: 2px solid #AEC0C9;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.recap-div {
+  width: 600px;
+  height: 250px;
+  margin-right: 20px;
+  background: #FFFFFF;
+  border: 2px solid #AEC0C9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.global-infos-div {
+  width: 440px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.global-infos {
+  font-size: 22px;
+  color: #57575F;
+}
+
+.submit-button {
+  background-color: #CE1126;
+  color: #FFFFFF;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.paypal-img {
+  width: 238px;
+  height: 235px;
+  margin-left: 30px;
+}
+
+@media screen and (max-device-width: 800px) {
+  .global-body {
+    flex-direction: column;
+  }
+
+  .create-address label {
+    font-size: 22px;
+  }
+
+  .recap-div {
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+}
+.choice {
+  margin: 0 40% 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  white-space: nowrap;
+}
+
+.create-address {
+  width: 50%;
+}
+
+.create-address label, .choice label {
+  font-size: 16px;
+  color: #57575F;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.title-group {
+  width: 50%;
+}
+
+.title {
+  white-space: nowrap;
+}
+
+.choice input, .choice label {
+  margin: 0 10px 0 10px;
+  height: 20px;
+}
+
+.choice input {
+  width: 20px;
+}
+
+.recap-div {
+  height: 100%;
+  margin-right: 20px;
+  background: #FFFFFF;
+  border: 2px solid #AEC0C9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-button {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=editDelivery.css.map */

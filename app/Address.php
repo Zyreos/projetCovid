@@ -7,22 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
+        'first_name',
+        'last_name',
+        'phone_number',
         'address1',
         'address2',
         'postcode',
         'city',
         'country',
-        'is_bill'
+        'is_bill',
+        'delivery_id'
     ];
 
-    public function command()
+    public function commands()
     {
-        return $this->hasOne('App\Command');
+        return $this->belongsToMany('App\Command');
     }
 
     public function delivery()
     {
-        return $this->hasOne('App\Delivery');
+        return $this->belongsTo('App\Delivery');
     }
 
 }

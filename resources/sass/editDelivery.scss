@@ -1,0 +1,68 @@
+@import "editFacturation";
+
+//Pour la view editDelivery by Eloïse :) and responsive for editFacturation
+
+.choice
+{
+
+    margin: 0 40% 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    white-space: nowrap;
+}
+
+
+.create-address
+{
+    width: 50%;
+}
+
+.create-address label, .choice label
+{
+    font-size: $lato-small;
+    color: $black;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.title-group
+{
+    width: 50%;
+}
+
+.title
+{
+    white-space: nowrap;
+}
+
+.choice input, .choice label
+{
+    margin: 0 10px 0 10px;
+    height: 20px;
+}
+
+.choice input
+{
+    width: 20px;
+}
+
+.recap-div
+{
+    //width: 100%;
+    height: 100%;
+    margin-right: 20px;
+    background: $white;
+    border: 2px solid $grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-button
+{
+    margin-bottom: 20px;
+}
+
+//This is the end

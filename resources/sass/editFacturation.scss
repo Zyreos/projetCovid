@@ -1,0 +1,154 @@
+@import "general";
+
+.command-steps
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 660px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.current-step
+{
+    font-size: $lato-normal;
+    color: $black;
+}
+
+.off-step
+{
+    font-size: $lato-small;
+    color: $grey;
+}
+
+.little-hr
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 660px;
+    height: 2px;
+    background: $red;
+}
+
+.recap-hr
+{
+    width: 440px;
+    height: 2px;
+    background: $red;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.title
+{
+    font-size: $lato-big;
+    color: $black;
+    margin-left: 40px;
+    white-space: nowrap;
+}
+
+.sec-title
+{
+    font-size: $lato-big;
+    color: $black;
+    margin-left: 40px;
+}
+
+.under-title
+{
+    width: 800px;
+    height: 2px;
+    background: $red;
+    margin-left: 30px;
+}
+
+.title-group
+{
+    width: 50%;
+}
+
+.create-address
+{
+    width: 50%;
+}
+
+.global-body
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.create-address label
+{
+    font-size: $lato-small;
+    color: $black;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.create-address input
+{
+    @include typical-square();
+}
+
+.recap-div
+{
+    width: 600px;
+    height: 250px;
+    margin-right: 20px;
+    background: $white;
+    border: 2px solid $grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.global-infos-div
+{
+    width: 440px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.global-infos
+{
+    font-size: $lato-normal;
+    color: $black;
+}
+
+.submit-button
+{
+    @include red-button();
+}
+
+.paypal-img
+{
+    width: 238px;
+    height: 235px;
+    margin-left: 30px;
+}
+
+@media screen and (max-device-width: 800px)
+{
+    .global-body
+    {
+        flex-direction: column;
+    }
+
+    .create-address label
+    {
+        font-size: $lato-normal;
+    }
+
+    .recap-div
+    {
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+}
+
