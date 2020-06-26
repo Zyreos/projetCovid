@@ -22,6 +22,11 @@ body {
   min-height: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .footer {
   display: flex;
   background-color: #CE1126;

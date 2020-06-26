@@ -22,28 +22,9 @@ body {
   min-height: 100%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  position: relative;
-  background-color: #F0EFEF;
-  font-family: "Lato", sans-serif;
-  min-height: 100%;
-  padding-bottom: 120px;
-}
-
-#main {
-  min-height: 100%;
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 * {
@@ -68,6 +49,40 @@ body {
 
 #main {
   min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  min-height: 100%;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .footer {
@@ -299,6 +314,11 @@ body {
 
 #main {
   min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .footer {

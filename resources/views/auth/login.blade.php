@@ -33,13 +33,16 @@
                                 @enderror
 
                             <div class="valid-remember">
+                                <!--<label for="remember">Souvenez vous de moi
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                </label>-->
                                 <button type="submit" class="submit-button">
                                     Se Connecter
                                 </button>
+                                <a class="submit-button" href="{{route('login')}}">
+                                    S'inscrire
+                                </a>
 
-                                <label for="remember">Souvenez vous de moi
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                </label>
                             </div>
 
                                 <!--@if (Route::has('password.request'))

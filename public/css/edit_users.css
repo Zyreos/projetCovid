@@ -22,6 +22,11 @@ body {
   min-height: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -44,6 +49,11 @@ body {
 
 #main {
   min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .footer {
@@ -275,6 +285,11 @@ body {
 
 #main {
   min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .footer {

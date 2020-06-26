@@ -22,6 +22,11 @@ body {
   min-height: 100%;
 }
 
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .command-steps {
   margin-left: auto;
   margin-right: auto;
@@ -170,18 +175,18 @@ body {
   white-space: nowrap;
 }
 
-.create_address {
+.create-address {
   width: 50%;
 }
 
-.create_address label, .choice label {
+.create-address label, .choice label {
   font-size: 16px;
   color: #57575F;
   margin-top: 10px;
   margin-left: 20px;
 }
 
-.title_group {
+.title-group {
   width: 50%;
 }
 
@@ -198,7 +203,7 @@ body {
   width: 20px;
 }
 
-.recap_div {
+.recap-div {
   height: 100%;
   margin-right: 20px;
   background: #FFFFFF;
@@ -208,7 +213,7 @@ body {
   align-items: center;
 }
 
-.submit_button {
+.submit-button {
   margin-bottom: 20px;
 }
 

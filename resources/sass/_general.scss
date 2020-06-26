@@ -6,7 +6,6 @@
     padding: 0;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
 html
@@ -14,19 +13,25 @@ html
     height: 100%;
 }
 
-body {
+body
+{
     min-height: 100%;
     position: relative;
     background-color: $creme;
     font-family: $lato;
     min-height: 100%;
     padding-bottom: 120px;
-
 }
 
 #main
 {
     min-height:100%;
+}
+
+a:hover
+{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 

@@ -9,7 +9,7 @@
     white-space: nowrap;
 }
 
-.connexion-div
+.inscription-div
 {
     margin-top: 50px;
     margin-left:200px ;
@@ -18,16 +18,16 @@
     align-items: center;
 }
 
-.connexion-div .basic-entry-rect
+.inscription-div .basic-entry-rect
 {
     @include typical-square();
 }
 
-.valid-remember
+.valid-insc
 {
     display: flex;
     align-items: center;
-    align-content: space-around;
+    align-content: space-between;
 }
 
 .submit-button
@@ -35,21 +35,28 @@
     @include red-button();
 }
 
+.obligatory
+{
+    font-size: $lato-small;
+    color: $red;
+}
+
 @media screen and (max-device-width: 800px)
 {
-    .connexion-div
+    .inscription-div
     {
-        margin-left: 50px;
+        margin-left: 10px;
     }
 
-    .connexion-div label
+    .inscription-div label
     {
         font-size: $lato-normal;
     }
 
-    .valid-remember
+    .valid-insc
     {
         margin-top: 20px;
     }
 
 }
+
