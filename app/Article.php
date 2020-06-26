@@ -13,7 +13,7 @@ class Article extends Model
         'description',
         'dimensions',
         'quantity',
-        'category_id'
+        'category_id',
     ];
 
     /**

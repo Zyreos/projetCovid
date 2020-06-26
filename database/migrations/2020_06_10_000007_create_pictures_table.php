@@ -15,13 +15,11 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('extension')->nullable();
+            $table->string('path');
             $table->timestamps();
 
-            $table->bigInteger('article_id')->unsigned();
-            $table->foreign('article_id')->references('id')->on('articles')->onDelete('restrict');
-
+            $table->unsignedbigInteger('article_id')->nullable();
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
         });
     }
 
@@ -32,6 +30,7 @@ class CreatePicturesTable extends Migration
      */
     public function down()
     {
+        Schema::dropForeign(['article_id']);
         Schema::dropIfExists('pictures');
     }
 }

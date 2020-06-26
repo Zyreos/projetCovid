@@ -18,19 +18,19 @@
             @csrf
             {{ method_field('PATCH') }}
 
-            <label for="lname">Nom</label>
+            <label for="lname">Nom:</label>
             <input type="text" name="name" value="{{ $user->last_name }}" placeholder="Nouveau nom">
 
-            <label for="fname">Prénom</label>
+            <label for="fname">Prénom:</label>
             <input type="text" name="name" value="{{ $user->first_name }}" placeholder="Nouveau prénom">
 
-            <label for="email">Entreprise</label>
+            <label for="email">Entreprise:</label>
             <input type="text" name="email" value= "{{ $user->email}}" placeholder="Nouvel e-mail">
 
-            <label for="comp">Téléphone</label>
+            <label for="comp">Téléphone:</label>
             <input type="text" name="company" value="{{ $user->company }}" placeholder="Nouvelle entreprise">
 
-            <label for="phone">E-mail</label>
+            <label for="phone">E-mail:</label>
             <input type="text" name="phone_number" value="{{ $user->phone_number }}" placeholder="Nouveau numéro de téléphone">
         
             <!--<label class="label">Rôle</label>

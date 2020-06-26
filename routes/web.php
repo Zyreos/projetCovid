@@ -31,6 +31,7 @@ Route::resource('articles', 'ArticleController');
 
 Route::get('/', 'ArticleController@index')->name('welcome');
 
+Route::resource('/products', 'ProductController');
 
 Route::resource('categories','CategoryController');
 

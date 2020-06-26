@@ -10,10 +10,60 @@
 
         <section class="article">
             <h1>{{ $article->name }}</h1>
-            <article class="article_show">
-                <div id="image3" class="image"></div>
+            @foreach($article->pictures as $picture)
+                @if(isset($article->pictures))
+
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        @php
+
+                            $imgElement = '<div class="d-block w-20 img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
+
+                        @endphp
+                    </div>
+                    
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                @else
+                    @php
+
+                        $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
+
+                    @endphp
+                
+                @endif
+            @endforeach
+            
+            
+            <!--<article class="article_show">
+                @if(isset($article->pictures))
+                    @if(count($article->pictures))
+                        @php
+
+                            $imgElement = '<div class="img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
+
+                        @endphp
+                    @else
+                        @php
+
+                            $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
+
+                        @endphp
+                    @endif
+                    
+                    {!! $imgElement !!}
+                @endif
             </article>
-        </section>
+        </section>-->
 
         <section class="article_details">
 
@@ -25,7 +75,7 @@
 
                 <div class="add_to_cart">
                     <h1>{{ $article->price }} €</h1>
-                    <button type="submit"><a href="{{route('login')}}" id="addCommand"> AJOUTER AU PANIER </a></button>
+                    <a href="{{route('login')}}" id="addCommand"> AJOUTER AU PANIER </a>
                 </div>
 
             @elseif($commands=="[]" || !$commands )
@@ -71,8 +121,8 @@
                 @endif
             @endforeach
 
-            <h3>{{ $article->dimensions }}</h3>
-            <h3>{{ $article->description }}</h3>
+            <h3>Dimensions: {{ $article->dimensions }}</h3>
+            <h3>Description: {{ $article->description }}</h3>
 
             <div class="article_admin">
                     <button><a href="/articles/{{ $article->id }}/edit"> Editer </a></button>
@@ -81,8 +131,8 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 
-                        <button><a href="/articles/{{ $article->id }}/delete"> Supprimer </a></button>
-                        <button><a href="/articles"> Retourner à la liste des articles </a></button>
+                        <a href="/articles/{{ $article->id }}/delete"> Supprimer </a>
+                        <a href="/articles"> Retourner à la liste des articles </a>
                     </form>
             </div>
         </section>
