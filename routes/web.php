@@ -68,3 +68,6 @@ Route::post('commands/{command}/updateWithArticle', 'CommandController@UpdateWit
 
 Route::get('/live_search','LiveSearchController@index');
 Route::get('/live_search/search','LiveSearchController@search')->name('search');
+
+
+Route::get('/commands/{command}/checkout', 'CommandController@checkout')->name('commands.checkout');
