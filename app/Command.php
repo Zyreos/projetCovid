@@ -12,7 +12,6 @@ class Command extends Model
         'status_id',
         'delivery_id',
         'user_id',
-        'address_id'
 
     ];
 
@@ -31,9 +30,9 @@ class Command extends Model
         return $this->belongsTo('App\Delivery');
     }
 
-    public function address()
+    public function addresses()
     {
-        return $this->belongsTo('App\Address');
+        return $this->belongsToMany('App\Address');
     }
 
     public function articles()

@@ -7,6 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Address::class, function (Faker $faker) {
     return [
+        'first_name'=> $faker->firstName,
+        'last_name' =>  $faker->lastName,
+        'phone_number' => $faker->phoneNumber,
         'address1' => $faker->address,
         'address2' => $faker->optional()->address,
         'postcode' => $faker->numberBetween(0,200),

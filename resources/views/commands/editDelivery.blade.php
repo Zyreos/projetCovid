@@ -1,79 +1,104 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/editDelivery.css') }}" />
 @endsection
 
 @section('content')
 
-    <h1 class="t1">Edition d'une commande</h1>
+    <div class="command_steps">
+        <h1 class="current_step">1 LIVRAISON</h1>
+        <h3 class="off_step">2 PAIEMENT</h3>
+        <h3 class="off_step">3 VERIFICATION</h3>
+    </div>
+    <hr class="little_hr">
+
+    <!--<div class="title_group">
+    <h2 class="title">Adresse de livraison</h2>
+    <hr class="under_title">
+    </div>-->
+
 
     <form action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
         @csrf
-        <div>
-            <input type="date" name="date_validation" placeholder="Date de validation">
-        </div>
-
-        <div>
-            <input type="number" name="total" placeholder="Total">
-        </div>
-
-        <label class="label">Statut</label>
-        <div class="select">
-            <select name="status_id">
-                @foreach($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <h1>Sélection du mode livraison</h1>
-        <div>
-            <input type="radio" name="mode" value="domicile" id="chk1" checked>
-            <label>Livraison à Domicile</label>
-        </div>
-        <div>
-            <input type="radio" name="mode" value="retrait"id="chk2" >
-            <label>Livraison en retrait</label>
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#chk2').click(function(){
-                    window.location.href = "{{ route('commands.editDeliveryRetrait', [$command->id])}}";
-                });
-            });
-        </script>
-        <div>
-            <input type="number" name="price" placeholder="Prix" value="7">
-        </div>
-
-        <h1 class="t1">Création d'une addresse de livraison à domicile </h1>
-        <div>
-            <input type="text" name="address1"  placeholder="Addresse 1">
-        </div>
-        <div>
-            <input type="text" name="address2" placeholder="Addresse 2">
-        </div>
-        <div>
-            <input type="number" name="postcode" placeholder="Code postal">
-        </div>
-        <div>
-            <input type="text" name="city" placeholder="Ville">
-        </div>
-        <div>
-            <input type="text" name="country" placeholder="Pays">
-        </div>
-        <div>
-            <input type="hidden" name="is_bill" value="1">
-        </div>
 
 
+        <section class="global_body">
+        <div class="create_address">
+            <div class="title_group">
+                <h2 class="title">Adresse de livraison</h2>
+                <hr class="under_title">
+            </div>
+            <div class="choice">
 
-        <button type="submit"> Ajouter </button>
-        <a href="/commands"> Annuler </a>
+                <input type="radio" name="delivery_id" value="{{$goodDelivery->id}}" id="chk1" checked><label for="chk1">Livraison à Domicile</label>
+                <input type="radio" name="mode" id="chk2" ><label for="chk2">Livraison en retrait</label>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#chk2').click(function(){
+                            window.location.href = "{{ route('commands.editDeliveryRetrait', [$command->id])}}";
+                        });
+                    });
+                </script>
+            </div>
+
+            <label>Prénom
+                <input type="text" name="first_name" value="Jolie">
+            </label>
+
+            <label>Nom
+                <input type="text" name="last_name" value="Madame">
+            </label>
+
+            <label>Téléphone
+                <input type="text" name="phone_number" value="0123456789">
+            </label>
+
+            <label> Adresse 1
+                <input type="text" name="address1"  placeholder="Addresse 1">
+            </label>
+
+            <label> Adresse 2
+                <input type="text" name="address2" placeholder="Addresse 2">
+            </label>
+
+            <label> Code postal
+                <input type="text" name="postcode" placeholder="Code postal">
+            </label>
+
+            <label> Ville
+                <input type="text" name="city" placeholder="Ville">
+            </label>
+
+            <label> Pays
+                <input type="text" name="country" placeholder="Pays">
+            </label>
+
+            <input type="hidden" name="is_bill" value="0">
+
+        </div>
+
+        <div class="recap_div">
+
+            <h2 class="sec_title">Récapitulatif de la commande</h2>
+            <div class="global_infos_div">
+            <p class="global_infos">Sous-total :</p><p class="global_infos">{{$command->total}} € </p>
+            </div>
+                <div class="global_infos_div">
+            <p class="global_infos">Livraison :</p><p class="global_infos">{{$goodDelivery->price}}€</p>
+                </div>
+            <hr class="recap_hr">
+                    <div class="global_infos_div">
+            <p class="global_infos">TOTAL :</p><p class="global_infos">{{$command->total + $goodDelivery->price}} €</p>
+                    </div>
+
+            <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
+            <button class="submit_button" type="submit"> CONTINUER </button>
+
+        </div>
 
     </form>
-
+    </section>
 
 @endsection
 

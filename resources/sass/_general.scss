@@ -1,40 +1,57 @@
 @import 'variables';
 
-* 
+*
 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+html
+{
+    height: 100%;
+}
 
 body
 {
+    min-height: 100%;
+    position: relative;
     background-color: $creme;
     font-family: $lato;
+    min-height: 100%;
+    padding-bottom: 120px;
 }
 
-h1 
+#main
 {
-    margin: 15px;
-    font-size: $lato-normal;
+    min-height:100%;
 }
 
-h2 
+a:hover
 {
-    font-size: $lato-normal;
-    font-weight: bold;
-    margin: 30px auto 20px auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+a {
+    color: $white;
+    text-decoration: none;
 }
 
-h3 
-{ 
-    margin: 5px;
-    font-size: $lato-small;
-    color: $black;
+
+@mixin typical-square
+{
+    width: 800px;
+    height: 60px;
+    background: $white;
+    border: 2px solid $grey;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
 
-@mixin button {
+@mixin red-button
+{
     background-color: $red;
     color: $white;
     border: none;
@@ -42,11 +59,7 @@ h3
     text-decoration: none;
     width: 150px;
     height: 50px;
-    font-size: 16px;
+    font-size: $lato-normal;
     font-weight: bold;
-
-    a {
-        color: $white;
-        text-decoration: none;
-    }
 }
+

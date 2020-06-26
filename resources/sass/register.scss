@@ -1,0 +1,62 @@
+@import "general";
+
+.title
+{
+    font-size: $lato-big;
+    color: $black;
+    margin-left: 300px;
+    margin-top: 50px;
+    white-space: nowrap;
+}
+
+.inscription-div
+{
+    margin-top: 50px;
+    margin-left:200px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inscription-div .basic-entry-rect
+{
+    @include typical-square();
+}
+
+.valid-insc
+{
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+}
+
+.submit-button
+{
+    @include red-button();
+}
+
+.obligatory
+{
+    font-size: $lato-small;
+    color: $red;
+}
+
+@media screen and (max-device-width: 800px)
+{
+    .inscription-div
+    {
+        margin-left: 10px;
+    }
+
+    .inscription-div label
+    {
+        font-size: $lato-normal;
+    }
+
+    .valid-insc
+    {
+        margin-top: 20px;
+    }
+
+}
+

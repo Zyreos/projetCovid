@@ -26,9 +26,8 @@ class CommandController extends Controller
         $commands = Command::all();
         $statuses = Status::all();
         $deliveries = Delivery::all();
-        $addresses = Address::all();
         $users = User::all();
-        return view('commands.index', compact('commands','statuses', 'deliveries','addresses','users' ));
+        return view('commands.index', compact('commands','statuses', 'deliveries','users' ));
     }
 
     /**
@@ -86,7 +85,7 @@ class CommandController extends Controller
      */
     public function show($id, Request $request)
     {
-        $command = Command::find($id);
+        /*$command = Command::find($id);
         if ($command->status_id!=null){$status = $command->status->name;}
         if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
         if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
@@ -96,8 +95,18 @@ class CommandController extends Controller
         $big_user = Auth::user();
 
         //ceci est un test pour la relation avec article
-        $command->with('articles')->get();
-        return view('commands.show', compact('command','status','delivery','address','user','bill_address','delivery_address','big_user'));
+        $command->with('articles')->get();*/
+        //return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
+
+        $command = Command::find($id);
+        $command->with('addresses')->get();
+
+        if ($command->status_id!=null){$status = $command->status->name;}
+        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        $user = $command->user;
+
+        return view('commands.show', compact('command', 'status', 'delivery', 'user'));
+
     }
 
     /**
@@ -138,10 +147,9 @@ class CommandController extends Controller
     {
         $command = Command::find($id);
         $statuses = Status::all();
-        $deliveries = Delivery::all();
         $users = User::all();
         $address = new Address;
-        return view('commands.editFacturation', compact('command','statuses', 'deliveries','users', 'address' ));
+        return view('commands.editFacturation', compact('command','statuses','users', 'address' ));
     }
 
     /**
@@ -156,7 +164,7 @@ class CommandController extends Controller
     {
         $inputs = $request->input();
         $address_id = $address::create($inputs)->id;
-        $command->address_id = $address_id;
+        $command->addresses()->attach($address_id);
         $command->update($request->all());
         return redirect()->route('commands.index');
 
@@ -173,9 +181,15 @@ class CommandController extends Controller
         $command = Command::find($id);
         $statuses = Status::all();
         $users = User::all();
-        $delivery = new Delivery;
+        $deliveries = Delivery::all();
+        foreach ($deliveries as $delivery)
+            if($delivery->mode == 'Domicile')
+            {
+                $goodDelivery = $delivery;
+            }
+        //$delivery = new Delivery;
         $address = new Address;
-        return view('commands.editDelivery', compact('command','statuses', 'delivery','users', 'address' ));
+        return view('commands.editDelivery', compact('command','statuses', 'goodDelivery','users', 'address' ));
     }
 
     /**
@@ -190,20 +204,31 @@ class CommandController extends Controller
 
     public function updateWithDelivery(Request $request, Command $command, Address $address, Delivery $delivery)
     {
-        $inputs = $request->input();
-        $address_id = $address::create($inputs)->id;
+        //$inputs = $request->input();
+        //$address_id = $address::create($inputs)->id;
+
         //$inputs = $request->input();
         //$delivery_id = $delivery::create($inputs)->id;
         //$delivery->address_id = $address_id;
         //$delivery::create($request->all());
-        $delivery->mode = $request -> input('mode');
-        $delivery->price = $request -> input('price');
-        $delivery->address_id = $address_id;
-        $delivery->save();
 
-        $delivery_id = $delivery->id;
-        $command->delivery_id = $delivery_id;
+        //$delivery->mode = $request -> input('mode');
+        //$delivery->price = $request -> input('price');
+        //$delivery->address_id = $address_id;
+        //$delivery->save();
+        //$delivery_id = $delivery->id;
+        //$command->delivery_id = $delivery_id;
+        //$command->update($request->all());
+
+        $inputs = $request->input();
+        $address_id = $address::create($inputs)->id;
+        $command->addresses()->attach($address_id);
+
+        //$delivery_id = $delivery->id;
+        //$command->delivery_id = $delivery_id;
+
         $command->update($request->all());
+
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
         return redirect()->route('commands.index');
@@ -222,9 +247,15 @@ class CommandController extends Controller
         $command = Command::find($id);
         $statuses = Status::all();
         $users = User::all();
-        $delivery = new Delivery;
+        $deliveries = Delivery::all();
+        foreach ($deliveries as $delivery)
+            if($delivery->mode == 'Retrait')
+            {
+                $goodDelivery = $delivery;
+            }
         $addresses = Address::all();
-        return view('commands.editDeliveryRetrait', compact('command','statuses', 'delivery','users', 'addresses' ));
+
+        return view('commands.editDeliveryRetrait', compact('command','statuses', 'goodDelivery','users', 'addresses' ));
     }
 
     /**
@@ -264,16 +295,20 @@ class CommandController extends Controller
         //$delivery->price = $request -> input('price');
         //$delivery->address_id = $address->id;
         //$delivery->save();
+
+        /* Ceci fonctionnait avec notre ancienne version de bdd
         $inputs = $request->input();
         $delivery_id = $delivery::create($inputs)->id;
-
-        //$delivery_id = $delivery->id;
         $command->delivery_id = $delivery_id;
         $command->total = $request->input('total');
-        $command->save();
+        $command->save();*/
 
         //$command->delivery_id = $delivery_id;
-        //$command->update($request->all());
+
+        $address_id = $request->input('address_id');
+
+        $command->addresses()->attach($address_id);
+        $command->update($request->all());
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
         return redirect()->route('commands.index');

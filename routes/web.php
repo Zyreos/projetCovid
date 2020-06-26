@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcomeLaravel');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -28,6 +28,8 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/welcome', 'ArticleController');
 
 Route::resource('articles', 'ArticleController');
+
+Route::get('/', 'ArticleController@index')->name('welcome');
 
 
 Route::resource('categories','CategoryController');
@@ -59,3 +61,10 @@ Route::post('/commands/{command}/updateWithDeliveryRetrait', 'CommandController@
 Route::post('commands/{command}/updateWithArticle', 'CommandController@UpdateWithArticle')->name('commands.updateWithArticle');
 //very good idea !!!!!!!
 //Route::resource('command', 'CommandController')->only(['show', 'update'])->names('command');
+
+
+//Route::get('/live_search', 'LiveSearchController@index');
+//Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
+
+Route::get('/live_search','LiveSearchController@index');
+Route::get('/live_search/search','LiveSearchController@search')->name('search');
