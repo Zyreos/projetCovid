@@ -23,6 +23,7 @@ h2 {
 h3 {
   margin: 5px;
   font-size: 16px;
+  color: #57575F;
 }
 
 * {
@@ -50,6 +51,7 @@ h2 {
 h3 {
   margin: 5px;
   font-size: 16px;
+  color: #57575F;
 }
 
 .nav_bar {
@@ -135,6 +137,7 @@ h2 {
 h3 {
   margin: 5px;
   font-size: 16px;
+  color: #57575F;
 }
 
 * {
@@ -162,6 +165,7 @@ h2 {
 h3 {
   margin: 5px;
   font-size: 16px;
+  color: #57575F;
 }
 
 .nav_bar {
@@ -225,9 +229,8 @@ h3 {
 .footer {
   display: flex;
   background-color: #CE1126;
-  height: 100px;
   align-items: center;
-  bottom: 0;
+  width: 100%;
 }
 
 .footer_links {
