@@ -425,9 +425,13 @@ a:hover {
   width: 660px;
   height: 660px;
   margin: 25px 60px 70px 70px;
+  background-image: url("../img/article2.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.article_show img {
   margin-right: 20px;
   display: block;
   margin: 0 auto;

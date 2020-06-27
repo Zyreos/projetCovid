@@ -60,14 +60,35 @@ class CommandController extends Controller
         //1Command::create($request->all());
         //ceci est un test pour la relation avec article
 
-        $command = Command::create(['status_id' => 1,
-                                    'user_id' => Auth::id()]);
-
+        $command = new Command();
         $article = Article::findOrFail($request->id);
-        $article_quantity = Article::findOrFail($request->quantity);
+        //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
-        return redirect()->route('commands.index');
+
+        $command->create(['status_id' => 1, 'user_id' => Auth::id()]);
+
+
+        return redirect()->route('commands.show');
     }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateWithArticle(Request $request, Command $command)
+    {
+        $article = Article::findOrFail($request->id);
+
+        //$command = Command::where('user_id' ,'=', $command->user_id)->get();
+        $command->articles()->attach($article);
+        $command->update(['total' ]);
+        return redirect()->route('commands.show');
+    }
+
 
     public function basket($id) {
         $command = Command::find($id);
@@ -98,6 +119,8 @@ class CommandController extends Controller
         $command->with('articles')->get();*/
         //return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
 
+
+
         $command = Command::find($id);
         $command->with('addresses')->get();
 
@@ -105,7 +128,7 @@ class CommandController extends Controller
         if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
         $user = $command->user;
 
-        return view('commands.show', compact('command', 'status', 'delivery', 'user'));
+        return view('commands.show', compact('command', 'status', 'user'));
 
     }
 
@@ -315,22 +338,6 @@ class CommandController extends Controller
 
     }
 
-        /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateWithArticle(Request $request, Command $command)
-    {
-        $article = Article::findOrFail($request->id);
-
-        //$command = Command::where('user_id' ,'=', $command->user_id)->get();
-        $command->articles()->attach($article);
-        $command->update(['total' ]);
-        return redirect()->route('commands.index');
-    }
 
     /**
      * Remove the specified resource from storage.

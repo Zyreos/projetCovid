@@ -67,9 +67,10 @@
 
         <section class="article_details">
 
-            @if(!Auth::user() && (!$commands || $commands=="[]"))
+            @if(!Auth::user() && (!$commands || $commands=="[]") || !Auth::user())
 
                 <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                <p>NO COMMAND NO USER</p>
                 <!--<input id="quantity" name="quantity" type="number" value="1" min="1">
                 <label for="quantity">Quantité</label> -->
 
@@ -94,7 +95,7 @@
 
             @foreach($commands as $command)
 
-                @if ($command->user_id == Auth::id() && $command->status_id == 1)
+                @if (Auth::user() && $command->user_id == Auth::id() && $command->status_id == 1)
                     <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
                         @csrf
 
@@ -106,7 +107,7 @@
                             <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
                         </div>
                     </form>
-                @elseif(Auth::user() && $command->status_id != 1)
+                @elseif(Auth::user() && $command->user_id == Auth::id() && $command->status_id != 1)
                     <form action="{{route('commands.store')}}" method="POST">
                         @csrf
 
@@ -118,6 +119,18 @@
                             <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
                         </div>
                     </form>
+                @else
+                        <form action="{{route('commands.store')}}" method="POST">
+                            @csrf
+
+                            <p>IS IT WORKING?</p>
+                            <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+
+                            <div class="add_to_cart">
+                                <h1>{{ $article->price }} €</h1>
+                                <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
+                            </div>
+                        </form>
                 @endif
             @endforeach
 
