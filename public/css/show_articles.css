@@ -1,9 +1,9 @@
 /* Error: Undefined mixin.
  *    ,
- * 62 |     @include button;
+ * 88 |     @include button;
  *    |     ^^^^^^^^^^^^^^^
  *    '
- *   resources\sass\show_articles.scss 62:5  root stylesheet */
+ *   resources\sass\show_articles.scss 88:5  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 62 \2502      @include button;\d\a    \2502      ^^^^^^^^^^^^^^^\a    \2575 \a   resources\\sass\\show_articles.scss 62:5  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 88 \2502      @include button;\a    \2502      ^^^^^^^^^^^^^^^\a    \2575 \a   resources\\sass\\show_articles.scss 88:5  root stylesheet";
 }
