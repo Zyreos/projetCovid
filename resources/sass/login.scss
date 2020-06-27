@@ -33,6 +33,12 @@
 .submit-button
 {
     @include red-button();
+    a
+    {
+        text-align: center;
+        text-decoration: none;
+    }
+
 }
 
 @media screen and (max-device-width: 800px)
