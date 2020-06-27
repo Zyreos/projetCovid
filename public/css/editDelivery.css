@@ -229,7 +229,17 @@ a {
 
 .list-address {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.address {
+  display: flex;
   justify-content: flex-start;
+}
+
+table {
+  margin-left: 10px;
 }
 
 #address_id {
