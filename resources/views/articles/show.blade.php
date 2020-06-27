@@ -30,7 +30,7 @@
                 </div>
 
             @elseif($commands=="[]" || !$commands )
-                <form action="{{route('commands.store', $command)}}" method="POST">
+                <form action="{{route('commands.store')}}" method="POST">
                     @csrf
 
                     <p>NO COMMAND BUT USER LOGGED IN</p>
@@ -58,7 +58,7 @@
                         </div>
                     </form>
                 @elseif(Auth::user() && $command->user_id == Auth::id() && $command->status_id != 1)
-                    <form action="{{route('commands.store', $command)}}" method="POST">
+                    <form action="{{route('commands.store')}}" method="POST">
                         @csrf
 
                         <p>USER HASN'T ANY CART</p>
@@ -70,7 +70,7 @@
                         </div>
                     </form>
                 @else
-                        <form action="{{route('commands.store', $command)}}" method="POST">
+                        <form action="{{route('commands.store')}}" method="POST">
                             @csrf
 
                             <p>IS IT WORKING?</p>

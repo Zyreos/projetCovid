@@ -51,7 +51,7 @@ class CommandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Command $command)
+    public function store(Request $request)
     {
         //$command = new Command();
         //$command->user_id = Auth::id();
@@ -60,11 +60,12 @@ class CommandController extends Controller
         //1Command::create($request->all());
         //ceci est un test pour la relation avec article
 
+        $command = new Command();
         $article = Article::findOrFail($request->id);
         //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
 
-        Command::create(['status_id' => 1, 'user_id' => Auth::id()]);
+        $command->create(['status_id' => 1, 'user_id' => Auth::id()]);
 
 
         return redirect()->route('commands.show');
