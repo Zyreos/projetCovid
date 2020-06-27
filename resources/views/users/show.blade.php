@@ -22,7 +22,7 @@
             <div class="info">
                 <h3 class="user-infos">E-mail : {{ $user->email }}</h3>
                 <h3 class="user-infos">Entreprise : {{ $user->company }}</h3>
-                <h3 class="user-infos">Numéro de téléphone : {{ $user->phone_number}}</h3>
+                <h3 class="user-infos">Téléphone : {{ $user->phone_number}}</h3>
             </div>
 
 

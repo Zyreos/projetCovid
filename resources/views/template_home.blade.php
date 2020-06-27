@@ -30,13 +30,20 @@
 
             <div class="auth">
                 @if (Auth::user())
-                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
+
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><img src="/img/logout1.png" alt="login"></a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                        <a href="{{route('users.show', [Auth::user()->id])}}"><img src="/img/user.png" alt="user"> </a>
+                        <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
 
                 @else
-                    <a href="/home"><img src="/img/logout1.png" alt="login"></a>
+                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
                 @endif
-                <a href="{{route('users.index')}}"><img src="/img/user.png" alt="user"> </a>
-                <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
+
             </div>
             </nav>
         </header>

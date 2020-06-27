@@ -33,12 +33,13 @@
 
 .info
 {
-    max-width: 900px;
+    width: 100%;
     display: flex;
     align-items: center;
     align-content: space-evenly;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
 }
+
 
 .commands-infos
 {

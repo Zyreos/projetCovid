@@ -49,19 +49,12 @@ a {
 }
 
 .categ_image button {
-  /*background-color: $red;
-  color: $white;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  width: 150px;
-  height: 50px;*/
   background-color: #CE1126;
   color: #FFFFFF;
   border: none;
   text-align: center;
   text-decoration: none;
-  width: 300px;
+  width: 250px;
   height: 50px;
   font-size: 22px;
 }
@@ -139,7 +132,7 @@ a {
   border: none;
   text-align: center;
   text-decoration: none;
-  width: 300px;
+  width: 250px;
   height: 50px;
   font-size: 22px;
 }
