@@ -104,7 +104,7 @@ class CommandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function show($id)
     {
         /*$command = Command::find($id);
         if ($command->status_id!=null){$status = $command->status->name;}
@@ -122,13 +122,14 @@ class CommandController extends Controller
 
 
         $command = Command::find($id);
-        $command->with('addresses')->get();
-
-        if ($command->status_id!=null){$status = $command->status->name;}
-        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        $delivery = $command->delivery;
         $user = $command->user;
 
-        return view('commands.show', compact('command', 'status', 'user'));
+        $command->with('articles')->get();
+
+        $command->with('addresses')->get();
+
+        return view('commands.show', compact('command', 'user','delivery'));
 
     }
 
