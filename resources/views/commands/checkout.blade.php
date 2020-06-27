@@ -48,7 +48,7 @@
                     })
                         .then(function(res) {
                             //console.log(res);
-                            alert('Paiement accepté');
+                            window.location.href = "{{ route('commands.confirm', [$command->id])}}"
                             // 3. Show the buyer a confirmation message.
                         });
                 }
