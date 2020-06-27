@@ -59,7 +59,7 @@
 
 .add_to_cart button[type=submit]
 {
-    @include button;
+    @include red-button;
     margin: 20px;
     width: 200px;
 }
@@ -80,7 +80,7 @@
 .article_details
 {
     width: 800px;
-    
+
 }
 
 .article_details button

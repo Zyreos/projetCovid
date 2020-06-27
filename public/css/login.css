@@ -73,6 +73,10 @@ a:hover {
   height: 50px;
   font-size: 22px;
 }
+.submit-button a {
+  text-align: center;
+  text-decoration: none;
+}
 
 @media screen and (max-device-width: 800px) {
   .connexion-div {

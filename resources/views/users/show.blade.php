@@ -36,10 +36,10 @@
                 @foreach($commands as $command)
                     @if($command->user_id == $user->id)
                         <tr>
-                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->date_validation}}</a></td>
-                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->id}}</a></td>
-                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->total}} €</a></td>
-                            <td class="table-row"><a class="links-to-cmd" href="/">{{$command->status_id}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->date_validation}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->id}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->total}} €</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->status_id}}</a></td>
                         </tr>
                     @endif
                 @endforeach

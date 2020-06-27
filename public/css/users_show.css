@@ -36,6 +36,7 @@ a:hover {
   color: #57575F;
   margin-left: 300px;
   margin-right: 300px;
+  white-space: nowrap;
 }
 
 .user-infos {
@@ -109,6 +110,53 @@ a:hover {
   display: flex;
   width: 900px;
   margin-top: 50px;
+}
+
+@media screen and (max-width: 800px) {
+  .user-container {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .user-container, .main-infos {
+    flex-direction: column;
+  }
+
+  .main-infos {
+    width: 100%;
+  }
+
+  .user-infos-div, .commands-infos {
+    margin: 20px auto;
+    width: 95%;
+  }
+
+  .links-to-cmd {
+    font-size: 22px;
+  }
+
+  .table-header {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .user-container {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .user-container, .main-infos {
+    flex-direction: column;
+  }
+
+  .main-infos {
+    width: 100%;
+  }
+
+  .user-infos-div, .commands-infos {
+    margin: 20px auto;
+    width: 95%;
+  }
 }
 
 /*# sourceMappingURL=users_show.css.map */
