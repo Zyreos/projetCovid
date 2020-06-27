@@ -156,13 +156,23 @@ a:hover {
   margin-left: 30px;
 }
 
-@media screen and (max-device-width: 800px) {
+@media screen and (max-width: 800px) {
   .global-body {
     flex-direction: column;
   }
 
   .create-address label {
     font-size: 22px;
+  }
+
+  .recap-div {
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .global-body {
+    flex-direction: column;
   }
 
   .recap-div {
