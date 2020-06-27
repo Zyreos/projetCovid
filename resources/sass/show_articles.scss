@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    
+
 }
 
 .img_article
@@ -85,7 +85,7 @@
 
 .article_details button
 {
-    @include button;
+    @include red-button;
     vertical-align: middle;
     margin: 377px 20px auto 0;
     width: 250px;
