@@ -14,7 +14,6 @@ body {
   position: relative;
   background-color: #F0EFEF;
   font-family: "Lato", sans-serif;
-  min-height: 100%;
   padding-bottom: 120px;
 }
 
@@ -22,15 +21,17 @@ body {
   min-height: 100%;
 }
 
-a:hover {
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*a {
-    color: $white;
-    text-decoration: none;
-}*/
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .title {
   font-size: 30px;
   color: #57575F;
@@ -59,8 +60,8 @@ a:hover {
 
 .valid-insc {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  align-content: space-between;
 }
 
 .submit-button {
@@ -69,9 +70,10 @@ a:hover {
   border: none;
   text-align: center;
   text-decoration: none;
-  width: 150px;
+  width: 300px;
   height: 50px;
   font-size: 22px;
+  margin: 10px;
 }
 
 .obligatory {

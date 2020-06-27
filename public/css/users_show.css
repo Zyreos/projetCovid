@@ -14,7 +14,6 @@ body {
   position: relative;
   background-color: #F0EFEF;
   font-family: "Lato", sans-serif;
-  min-height: 100%;
   padding-bottom: 120px;
 }
 
@@ -22,21 +21,23 @@ body {
   min-height: 100%;
 }
 
-a:hover {
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*a {
-    color: $white;
-    text-decoration: none;
-}*/
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .title {
   font-size: 30px;
   color: #57575F;
-  margin-left: 300px;
-  margin-right: 300px;
-  white-space: nowrap;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .user-infos {
@@ -48,14 +49,20 @@ a:hover {
 
 .user-infos-div {
   width: 1100px;
-  height: 160px;
   background-color: #FFFFFF;
   border: 2px solid #AEC0C9;
   margin-left: 20%;
   margin-top: 5%;
   display: flex;
   align-items: center;
-  align-content: space-between;
+  flex-direction: column;
+}
+
+.info {
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  align-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -95,15 +102,16 @@ a:hover {
 }
 
 .button {
-  margin-left: 20px;
   background-color: #CE1126;
   color: #FFFFFF;
   border: none;
   text-align: center;
   text-decoration: none;
-  width: 150px;
+  width: 300px;
   height: 50px;
   font-size: 22px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .user-container {

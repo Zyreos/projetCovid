@@ -9,19 +9,24 @@
     <section class="user-container">
 
         <div class="navig-links">
-            <h2 class="button">Tableau de bord</h2>
-            <h2 class="button">Mes informations</h2>
+            <a class="button" href="">Tableau de bord</a>
+            <a class="button" href="/users/{{$user->id}}/edit">Mes informations</a>
         </div>
 
         <div class="main-infos">
+
         <div class="user-infos-div">
 
-                <h1 class="title">Bonjour, {{$user->first_name}} {{$user->last_name}}</h1>
 
-                <h3 class="user-infos">{{ $user->email }}</h3>
-                <h3 class="user-infos">{{ $user->company }}</h3>
-                <h3 class="user-infos">{{ $user->phone_number}}</h3>
-        </div>
+            <h1 class="title">Bonjour, {{$user->first_name}} {{$user->last_name}}</h1>
+            <div class="info">
+                <h3 class="user-infos">E-mail : {{ $user->email }}</h3>
+                <h3 class="user-infos">Entreprise : {{ $user->company }}</h3>
+                <h3 class="user-infos">Numéro de téléphone : {{ $user->phone_number}}</h3>
+            </div>
+
+
+            </div>
 
         <div class="commands-infos">
             <h1 class="title">Historique des commandes</h1>

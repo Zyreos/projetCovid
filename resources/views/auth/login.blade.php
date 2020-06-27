@@ -39,7 +39,7 @@
                                 <button type="submit" class="submit-button">
                                     Se Connecter
                                 </button>
-                                <a class="submit-button" href="{{route('login')}}">
+                                <a class="submit-button" href="{{route('register')}}">
                                     S'inscrire
                                 </a>
 

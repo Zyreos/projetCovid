@@ -14,7 +14,6 @@ body {
   position: relative;
   background-color: #F0EFEF;
   font-family: "Lato", sans-serif;
-  min-height: 100%;
   padding-bottom: 120px;
 }
 
@@ -22,15 +21,17 @@ body {
   min-height: 100%;
 }
 
-a:hover {
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*a {
-    color: $white;
-    text-decoration: none;
-}*/
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +48,6 @@ body {
   position: relative;
   background-color: #F0EFEF;
   font-family: "Lato", sans-serif;
-  min-height: 100%;
   padding-bottom: 120px;
 }
 
@@ -55,15 +55,17 @@ body {
   min-height: 100%;
 }
 
-a:hover {
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*a {
-    color: $white;
-    text-decoration: none;
-}*/
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .footer {
   display: flex;
   background-color: #CE1126;
@@ -287,7 +289,6 @@ body {
   position: relative;
   background-color: #F0EFEF;
   font-family: "Lato", sans-serif;
-  min-height: 100%;
   padding-bottom: 120px;
 }
 
@@ -295,15 +296,17 @@ body {
   min-height: 100%;
 }
 
-a:hover {
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
 }
 
-/*a {
-    color: $white;
-    text-decoration: none;
-}*/
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .footer {
   display: flex;
   background-color: #CE1126;
