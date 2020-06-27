@@ -13,17 +13,13 @@
     </div>
     <hr class="little_hr">
 
-    <!--<div class="title_group">
-    <h2 class="title">Adresse de livraison</h2>
-    <hr class="under_title">
-    </div>-->
 
 
-    <form action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
+    <form class="global_body" action="{{ route('commands.updateWithDelivery', $command->id) }}" method="POST" >
         @csrf
 
 
-        <section class="global_body">
+        <section>
         <div class="create_address">
             <div class="title_group">
                 <h2 class="title">Adresse de livraison</h2>

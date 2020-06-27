@@ -25,10 +25,10 @@ class LiveSearchController extends Controller
             {
                 foreach ($addresses as $address) {
                     $output.='<input type="radio" id="address_id" name="address_id" value="'.$address->id.'">'.
-                        '<label for="address_id">' .$address->address1
-                        .$address->address2
-                        .$address->city
-                        .$address->postcode
+                        '<label for="address_id">' .$address->address1. ', '
+                        .$address->address2. ', '
+                        .$address->city. ', '
+                        .$address->postcode. ', '
                         .$address->country.'</label>';
 
                     /*'<tr>
