@@ -60,15 +60,17 @@ class CommandController extends Controller
         //1Command::create($request->all());
         //ceci est un test pour la relation avec article
 
-        $command = new Command();
+        $is_checked_status =true;
+        $is_checked_user =true;
+
+        $command =Command::create(['status_id' => 1, 'user_id' => Auth::id()]);
+        //$command = new Command();
         $article = Article::findOrFail($request->id);
         //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
 
-        $command->create(['status_id' => 1, 'user_id' => Auth::id()]);
 
-
-        return redirect()->route('commands.show');
+        return redirect()->route('commands.index', compact('is_checked_status', 'is_checked_user'));
     }
 
 
