@@ -27,7 +27,7 @@ class CommandController extends Controller
         $statuses = Status::all();
         $deliveries = Delivery::all();
         $users = User::all();
-        return view('commands.index', compact('commands','statuses', 'deliveries','users' ));
+        return view('commands.index', compact('commands', 'statuses', 'deliveries', 'users'));
     }
 
     /**
@@ -42,13 +42,13 @@ class CommandController extends Controller
         $addresses = Address::all();
         $users = User::all();
         $articles = Article::all();
-        return view('commands.create', compact('statuses', 'deliveries','addresses','users','articles' ));
+        return view('commands.create', compact('statuses', 'deliveries', 'addresses', 'users', 'articles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -89,19 +89,19 @@ class CommandController extends Controller
         return redirect()->route('commands.show');
     }
 
-
-    public function basket($id) {
+    public function basket($id)
+    {
         $command = Command::find($id);
         $user = $command->user;
 
         $articles = $command->articles;
-        return view('commands.basket',compact('command','user','articles'));
+        return view('commands.basket', compact('command', 'user', 'articles'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id, Request $request)
@@ -124,8 +124,12 @@ class CommandController extends Controller
         $command = Command::find($id);
         $command->with('addresses')->get();
 
-        if ($command->status_id!=null){$status = $command->status->name;}
-        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        if ($command->status_id != null) {
+            $status = $command->status->name;
+        }
+        if ($command->delivery_id != null) {
+            $delivery = $command->delivery->mode;
+        }
         $user = $command->user;
 
         return view('commands.show', compact('command', 'status', 'user'));
@@ -135,7 +139,7 @@ class CommandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -144,14 +148,14 @@ class CommandController extends Controller
         $statuses = Status::all();
         $deliveries = Delivery::all();
         $users = User::all();
-        return view('commands.edit', compact('command','statuses', 'deliveries','users' ));
+        return view('commands.edit', compact('command', 'statuses', 'deliveries', 'users'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Command $command)
@@ -163,7 +167,7 @@ class CommandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function createAddress($id)
@@ -172,7 +176,7 @@ class CommandController extends Controller
         $statuses = Status::all();
         $users = User::all();
         $address = new Address;
-        return view('commands.editFacturation', compact('command','statuses','users', 'address' ));
+        return view('commands.editFacturation', compact('command', 'statuses', 'users', 'address'));
     }
 
     /**
@@ -196,7 +200,7 @@ class CommandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function createDeliveryWithAddress($id)
@@ -206,13 +210,12 @@ class CommandController extends Controller
         $users = User::all();
         $deliveries = Delivery::all();
         foreach ($deliveries as $delivery)
-            if($delivery->mode == 'Domicile')
-            {
+            if ($delivery->mode == 'Domicile') {
                 $goodDelivery = $delivery;
             }
         //$delivery = new Delivery;
         $address = new Address;
-        return view('commands.editDelivery', compact('command','statuses', 'goodDelivery','users', 'address' ));
+        return view('commands.editDelivery', compact('command', 'statuses', 'goodDelivery', 'users', 'address'));
     }
 
     /**
@@ -262,7 +265,7 @@ class CommandController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function createDeliveryWithAddressRetrait($id)
@@ -272,13 +275,12 @@ class CommandController extends Controller
         $users = User::all();
         $deliveries = Delivery::all();
         foreach ($deliveries as $delivery)
-            if($delivery->mode == 'Retrait')
-            {
+            if ($delivery->mode == 'Retrait') {
                 $goodDelivery = $delivery;
             }
         $addresses = Address::all();
 
-        return view('commands.editDeliveryRetrait', compact('command','statuses', 'goodDelivery','users', 'addresses' ));
+        return view('commands.editDeliveryRetrait', compact('command', 'statuses', 'goodDelivery', 'users', 'addresses'));
     }
 
     /**
@@ -342,13 +344,52 @@ class CommandController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $command = Command::find($id);
-        $command -> destroy($id);
+        $command->destroy($id);
         return redirect('commands');
     }
+
+
+    public function checkout($id)
+    {
+        /*$command = Command::find($id);
+        if ($command->status_id!=null){$status = $command->status->name;}
+        if ($command->delivery_id!=null){$delivery = $command->delivery->mode;}
+        if ($command->delivery->address!=null){$delivery_address = $command->delivery->address;}
+        if ($command->address_id!=null){$bill_address = $command->address;}
+
+        $user = $command->user;
+        $big_user = Auth::user();
+
+        //ceci est un test pour la relation avec article
+        $command->with('articles')->get();*/
+        //return view('commands.show', compact('command','status','delivery','user','bill_address','delivery_address','big_user'));
+
+        $command = Command::find($id);
+
+
+        $user = $command->user;
+
+        return view('commands.checkout', compact('command', 'user'));
+
+    }
+
+    public function confirm(Request $request, Command $command)
+    {
+        $command->status_id = 2;
+        $command->date_validation = date("Y-m-d");
+        $command->save();
+        //$command->update($request->all());
+        /*var_dump(date("Y-m-d"));
+        die();*/
+
+        return view('commands.confirmation', compact('command'));
+
+    }
+
 }
