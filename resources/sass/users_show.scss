@@ -69,7 +69,7 @@
     margin-bottom: 20px;
 }
 
-.links-to-cmd
+.links-to-cmd:hover, .links-to-cmd:visited, .links-to-cmd:focus
 {
     font-size: $lato-small;
     color: $black;

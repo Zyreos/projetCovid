@@ -39,12 +39,12 @@
                     <th class="table-header">Statut</th>
                 </tr>
                 @foreach($commands as $command)
-                    @if($command->user_id == $user->id)
+                    @if($command->user_id == $user->id && $command->status_id != 1)
                         <tr>
                             <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->date_validation}}</a></td>
                             <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->id}}</a></td>
                             <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->total}} €</a></td>
-                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->status_id}}</a></td>
+                            <td class="table-row"><a class="links-to-cmd" href="/commands/{{$command->id}}">{{$command->status->name}}</a></td>
                         </tr>
                     @endif
                 @endforeach
