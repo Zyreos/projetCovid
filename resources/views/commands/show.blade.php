@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+
 @endsection
 
 @section('content')
@@ -27,7 +28,7 @@
         <br/>
             @endif
         @endforeach
-        <li>User :{{$user->name}}</li>
+        <li>User :{{$user->first_name}}</li>
     <!-- Il faut conserver ce code :)-->
         <br/>
         <h1> Les articles de la commande</h1>
@@ -51,5 +52,7 @@
     </form>
 
     <a href="/commands"> Retourner à la liste des commandes </a>
+
+
 
 @endsection
