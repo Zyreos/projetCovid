@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.user-container {
+  display: flex;
+  width: 900px;
+  margin-top: 50px;
+}
+
+.navig-links {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: #CE1126;
+  color: #FFFFFF;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  width: 250px;
+  height: 50px;
+  font-size: 22px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.commands-infos, .title {
+  margin-left: 20%;
+  margin-top: 5%;
+}
+
+.commands-infos {
+  width: 1100px;
+  background-color: #FFFFFF;
+  border: 2px solid #AEC0C9;
+  display: flex;
+  justify-content: center;
+}
+
+.articles {
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-montant {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
+  border-left: 2px #CE1126 solid;
+}
+
+.title {
+  font-size: 30px;
+  color: #57575F;
+}
+
+.title-sec {
+  font-size: 22px;
+  color: #57575F;
+}
+
+p {
+  font-size: 16px;
+  color: #57575F;
+}
+
+@media screen and (max-width: 800px) {
+  .user-container {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .user-container, .main-infos {
+    flex-direction: column;
+  }
+
+  .main-infos {
+    width: 100%;
+  }
+
+  .commands-infos, .title {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+@media screen and (max-width: 1700px) {
+  .user-container {
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .user-container, .main-infos {
+    flex-direction: column;
+  }
+
+  .main-infos {
+    width: 100%;
+  }
+
+  .commands-infos, .title {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+/*# sourceMappingURL=commands_show.css.map */
