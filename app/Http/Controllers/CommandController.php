@@ -142,10 +142,15 @@ class CommandController extends Controller
     public function edit($id)
     {
         $command = Command::find($id);
-        $statuses = Status::all();
-        $deliveries = Delivery::all();
-        $users = User::all();
-        return view('commands.edit', compact('command', 'statuses', 'deliveries', 'users'));
+        $delivery = $command->delivery;
+        $user = $command->user;
+
+        $command->with('articles')->get();
+
+        $command->with('addresses')->get();
+
+        return view('commands.edit', compact('command', 'user','delivery'));
+
     }
 
     /**
@@ -370,9 +375,10 @@ class CommandController extends Controller
         $command = Command::find($id);
 
 
+        $delivery = $command->delivery;
         $user = $command->user;
 
-        return view('commands.checkout', compact('command', 'user'));
+        return view('commands.checkout', compact('command', 'user', 'delivery'));
 
     }
 

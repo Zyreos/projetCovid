@@ -52,6 +52,7 @@
     font-size: $lato-big;
     color: $black;
     margin-left: 40px;
+    white-space: nowrap;
 }
 
 .under-title
@@ -96,7 +97,7 @@
 .recap-div
 {
     width: 600px;
-    height: 250px;
+    height: 100%;
     margin-right: 20px;
     background: $white;
     border: 2px solid $grey;
@@ -149,20 +150,22 @@
     .recap-div
     {
         margin-top: 10px;
-        margin-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
 
 @media screen and (max-width: 1700px){
     .global-body
     {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .recap-div
     {
         margin-top: 10px;
-        margin-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
 

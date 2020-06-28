@@ -32,6 +32,40 @@ a {
   text-decoration: none;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #F0EFEF;
+  font-family: "Lato", sans-serif;
+  padding-bottom: 120px;
+}
+
+#main {
+  min-height: 100%;
+}
+
+a:hover, a:visited, a:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .command-steps {
   margin-left: auto;
   margin-right: auto;
@@ -186,5 +220,11 @@ a {
     margin-left: auto;
   }
 }
+.address-delivery {
+  font-size: 16px;
+  color: #57575F;
+  margin-left: 40px;
+  width: 600px;
+}
 
-/*# sourceMappingURL=editFacturation.css.map */
+/*# sourceMappingURL=checkout.css.map */

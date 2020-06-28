@@ -73,10 +73,10 @@
 
                 </div>
 
+
     </section>
 
 
-    <a href="/commands"> Retourner à la liste des commandes </a>
 
 
 
