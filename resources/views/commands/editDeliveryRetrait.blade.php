@@ -97,7 +97,7 @@
             </div>
 
             <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
-            <button class="submit-button" type="submit"> CONTINUER </button>
+            <a class="submit-button"  href="{{ route('commands.editFacturation', [$command->id])}}" > Continuer </a>
 
         </div>
 

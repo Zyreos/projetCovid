@@ -108,6 +108,8 @@
 .submit-button
 {
     @include red-button();
+    padding: 10px;
+    margin: 10px;
 }
 
 .article_image

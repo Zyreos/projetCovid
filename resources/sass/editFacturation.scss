@@ -123,6 +123,8 @@
 .submit-button
 {
     @include red-button();
+    padding: 10px;
+    margin: 10px;
 }
 
 .paypal-img

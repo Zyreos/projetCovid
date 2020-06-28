@@ -40,7 +40,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                        <a href="{{route('users.show', [Auth::user()->id])}}"><img src="/img/user.png" alt="user"> </a>
+                        <a href="{{route('users.show', [Auth::id()])}}"><img src="/img/user.png" alt="user"> </a>
                         <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
 
                 @else

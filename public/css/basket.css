@@ -139,6 +139,8 @@ a {
   width: 250px;
   height: 50px;
   font-size: 22px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .article_image {

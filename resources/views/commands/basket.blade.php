@@ -50,7 +50,7 @@
             <p class="global-infos">TOTAL :</p><p class="global-infos">{{$command->total}} €</p>
         </div>
         <input type="hidden" name="total" value="{{$command->total}}">
-        <button class="submit-button" type="submit"> CONTINUER </button>
+        <a class="submit-button"  href="{{ route('commands.editDelivery', [$command->id])}}" > Continuer </a>
     </div>
 
     </section>
