@@ -165,16 +165,12 @@ a {
     width: 95%;
   }
 }
-.edit {
-  background-color: #AEC0C9;
+.table-header, .table-row {
+  font-size: 16px;
   color: #57575F;
-  border: none;
+  border-bottom: 2px solid #CE1126;
+  padding: 20px 5px;
   text-align: center;
-  text-decoration: none;
-  width: 150px;
-  height: 50px;
-  font-size: 22px;
-  padding: 10px;
 }
 
-/*# sourceMappingURL=commands.css.map */
+/*# sourceMappingURL=users.css.map */

@@ -1,0 +1,11 @@
+@import "users_show";
+
+
+.table-header, .table-row
+{
+    font-size: $lato-small;
+    color: $black;
+    border-bottom: 2px solid $red;
+    padding: 20px 5px;
+    text-align: center;
+}

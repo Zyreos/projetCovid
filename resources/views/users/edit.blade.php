@@ -6,7 +6,7 @@
 
 @section('content')
 
-    
+
     <div class="form_container">
         <div class="nav_user">
             <button class="menu"><a href="/users/{{$user->id}}"> Tableau de bord </a></button>
@@ -14,7 +14,7 @@
             <button class="menu"><a href="/users/{{$user->id}}"> Historique des commandes </a></button>
         </div>
 
-        <form action="/users/{{$user->id}}" method="POST">
+        <form action={{ route('users.update', $user->id) }} method="POST">
             @csrf
             {{ method_field('PATCH') }}
 
@@ -32,7 +32,7 @@
 
             <label for="phone">E-mail:</label>
             <input type="text" name="phone_number" value="{{ $user->phone_number }}" placeholder="Nouveau numéro de téléphone">
-        
+
             <!--<label class="label">Rôle</label>
             <div class="select">
                 <select name="role_id">
@@ -44,8 +44,8 @@
                 <button class="cancel"><a href="/users/{{$user->id}}"> Annuler </a></button>
                 <button type="submit"> Enregistrer les modifications </button>
             </div>
-            
+
         </form>
     </div>
-    
+
 @endsection

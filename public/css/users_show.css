@@ -88,7 +88,7 @@ a {
   margin-bottom: 20px;
 }
 
-.links-to-cmd:hover, .links-to-cmd:visited, .links-to-cmd:focus {
+.links-to-cmd:hover, .links-to-cmd:visited, .links-to-cmd:focus, .links-to-cmd {
   font-size: 16px;
   color: #57575F;
 }
