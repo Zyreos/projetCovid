@@ -93,7 +93,12 @@ class ArticleController extends Controller
         //$command = Command::where('user_id' ,'=', $command->user_id)->get($id);
         $article = Article::find($id);
         $category = $article->category->name;
-        return view('articles.show',compact('article','category', 'commands'));
+
+        $is_checked_status =true;
+        $is_checked_user =true;
+
+
+        return view('articles.show',compact('article','category', 'commands','is_checked_user','is_checked_status'));
     }
 
     /**

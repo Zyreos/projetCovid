@@ -14,15 +14,15 @@
             <button class="menu"><a href="/users/{{$user->id}}"> Historique des commandes </a></button>
         </div>
 
-        <form action={{ route('users.update', $user->id) }} method="POST">
+        <form action="{{ route('users.update', $user) }}" method="POST">
             @csrf
             {{ method_field('PATCH') }}
 
             <label for="lname">Nom:</label>
-            <input type="text" name="name" value="{{ $user->last_name }}" placeholder="Nouveau nom">
+            <input type="text" name="last_name" value="{{ $user->last_name }}" placeholder="Nouveau nom">
 
             <label for="fname">Prénom:</label>
-            <input type="text" name="name" value="{{ $user->first_name }}" placeholder="Nouveau prénom">
+            <input type="text" name="first_name" value="{{ $user->first_name }}" placeholder="Nouveau prénom">
 
             <label for="email">Entreprise:</label>
             <input type="text" name="email" value= "{{ $user->email}}" placeholder="Nouvel e-mail">

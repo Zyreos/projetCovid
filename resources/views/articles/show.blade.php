@@ -22,7 +22,7 @@
 
                         @endphp
                     </div>
-                    
+
                     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -39,11 +39,11 @@
                         $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
 
                     @endphp
-                
+
                 @endif
             @endforeach
-            
-            
+
+
             <!--<article class="article_show">
                 @if(isset($article->pictures))
                     @if(count($article->pictures))
@@ -59,7 +59,7 @@
 
                         @endphp
                     @endif
-                    
+
                     {!! $imgElement !!}
                 @endif
             </article>
@@ -67,7 +67,7 @@
 
         <section class="article_details">
 
-            @if(!Auth::user() && (!$commands || $commands=="[]") || !Auth::user())
+            @if((!Auth::user() && (!$commands || $commands=="[]")) || !Auth::user())
 
                 <input type="hidden" id="id" name="id" value="{{ $article->id }}">
                 <p>NO COMMAND NO USER</p>
@@ -95,23 +95,41 @@
 
             @foreach($commands as $command)
 
-                @if (Auth::user() && $command->user_id == Auth::id() && $command->status_id == 1)
-                    <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
-                        @csrf
+                @if(Auth::user() && $command->user_id == Auth::id())
+                        @if ($command->status_id == 1)
+                            <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
+                                @csrf
 
-                        <p>USER ALREADY HAS A CART</p>
-                        <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                                <p>USER ALREADY HAS A CART</p>
+                                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
 
-                        <div class="add_to_cart">
-                            <h1>{{ $article->price }} €</h1>
-                            <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
-                        </div>
-                    </form>
-                @elseif(Auth::user() && $command->user_id == Auth::id() && $command->status_id != 1)
+                                <div class="add_to_cart">
+                                    <h1>{{ $article->price }} €</h1>
+                                    <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
+                                </div>
+                            </form>
+                        @elseif($command->status_id != 1 && $is_checked == true)
+                            <form action="{{route('commands.store')}}" method="POST">
+                                @csrf
+
+                                {{$is_checked = false}}
+
+                                <p>USER HASN'T ANY CART</p>
+                                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+
+                                <div class="add_to_cart">
+                                    <h1>{{ $article->price }} €</h1>
+                                    <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
+                                </div>
+                            </form>
+                        @endif
+                @elseif(Auth::user()  && $command->user_id != Auth::id() && $is_checked_user == true)
                     <form action="{{route('commands.store')}}" method="POST">
                         @csrf
 
-                        <p>USER HASN'T ANY CART</p>
+                        {{$is_checked_user = false}}
+
+                        <p>IS IT WORKING?</p>
                         <input type="hidden" id="id" name="id" value="{{ $article->id }}">
 
                         <div class="add_to_cart">
@@ -119,18 +137,6 @@
                             <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
                         </div>
                     </form>
-                @else
-                        <form action="{{route('commands.store')}}" method="POST">
-                            @csrf
-
-                            <p>IS IT WORKING?</p>
-                            <input type="hidden" id="id" name="id" value="{{ $article->id }}">
-
-                            <div class="add_to_cart">
-                                <h1>{{ $article->price }} €</h1>
-                                <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
-                            </div>
-                        </form>
                 @endif
             @endforeach
 
@@ -149,6 +155,7 @@
                     </form>
             </div>
         </section>
+                </div>
 
     </section>
 
