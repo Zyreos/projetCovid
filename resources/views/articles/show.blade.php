@@ -95,7 +95,8 @@
 
             @foreach($commands as $command)
 
-                @if(Auth::user() && $command->user_id == Auth::id())
+            @if(Auth::user())
+                @if($command->user_id == Auth::id())
                         @if ($command->status_id == 1)
                             <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
                                 @csrf
@@ -123,7 +124,7 @@
                                 </div>
                             </form>
                         @endif
-                @elseif(Auth::user()  && $command->user_id != Auth::id() && $is_checked_user == true)
+                @elseif($command->user_id != Auth::id() && $is_checked_user == true)
                     <form action="{{route('commands.store')}}" method="POST">
                         @csrf
 
@@ -138,6 +139,7 @@
                         </div>
                     </form>
                 @endif
+            @endif
             @endforeach
 
             <h3>Dimensions: {{ $article->dimensions }}</h3>

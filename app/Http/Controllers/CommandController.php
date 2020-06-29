@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Session;
 
 class CommandController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +69,6 @@ class CommandController extends Controller
         $article = Article::findOrFail($request->id);
         //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
-
 
         return redirect()->route('commands.index', compact('is_checked_status', 'is_checked_user'));
     }
