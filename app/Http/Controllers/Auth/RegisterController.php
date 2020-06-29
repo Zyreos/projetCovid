@@ -58,7 +58,6 @@ class RegisterController extends Controller
             'company' => ['string','max:255'],
             'phone_number' => ['required','string','max:10'],
             'role_id' => ['required'],
-            'has_basket' => ['required', 'boolean'],
         ]);
     }
 
@@ -78,7 +77,7 @@ class RegisterController extends Controller
             'company' => $data['company'],
             'phone_number' => $data['phone_number'],
             'role_id' => $data['role_id'],
-            'has_basket' => $data[false],
+            /*'has_basket' => $data['has_basket'],*/
         ]);
     }
 }
