@@ -168,8 +168,8 @@ class ArticleController extends Controller
 
         $pictures = $request->file('pictures');
 
-        if(isset($picture)){
-
+        if(isset($pictures)){
+            
             $extension = $pictures->getClientOriginalExtension();
             $pictures_name = 'article_' . $article->id;
 
@@ -185,8 +185,7 @@ class ArticleController extends Controller
             $article -> save();
 
         }
-
-
+        
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
     }
 
