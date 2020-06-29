@@ -51,6 +51,7 @@
             @elseif($commands=="[]" || !$commands )
                 <form action="{{route('commands.store')}}" method="POST">
                     @csrf
+                    {{$command->user->has_basket = true}}
 
                     <p>NO COMMAND BUT USER LOGGED IN</p>
                     <input type="hidden" id="id" name="id" value="{{ $article->id }}">
@@ -65,50 +66,37 @@
             @foreach($commands as $command)
 
             @if(Auth::user())
-                @if($command->user_id == Auth::id())
-                        @if ($command->status_id == 1)
-                            <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
-                                @csrf
 
-                                <p>USER ALREADY HAS A CART</p>
-                                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                @if($command->user_id == Auth::id()&& $command->user->has_basket)
 
-                                <div class="add_to_cart">
-                                    <h1>{{ $article->price }} €</h1>
-                                    <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
-                                </div>
-                            </form>
-                        @elseif($command->status_id != 1 && $is_checked_status == true)
-                            <form action="{{route('commands.store')}}" method="POST">
-                                @csrf
+                                <form action="{{route('commands.updateWithArticle', $command)}}" method="POST">
+                                    @csrf
 
-                                {{$is_checked_status = false}}
+                                    <p>USER ALREADY HAS A CART</p>
+                                    <input type="hidden" id="id" name="id" value="{{ $article->id }}">
 
-                                <p>USER HASN'T ANY CART</p>
-                                <input type="hidden" id="id" name="id" value="{{ $article->id }}">
+                                    <div class="add_to_cart">
+                                        <h1>{{ $article->price }} €</h1>
+                                        <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
+                                    </div>
+                                </form>
+                            @elseif(!($command->user_id == Auth::id()&& $command->user->has_basket) && $is_checked_user)
+                                <form action="{{route('commands.store')}}" method="POST">
+                                    @csrf
+                                    {{$command->user->has_basket = true}}
 
-                                <div class="add_to_cart">
-                                    <h1>{{ $article->price }} €</h1>
-                                    <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
-                                </div>
-                            </form>
-                        @endif
-                @elseif($command->user_id != Auth::id() && $is_checked_user == true)
-                    <form action="{{route('commands.store')}}" method="POST">
-                        @csrf
+                                    {{$is_checked_user = false}}
 
-                        {{$is_checked_user = false}}
+                                    <p>USER HASN'T ANY CART</p>
+                                    <input type="hidden" id="id" name="id" value="{{ $article->id }}">
 
-                        <p>IS IT WORKING?</p>
-                        <input type="hidden" id="id" name="id" value="{{ $article->id }}">
-
-                        <div class="add_to_cart">
-                            <h1>{{ $article->price }} €</h1>
-                            <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
-                        </div>
-                    </form>
+                                    <div class="add_to_cart">
+                                        <h1>{{ $article->price }} €</h1>
+                                        <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
+                                    </div>
+                                </form>
+                            @endif
                 @endif
-            @endif
             @endforeach
 
             <h3>Dimensions: {{ $article->dimensions }}</h3>

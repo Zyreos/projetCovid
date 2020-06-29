@@ -69,7 +69,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -78,8 +77,7 @@ class RegisterController extends Controller
             'company' => $data['company'],
             'phone_number' => $data['phone_number'],
             'role_id' => $data['role_id'],
+            /*'has_basket' => $data['has_basket'],*/
         ]);
-
-
     }
 }

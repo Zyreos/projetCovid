@@ -94,11 +94,11 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $category = $article->category->name;
 
-        $is_checked_status =true;
-        $is_checked_user =true;
+        $is_checked_user =false;
+        
 
 
-        return view('articles.show',compact('article','category', 'commands','is_checked_user','is_checked_status'));
+        return view('articles.show',compact('article','category', 'commands','is_checked_user'));
     }
 
     /**

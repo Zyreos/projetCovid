@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('company')->nullable();
             $table->string('phone_number')->nullable();
+            $table->boolean('has_basket')->default(false);
             $table->rememberToken();
             $table->timestamps();
 
