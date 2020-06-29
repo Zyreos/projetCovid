@@ -11,7 +11,7 @@
   <section class="edition">
     <h1 class="t1">Edition de  {{ $article->name }} :</h1>
     
-    <form action="/articles/{{$article->id}}" method="POST">
+    <form action="/articles/{{$article->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       {{ method_field('PATCH') }}
 

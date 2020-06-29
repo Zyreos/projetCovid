@@ -98,14 +98,9 @@
     font-size: $lato-small;
 }
 
-@media screen and (max-width: 767px) {
-    .categ_container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
 @media screen and (max-width: 767px) {
+    
     .article {
         width: fit-content;
     }

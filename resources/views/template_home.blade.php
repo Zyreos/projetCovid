@@ -28,7 +28,7 @@
             </div>
             <div class="links">
                 <a class="accueil" href="/">ACCUEIL</a>
-                <a href="{{route('articles.index')}}">PRODUITS</a>
+                <a href="/products">PRODUITS</a>
             </div>
 
             <div class="auth">
