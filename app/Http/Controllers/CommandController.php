@@ -84,7 +84,7 @@ class CommandController extends Controller
         $command->user->update(['has_basket' => true]);
 
 
-        return redirect()->route('commands.index');
+        return redirect()->back();
     }
 
 
@@ -102,7 +102,7 @@ class CommandController extends Controller
         //$command = Command::where('user_id' ,'=', $command->user_id)->get();
         $command->articles()->attach($article);
         $command->update(['total' ]);
-        return redirect()->route('commands.show');
+        return redirect()->back();
     }
 
     public function basket($id)

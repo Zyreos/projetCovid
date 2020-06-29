@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
 {
 
-    
+
 
     /*public function __construct(Category $category)
     {
@@ -86,7 +86,7 @@ class ArticleController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $commands = Command::all();
 
@@ -95,10 +95,45 @@ class ArticleController extends Controller
         $category = $article->category->name;
 
         $is_checked_user =false;
-        
+
+        //$user = Auth::user();
+        $user = $request->user();
+
+        if ((!Auth::user() && (!$commands || $commands=="[]")) || !Auth::user())
+        {
+            $commands = null;
+            return view('articles.show',compact('article','category','is_checked_user', 'commands'));
+
+        }
+
+        if (Auth::user() && $user->has_basket == true)
+        {
+            //$command =  Command::where('user_id', "=", Auth::id())->where('status_id', "=", 1)->get();
+
+            //$commands = $user->commands();
+
+            //var_dump($command->id);
+            //die();
+
+            foreach ($commands as $command)
+            {
+                if ($command->status_id == 1)
+                {
+                    $goodCommand = $command;
+                    //return view('articles.show',compact('article','category','is_checked_user','goodCommand', 'user'));
+                }
+            }
 
 
-        return view('articles.show',compact('article','category', 'commands','is_checked_user'));
+            return view('articles.show',compact('article','category','is_checked_user','goodCommand' ,'user'));
+        }
+
+        if (Auth::user() && $user->has_basket == false)
+        {
+            return view('articles.show', compact('article', 'category', 'commands', 'is_checked_user', 'user'));
+        }
+
+        return view('articles.show', compact('article', 'category', 'commands', 'is_checked_user', 'user'));
     }
 
     /**
@@ -130,11 +165,11 @@ class ArticleController extends Controller
         $article -> dimensions = $request -> input('dimensions');
         $article -> category_id = $request -> input('category_id');
         $article -> save();
-        
+
         $pictures = $request->file('pictures');
 
         if(isset($picture)){
-            
+
             $extension = $pictures->getClientOriginalExtension();
             $pictures_name = 'article_' . $article->id;
 
@@ -150,7 +185,7 @@ class ArticleController extends Controller
             $article -> save();
 
         }
-        
+
 
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
     }
@@ -187,6 +222,6 @@ class ArticleController extends Controller
         return redirect('articles');
     }
 
-    
+
 
 }
