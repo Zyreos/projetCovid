@@ -90,9 +90,9 @@
                         <h3 class="dimension">{{ $article->dimensions }}</h3>
                         <h2 class="price">{{ $article->price }} €</h2>
                     </div>
-                    <div class="buy_button">
-                        <a href="#"><button>Ajouter au panier</button></a>
-                    </div>
+                        <a class="buy_button" href="">
+                            Ajouter au panier
+                        </a>
                 </article>
 
             @endforeach
