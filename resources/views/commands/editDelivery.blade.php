@@ -39,15 +39,15 @@
             </div>
 
             <label>Prénom
-                <input type="text" name="first_name" value="Jolie">
+                <input type="text" name="first_name">
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="Madame">
+                <input type="text" name="last_name">
             </label>
 
             <label>Téléphone
-                <input type="text" name="phone_number" value="0123456789">
+                <input type="text" name="phone_number">
             </label>
 
             <label> Adresse 1

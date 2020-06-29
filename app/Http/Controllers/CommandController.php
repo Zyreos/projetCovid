@@ -79,10 +79,11 @@ class CommandController extends Controller
         $command =Command::create(['status_id' => 1, 'user_id' => Auth::id()]);
         //$command = new Command();
         $article = Article::findOrFail($request->id);
+        $article->update(['quantity' => 1]);
         //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
+        $command->update(['total' => ($article->price * $article->quantity)]);
         $command->user->update(['has_basket' => true]);
-
 
         return redirect()->back();
     }
@@ -98,10 +99,11 @@ class CommandController extends Controller
     public function updateWithArticle(Request $request, Command $command)
     {
         $article = Article::findOrFail($request->id);
+        $article->update(['quantity' => 1]);
 
         //$command = Command::where('user_id' ,'=', $command->user_id)->get();
         $command->articles()->attach($article);
-        $command->update(['total' ]);
+        $command->update(['total' => ($command->total + ($article->price * $article->quantity))]);
         return redirect()->back();
     }
 
