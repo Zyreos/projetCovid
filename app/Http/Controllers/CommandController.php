@@ -31,6 +31,18 @@ class CommandController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexM()
+    {
+        $commands = Command::all();
+        $statuses = Status::all();
+        return view('commands.indexM', compact('commands', 'statuses'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

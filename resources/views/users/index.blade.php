@@ -10,7 +10,7 @@
 
         <div class="navig-links">
             <a class="button" href="">Comptes</a>
-            <a class="button" href="">Commandes</a>
+            <a class="button" href="/indexM">Commandes</a>
             <a class="button" href="">Articles</a>
         </div>
 
@@ -30,6 +30,7 @@
                     </tr>
                     @foreach($users as $user)
 
+
                             <tr>
                                 <td class="table-row"><a class="links-to-cmd" href="/users/{{$user->id}}/editM">{{$user->first_name}}</a></td>
                                 <td class="table-row"><a class="links-to-cmd" href="/users/{{$user->id}}/editM">{{$user->last_name}}</a></td>
@@ -38,6 +39,7 @@
                                 <td class="table-row"><a class="links-to-cmd" href="/users/{{$user->id}}/editM">{{$user->email}}</a></td>
                                 <td class="table-row"><a class="links-to-cmd" href="/users/{{$user->id}}/editM">{{$user->role->name}}</a></td>
                             </tr>
+
                     @endforeach
                 </table>
             </div>

@@ -12,7 +12,7 @@
             <a class="button" href="">Comptes</a>
             <a class="button" href="">Commandes</a>
             <a class="button" href="">Articles</a>
-            <form action="/users/{{$user->id}}/update" method="POST">
+            <form action="{{route('users.update', $user)}}" method="POST">
                 @csrf
             <button class="button" type="submit">Enregistrer</button>
                 <div>

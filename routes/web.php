@@ -42,6 +42,8 @@ Route::get('commands/{command}/basket', 'CommandController@basket')->name('comma
 
 Route::post('articles/{article}/update','ArticleController@updateQuantity')->name('articles.updateQuantity');
 
+Route::get('/indexM', 'CommandController@indexM')->name('commands.indexM');
+
 Route::get('/commands/{id}/edit', 'CommandController@edit')->name('commands.edit');
 
 Route::post('/commands/{command}/update', 'CommandController@update')->name('commands.update');
@@ -74,3 +76,4 @@ Route::get('/commands/{command}/checkout', 'CommandController@checkout')->name('
 Route::get('/commands/{command}/confirm', 'CommandController@confirm')->name('commands.confirm');
 
 Route::get('/users/{user}/editM', 'UserController@editM')->name('users.editM');
+Route::post('/users/{user}/update', 'UserController@update')->name('users.update');
