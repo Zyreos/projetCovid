@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
 {
 
+    
 
     /*public function __construct(Category $category)
     {
@@ -121,9 +122,37 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        $article->update($request->all());
+        $article = Article::find($id);
+        $article -> name = $request -> input('name');
+        $article -> price = $request -> input('price');
+        $article -> description = $request -> input('description');
+        $article -> dimensions = $request -> input('dimensions');
+        $article -> category_id = $request -> input('category_id');
+        $article -> save();
+        
+        $pictures = $request->file('pictures');
+
+        if(isset($picture)){
+            
+            $extension = $pictures->getClientOriginalExtension();
+            $pictures_name = 'article_' . $article->id;
+
+            FileUploadGestion::uploadFile($pictures, $pictures_name, '/img/articles');
+
+            $path = '/img/articles/' . $pictures_name . '.' .$extension;
+
+            $pictures = new Picture;
+            $pictures -> path = $path;
+            $pictures -> article_id = $article->id;
+            $pictures -> save();
+
+            $article -> save();
+
+        }
+        
+
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
     }
 

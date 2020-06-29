@@ -10,41 +10,10 @@
 
         <section class="article">
             <h1>{{ $article->name }}</h1>
-            @foreach($article->pictures as $picture)
-                @if(isset($article->pictures))
-
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        @php
-
-                            $imgElement = '<div class="d-block w-20 img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
-
-                        @endphp
-                    </div>
-
-                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-                @else
-                    @php
-
-                        $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
-
-                    @endphp
-
-                @endif
-            @endforeach
 
 
-            <!--<article class="article_show">
+
+            <article class="article_show">
                 @if(isset($article->pictures))
                     @if(count($article->pictures))
                         @php
@@ -63,7 +32,7 @@
                     {!! $imgElement !!}
                 @endif
             </article>
-        </section>-->
+        </section>
 
         <section class="article_details">
 
