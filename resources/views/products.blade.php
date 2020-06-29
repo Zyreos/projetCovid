@@ -19,6 +19,9 @@
 
     <!--Filtrage-->
     <section class="container">
+    <form action="/products" method="GET">
+        @csrf
+        
         <div class="filter_container">
             <h1>Catégorie :</h1>
 
@@ -46,20 +49,22 @@
             <h1>Prix :</h1>
 
             <div class="form-check ml-5">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="radio" value="asc" {{($sortDirection == 'asc' ? 'checked' : '')}} id="defaultCheck1" name="price">
                 <label class="form-check-label" for="defaultCheck1">
                     Croissant
                 </label>
             </div>
 
             <div class="form-check ml-5">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="radio" value="desc" {{($sortDirection == 'desc' ? 'checked' : '')}} id="defaultCheck1" name="price">
                 <label class="form-check-label" for="defaultCheck1">
                     Décroissant
                 </label>
             </div>
         </div>
-    
+
+        <button type="submit">Rechercher</button>
+        </form>
 
         <!-- Articles -->
 

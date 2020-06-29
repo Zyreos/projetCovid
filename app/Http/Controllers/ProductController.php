@@ -13,17 +13,27 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::all();
-        $categories = Category::all();
+        $sortDirection = (($request->input('price') == 'asc') ? 'asc' : (($request->input('price') == 'desc') ? 'desc' : null));        
+        $articles;
+        if($sortDirection != null){
+            $articles = Article::orderBy('price', $sortDirection)->get();
+        }
+        else{
+            $articles = Article::all();
+        }
         
-        return view('/products', compact('articles','categories'));
+        $categories = Category::all();
+        return view('/products', compact('articles','categories', 'sortDirection'));
     }
 
     /**
