@@ -405,6 +405,8 @@ class CommandController extends Controller
         $command->status_id = 2;
         $command->date_validation = date("Y-m-d");
         $command->save();
+        $user = $request->user();
+        $user->update(['has_basket' => false]);
         //$command->update($request->all());
         /*var_dump(date("Y-m-d"));
         die();*/
