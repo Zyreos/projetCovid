@@ -86,13 +86,13 @@
     width: 100%;
 }
 
-.buy_button
+/*.buy_button
 {
     display: flex;
     justify-content: space-evenly;
-}
+}*/
 
-.buy_button button
+.buy_button
 {
     /*background-color: $red;
     color: $white;
@@ -104,6 +104,9 @@
     font-size: 16px;
     font-weight: bold;*/
     @include red-button;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
 }
 
 .name
