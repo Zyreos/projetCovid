@@ -4,10 +4,13 @@
         <meta charset="utf-8">
         <meta name="description" content="Les Hydroalcooliques" />
         <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.5/getting-started/introduction/"></script>-->
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://getbootstrap.com/docs/4.5/getting-started/introduction/"></script>
-
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <title>Les Hydroalcooliques</title>
         <link rel="stylesheet" href="{{ asset('css/nav_bar.css') }}" />
@@ -30,13 +33,20 @@
 
             <div class="auth">
                 @if (Auth::user())
-                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
+
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><img src="/img/logout1.png" alt="login"></a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                        <a href="{{route('users.show', [Auth::id()])}}"><img src="/img/user.png" alt="user"> </a>
+                        <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
 
                 @else
-                    <a href="/home"><img src="/img/logout1.png" alt="login"></a>
+                    <a href="{{ route('login') }}"><img src="/img/login1.png" alt="login"></a>
                 @endif
-                <a href="{{route('users.index')}}"><img src="/img/user.png" alt="user"> </a>
-                <a href="/"><img src="/img/smart-cart.png" alt="basket"> </a>
+
             </div>
             </nav>
         </header>

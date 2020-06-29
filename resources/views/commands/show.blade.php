@@ -1,57 +1,82 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
-
+    <link rel="stylesheet" href="{{ asset('css/commands_show.css') }}" />
 @endsection
 
 @section('content')
 
-    <h1>Détail de la commande - {{ $command->id }}</h1>
 
-    <div>
-        <li>Date de validation: {{ $command->date_validation }}</li>
-        <li>Total: {{ $command->total }}</li>
-        <br/>
-        @foreach($command->addresses as $address)
-        @if($address->is_bill == 0)
-        <li>Adresse de livraison: {{$address->address1}} & {{ $address->address2 }} </li>
-        <li>Code postal: {{$address->postcode}}</li>
-        <li>Ville: {{$address->city}}</li>
-        <li>Pays: {{$address->country}}</li>
-        @else
-        <br/>
-        <li>Adresse de facturation: {{$address->address1}} & {{ $address->address2 }} </li>
-        <li>Code postal: {{$address->postcode}}</li>
-        <li>Ville: {{$address->city}}</li>
-        <li>Pays: {{$address->country}}</li>
-        <br/>
-            @endif
-        @endforeach
-        <li>User :{{$user->first_name}}</li>
-    <!-- Il faut conserver ce code :)-->
-        <br/>
-        <h1> Les articles de la commande</h1>
-        @foreach($command->articles as $article)
-            <li>{{ $article->name }}</li>
-        @endforeach
+    <section class="user-container">
 
-    </div>
-
-    <a href="/commands/{{ $command->id }}/editFacturation"> Edition avec addresse de facturation </a>
-    <br/>
-    <a href="/commands/{{ $command->id }}/editDelivery"> Edition de livraison</a>
-    <br/>
-    <a href="/commands/{{ $command->id }}/edit"> Edition </a>
+        <div class="navig-links">
+            <a class="button" href="">Tableau de bord</a>
+            <a class="button" href="/users/{{$user->id}}/edit">Mes informations</a>
+        </div>
 
 
-    <form method="POST" action="/commands/{{ $command->id }}">
-        {{ csrf_field() }}
-        {{ method_field('DELETE') }}
-        <input type="submit" value="Supprimer" />
-    </form>
+        <div class="main-infos">
 
-    <a href="/commands"> Retourner à la liste des commandes </a>
+            <h1 class="title">Détail de la commande - {{ $command->id }}</h1>
+
+            <div class="commands-infos">
+
+                <div class="articles">
+
+                    <h2 class="title-sec">Montant</h2>
+
+                    @foreach($command->articles as $article)
+                        <div class="list-montant">
+                            <p>{{ $article->name }} x{{$article->quantity}}</p>
+                            <p>{{$article->total_price}} €</p>
+                        </div>
+                    @endforeach
+
+                    <div class="list-montant">
+
+                        <p>Livraison</p>
+                        <p>{{$delivery->price}} €</p>
+
+                    </div>
+
+                    <div class="list-montant">
+
+                        <p>TOTAL</p>
+                        <p>{{$command->total}} €</p>
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    @foreach($command->addresses as $address)
+
+                    @if($address->is_bill == 1)
+                            <h2 class="title-sec">Adresse de facturation</h2>
+                    <p>{{$address->address1}}, {{$address->address2}}, {{$address->city}}, {{$address->postcode}}, {{$address->country}}</p>
+
+                    @else($address->id_bill == 0)
+                    <h2 class="title-sec">Adresse de livraison</h2>
+
+                        <p>{{$address->address1}}, {{$address->address2}}, {{$address->city}}, {{$address->postcode}}, {{$address->country}}</p>
+                    @endif
+
+                    @endforeach
+                    <h2 class="title-sec">Date de validation</h2>
+
+                    <p>{{$command->date_validation}}</p>
+
+                </div>
+
+
+                </div>
+
+                </div>
+
+
+    </section>
+
+
 
 
 

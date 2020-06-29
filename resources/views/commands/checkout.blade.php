@@ -1,29 +1,64 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}" />
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 @endsection
 
 @section('content')
 
-    <h1>Détail de la commande - {{ $command->id }}</h1>
 
-    <div>
-        <li>Date de validation: {{ $command->date_validation }}</li>
-        <li>Total: {{ $command->total }}</li>
-        <li>User :{{$user->first_name}}</li>
+    <div class="command-steps">
+        <h3 class="off-step">1 LIVRAISON</h3>
+        <h3 class="off-step">2 PAIEMENT</h3>
+        <h1 class="current-step">3 VERIFICATION</h1>
+    </div>
+    <hr class="little-hr">
 
-        <input type="hidden" name="total" value="{{$command->total}}">
+    <section class="global-body">
 
-    <a href="/commands/{{ $command->id }}/basket"> Annuler </a>
+        <div class="create-address">
+            <div class="title-group">
+                <h2 class="title">Information de livraison</h2>
+                <hr class="under-title">
+                @foreach($command->addresses as $address)
+
+                    @if($address->is_bill == 0)
+                        <h3 class="title">Addresse de livraison :</h3>
+                        <p class="address-delivery">{{$address->address1}}, {{$address->address2}}, {{$address->city}}, {{$address->postcode}}, {{$address->country}}</p>
+
+                    @endif
+
+                @endforeach
+                <hr class="under-title">
+
+                <h2 class="sec-title">Information de paiement</h2>
+                <img class="paypal-img" src="/img/Paypal.png" alt="PayPayl_img">
+
+            </div>
+            </div>
 
 
 
-    <a href="/commands"> Retourner à la liste des commandes </a>
+
+
+    <div class="recap-div">
+
+        <h2 class="sec-title">Récapitulatif de la commande</h2>
+        <div class="global-infos-div">
+            <p class="global-infos">Sous-total :</p><p class="global-infos">{{$command->total}} € </p>
+        </div>
+        <div class="global-infos-div">
+            <p class="global-infos">Livraison :</p><p class="global-infos">{{$delivery->price}} €</p>
+        </div>
+        <hr class="recap-hr">
+        <div class="global-infos-div">
+            <p class="global-infos">TOTAL :</p><p class="global-infos">{{$command->total}} €</p>
+        </div>
 
         <div id="paypal-button"></div>
 
+    </div>
         <script>
             paypal.Button.render({
                 env: 'sandbox', // Or 'production'
@@ -54,5 +89,7 @@
                 }
             }, '#paypal-button');
         </script>
+    </section>
+
 @endsection
 

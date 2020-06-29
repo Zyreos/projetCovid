@@ -71,10 +71,10 @@
             <h2 class="sec-title">Récapitulatif de la commande</h2>
             <hr class="recap-hr">
             <div class="global-infos-div">
-                <p class="global-infos">TOTAL :</p><p class="global_infos">{{$command->total}}</p>
+                <p class="global-infos">TOTAL :</p><p class="global-infos">{{$command->total}}</p>
             </div>
             <input type="hidden" name="total" value="{{$command->total}}€">
-            <button class="submit-button" type="submit"> CONTINUER </button>
+            <a class="submit-button"  href="{{ route('commands.checkout', [$command->id])}}" > Continuer </a>
         </div>
 
     </form>
