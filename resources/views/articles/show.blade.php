@@ -108,11 +108,11 @@
                                     <button type="submit" id="addCommand"> AJOUTER AU PANIER </button>
                                 </div>
                             </form>
-                        @elseif($command->status_id != 1 && $is_checked == true)
+                        @elseif($command->status_id != 1 && $is_checked_status == true)
                             <form action="{{route('commands.store')}}" method="POST">
                                 @csrf
 
-                                {{$is_checked = false}}
+                                {{$is_checked_status = false}}
 
                                 <p>USER HASN'T ANY CART</p>
                                 <input type="hidden" id="id" name="id" value="{{ $article->id }}">
