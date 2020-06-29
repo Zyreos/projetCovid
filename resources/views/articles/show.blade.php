@@ -115,13 +115,12 @@
             <h3>Description: {{ $article->description }}</h3>
 
             <div class="article_admin">
-                    <button><a href="/articles/{{ $article->id }}/edit"> Editer </a></button>
+                    
 
                     <form method="POST" action="/articles/{{ $article->id }}">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-
-                        <a href="/articles/{{ $article->id }}/delete"> Supprimer </a>
+                        
                         <a href="/articles"> Retourner à la liste des articles </a>
                     </form>
             </div>
