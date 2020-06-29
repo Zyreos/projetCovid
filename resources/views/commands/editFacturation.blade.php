@@ -27,15 +27,15 @@
             </div>
 
             <label>Prénom
-                <input type="text" name="first_name" value="Jolie">
+                <input type="text" name="first_name">
             </label>
 
             <label>Nom
-                <input type="text" name="last_name" value="Madame">
+                <input type="text" name="last_name">
             </label>
 
             <label>Téléphone
-                <input type="text" name="phone_number" value="0123456789">
+                <input type="text" name="phone_number">
             </label>
 
             <label>Adresse 1
@@ -71,10 +71,10 @@
             <h2 class="sec-title">Récapitulatif de la commande</h2>
             <hr class="recap-hr">
             <div class="global-infos-div">
-                <p class="global-infos">TOTAL :</p><p class="global-infos">{{$command->total}}</p>
+                <p class="global-infos">TOTAL :</p><p class="global-infos">{{$command->total}} €</p>
             </div>
-            <input type="hidden" name="total" value="{{$command->total}}€">
-            <a class="submit-button"  href="{{ route('commands.checkout', [$command->id])}}" > Continuer </a>
+            <input type="hidden" name="total" value="{{$command->total}}">
+            <button class="submit-button"> Continuer </button>
         </div>
 
     </form>

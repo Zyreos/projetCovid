@@ -93,7 +93,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->all());
-        return redirect()->route('users.index')->with('info', 'Le compte a bien été misà jour');
+        return redirect()->back();
     }
 
     /**

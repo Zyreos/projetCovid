@@ -89,7 +89,7 @@
                 <p class="global-infos">Sous-total :</p><p class="global-infos">{{$command->total}} € </p>
             </div>
             <div class="global-infos-div">
-                <p class="global-infos">Livraison :</p><p class="global-infos">{{$goodDelivery->price}}€</p>
+                <p class="global-infos">Livraison :</p><p class="global-infos">{{$goodDelivery->price}} €</p>
             </div>
             <hr class="recap-hr">
             <div class="global-infos-div">
@@ -97,7 +97,7 @@
             </div>
 
             <input type="hidden" name="total" value="{{$command->total + $goodDelivery->price}}">
-            <a class="submit-button"  href="{{ route('commands.editFacturation', [$command->id])}}" > Continuer </a>
+            <button class="submit-button"> Continuer </button>
 
         </div>
 

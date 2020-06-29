@@ -21,7 +21,7 @@
     <section class="container">
     <form action="/products" method="GET">
         @csrf
-        
+
         <div class="filter_container">
             <h1>Catégorie :</h1>
 
@@ -61,11 +61,11 @@
                     Décroissant
                 </label>
             </div>
-            
+
             <button type="submit">Rechercher</button>
         </div>
 
-        
+
         </form>
 
         <!-- Articles -->
@@ -80,7 +80,9 @@
                             @endif
                         @endforeach-->
 
+
                     <article class="article">
+                        <a href="/articles/{{$article->id}}">
                         @if(isset($article->pictures))
                             @if(count($article->pictures))
                                 @php
@@ -95,18 +97,20 @@
 
                                 @endphp
                             @endif
-                            
+
                             {!! $imgElement !!}
                         @endif
+                        </a>
                             <div class="article_lign"></div>
                             <div class="article_info">
                                 <h1 class="name" >{{ $article->name }}</h1>
                                 <h3 class="dimension">{{ $article->dimensions }}</h3>
                                 <h2 class="price">{{ $article->price }} €</h2>
-                                <a class="buy_button" href="#">Ajouter au panier</a> 
+                                <a class="buy_button" href="#">Ajouter au panier</a>
                             </div>
                     </article>
+
             @endforeach
         </div>
-    </section>   
+    </section>
 @endsection

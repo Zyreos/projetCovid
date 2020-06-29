@@ -79,10 +79,11 @@ class CommandController extends Controller
         $command =Command::create(['status_id' => 1, 'user_id' => Auth::id()]);
         //$command = new Command();
         $article = Article::findOrFail($request->id);
+        $article->update(['quantity' => 1]);
         //$article_quantity = Article::findOrFail($request->quantity);
         $command->articles()->attach($article);
+        $command->update(['total' => ($article->quantity * $article->price)]);
         $command->user->update(['has_basket' => true]);
-
 
         return redirect()->back();
     }
@@ -98,10 +99,11 @@ class CommandController extends Controller
     public function updateWithArticle(Request $request, Command $command)
     {
         $article = Article::findOrFail($request->id);
+        $article->update(['quantity' => 1]);
 
         //$command = Command::where('user_id' ,'=', $command->user_id)->get();
         $command->articles()->attach($article);
-        $command->update(['total' ]);
+        $command->update(['total' => ($command->total + ($article->quantity * $article->price))]);
         return redirect()->back();
     }
 
@@ -211,7 +213,7 @@ class CommandController extends Controller
         $address_id = $address::create($inputs)->id;
         $command->addresses()->attach($address_id);
         $command->update($request->all());
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.checkout', $command);
 
     }
 
@@ -275,7 +277,7 @@ class CommandController extends Controller
 
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.editFacturation', $command);
 
     }
 
@@ -354,7 +356,7 @@ class CommandController extends Controller
         $command->update($request->all());
         //return redirect()->route('delirevies.updateWithDeliveryWithAddress',['address','delivery']);
         //return redirect()->action('DeliveryController@updateWithAddress1',['address','delivery']);
-        return redirect()->route('commands.index');
+        return redirect()->route('commands.editFacturation', $command);
 
     }
 
