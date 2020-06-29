@@ -17,7 +17,6 @@
         <form action="{{ route('users.update', $user) }}" method="POST">
             @csrf
 
-
             <label for="lname">Nom:</label>
             <input type="text" name="last_name" value="{{ $user->last_name }}" placeholder="Nouveau nom">
 
