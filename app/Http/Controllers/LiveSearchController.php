@@ -24,12 +24,12 @@ class LiveSearchController extends Controller
             if($addresses && $request->search != null)
             {
                 foreach ($addresses as $address) {
-                    $output.='<input type="radio" id="address_id" name="address_id" value="'.$address->id.'">'.
-                        '<label for="address_id">' .$address->address1
-                        .$address->address2
-                        .$address->city
-                        .$address->postcode
-                        .$address->country.'</label>';
+                    $output.='<div class="address"><input type="radio" id="address_id" name="address_id" value="'.$address->id.'">'.
+                        '<label for="address_id">' .$address->address1. ', '
+                        .$address->address2. ', '
+                        .$address->city. ', '
+                        .$address->postcode. ', '
+                        .$address->country.'</label> </div>';
 
                     /*'<tr>
          <td>'.$address->id.'</td>

@@ -7,20 +7,26 @@
 
 @section('content')
 
-<h1>Détail de la commande - {{ $command->id }}</h1>
 
-<div>
-    <h1>Votre commande à été validé</h1>
+    <h1 class="title">Votre commande à été validé</h1>
+    <p class="title">Total : {{$command->total}} €</p>
+    <p class="title">Merci !</p>
 
-    <li>Date de validation: {{ $command->date_validation }}</li>
-    <li>Total: {{ $command->total }}</li>
-
+    <style>
 
 
+        .title
+        {
+            font-size: 30px;
+            color: #57575F;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
 
-    <a href="/commands"> Retourner à la liste des commandes </a>
+        }
 
+    </style>
 
-    @endsection
+@endsection
 
 

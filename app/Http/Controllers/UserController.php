@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $users = User::all();
         $roles = Role::all();
-        return view('users.index', compact('users','roles'));
+        return view('users.index', compact('users','roles')) ;
     }
 
     /**
@@ -55,6 +55,19 @@ class UserController extends Controller
         $role = $user->role->name;
         $commands = Command::all();
         return view('users.show',compact('user', 'role', 'commands'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editM($id)
+    {
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('users.editM', compact('user', 'roles'));
     }
 
     /**

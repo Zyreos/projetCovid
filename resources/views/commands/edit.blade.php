@@ -1,42 +1,90 @@
 @extends('template_home')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/commands_show.css') }}" />
 @endsection
 
 @section('content')
 
-    <h1 class="t1">Edition d'une commande</h1>
 
-    <form action="{{ route('commands.update', $command->id) }}" method="POST" >
-        @csrf
-        <div>
-            <input type="date" name="date_validation" placeholder="Date de validation">
+    <section class="user-container">
+
+        <div class="navig-links">
+            <a class="button" href="/commands">Nouvelles commandes</a>
+            <a class="button" href="">Commandes en cours</a>
+            <a class="button" href="">Commandes terminées</a>
+            <form action="{{ route('commands.update', $command->id) }}" method="POST" >
+                @csrf
+                <input type="hidden" name="status_id" value="{{$command->status_id + 1}}">
+                <button class="button" type="submit"> Changer le statut</button>
+            </form>
+
         </div>
 
-        <div>
-            <input type="number" name="total" placeholder="Total">
+        <div class="main-infos">
+
+            <h1 class="title">Détail de la commande - {{ $command->id }}</h1>
+
+            <div class="commands-infos">
+
+                <div class="articles">
+
+                    <h2 class="title-sec">Montant</h2>
+
+                    @foreach($command->articles as $article)
+                        <div class="list-montant">
+                            <p>{{ $article->name }} x{{$article->quantity}}</p>
+                            <p>{{$article->total_price}} €</p>
+                        </div>
+                    @endforeach
+
+                    <div class="list-montant">
+
+                        <p>Livraison</p>
+                        <p>{{$delivery->price}} €</p>
+
+                    </div>
+
+                    <div class="list-montant">
+
+                        <p>TOTAL</p>
+                        <p>{{$command->total}} €</p>
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    @foreach($command->addresses as $address)
+
+                        @if($address->is_bill == 1)
+                            <h2 class="title-sec">Adresse de facturation</h2>
+                            <p>{{$address->address1}}, {{$address->address2}}, {{$address->city}}, {{$address->postcode}}, {{$address->country}}</p>
+
+                        @else($address->id_bill == 0)
+                            <h2 class="title-sec">Adresse de livraison</h2>
+
+                            <p>{{$address->address1}}, {{$address->address2}}, {{$address->city}}, {{$address->postcode}}, {{$address->country}}</p>
+                        @endif
+
+                    @endforeach
+                    <h2 class="title-sec">Date de validation</h2>
+
+                    <p>{{$command->date_validation}}</p>
+
+                </div>
+
+
+            </div>
+
+
+
         </div>
 
-        <label class="label">Statut</label>
-        <div class="select">
-            <select name="status_id">
-                @foreach($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <label class="label"> Mode de livraison</label>
-        <div class="select">
-            <select name="delivery_id">
-                @foreach($deliveries as $delivery)
-                    <option value="{{ $delivery->id }}">{{ $delivery->mode }}</option>
-                @endforeach
-            </select>
-        </div>
 
-        <button type="submit"> Ajouter </button>
-        <a href="/commands"> Annuler </a>
+    </section>
 
-    </form>
+
+
+
 @endsection

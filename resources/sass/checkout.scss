@@ -1,0 +1,11 @@
+@import "general";
+
+@import "editFacturation";
+
+.address-delivery
+{
+    font-size: $lato-small;
+    color: $black;
+    margin-left: 40px;
+    width: 600px;
+}

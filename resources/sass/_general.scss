@@ -19,7 +19,6 @@ body
     position: relative;
     background-color: $creme;
     font-family: $lato;
-    min-height: 100%;
     padding-bottom: 120px;
 }
 
@@ -28,15 +27,16 @@ body
     min-height:100%;
 }
 
-a:hover
+a:hover, a:visited, a:focus
 {
+    color: $white;
     text-decoration: none;
     cursor: pointer;
 }
-/*a {
+a {
     color: $white;
     text-decoration: none;
-}*/
+}
 
 
 @mixin typical-square
@@ -57,9 +57,10 @@ a:hover
     border: none;
     text-align: center;
     text-decoration: none;
-    width: 150px;
+    width: 250px;
     height: 50px;
     font-size: $lato-normal;
+
 }
 
 @mixin title
@@ -67,3 +68,4 @@ a:hover
     font-size: $lato-big;
     color: $black;
 }
+

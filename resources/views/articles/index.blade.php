@@ -17,7 +17,6 @@
             <li data-target="#myCarouse1" data-slide-to="2"></li>
         </ol>
 
-
         <div class="carousel-inner">
             <div class="item active">
                 <img src="img/monacoWeb.jpg" alt="Monaco" style="width:100%;">
@@ -32,11 +31,12 @@
             </div>
         </div>
 
-
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
         </a>
+
+
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
@@ -75,9 +75,6 @@
             });
         </script>-->
 
-
-
-
     <!-- Articles -->
     <section class="articles_container">
         @foreach ($articles as $article)
@@ -99,14 +96,14 @@
                         @endphp
                     @else
                         @php
-
                             $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
-
                         @endphp
                     @endif
 
                     {!! $imgElement !!}
+
                 @endif
+
                     <div class="article_lign"></div>
                     <div class="article_info">
                         <h1>{{ $article->name }}</h1>

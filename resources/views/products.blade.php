@@ -61,9 +61,11 @@
                     Décroissant
                 </label>
             </div>
+            
+            <button type="submit">Rechercher</button>
         </div>
 
-        <button type="submit">Rechercher</button>
+        
         </form>
 
         <!-- Articles -->
@@ -79,37 +81,32 @@
                         @endforeach-->
 
                     <article class="article">
-                    @if(isset($article->pictures))
-                        @if(count($article->pictures))
-                            @php
+                        @if(isset($article->pictures))
+                            @if(count($article->pictures))
+                                @php
 
-                                $imgElement = '<div class="img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
+                                    $imgElement = '<div class="img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
 
-                            @endphp
-                        @else
-                            @php
+                                @endphp
+                            @else
+                                @php
 
-                                $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
+                                    $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
 
-                            @endphp
+                                @endphp
+                            @endif
+                            
+                            {!! $imgElement !!}
                         @endif
-                        
-                        {!! $imgElement !!}
-                    @endif
-                        <div class="article_lign"></div>
-                        <div class="article_info">
-                            <h1>{{ $article->name }}</h1>
-                            <h3>{{ $article->dimensions }}</h3>
-                            <h2>{{ $article->price }} €</h2>
-                        </div>
-
-                        <div class="buy_button">
-                            <a href="#">Ajouter au panier</a>
-                        </div>
+                            <div class="article_lign"></div>
+                            <div class="article_info">
+                                <h1 class="name" >{{ $article->name }}</h1>
+                                <h3 class="dimension">{{ $article->dimensions }}</h3>
+                                <h2 class="price">{{ $article->price }} €</h2>
+                                <a class="buy_button" href="#">Ajouter au panier</a> 
+                            </div>
                     </article>
-
             @endforeach
         </div>
-    </section>
-
+    </section>   
 @endsection

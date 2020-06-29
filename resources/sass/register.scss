@@ -26,13 +26,14 @@
 .valid-insc
 {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    align-content: space-between;
 }
 
 .submit-button
 {
     @include red-button();
+    margin: 10px;
 }
 
 .obligatory

@@ -28,7 +28,8 @@ class ProductController extends Controller
         if($sortDirection != null){
             $articles = Article::orderBy('price', $sortDirection)->get();
         }
-        else{
+        else
+        {
             $articles = Article::all();
         }
         

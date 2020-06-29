@@ -83,7 +83,25 @@
     @foreach ($articles as $article)
 
                 <article class="article">
-                    <div id="image1" class="article_image"></div>
+                
+                @if(isset($article->pictures))
+                    @if(count($article->pictures))
+                        @php
+
+                            $imgElement = '<div class="img_article" style="background-image: url(\' ' . $article->pictures[0]->path . ' \')"></div>';
+
+                        @endphp
+                    @else
+                        @php
+
+                            $imgElement = '<div class="img_article" style="background-image: url(\'/img/article2.png\')"></div>';
+
+                        @endphp
+                    @endif
+
+                    {!! $imgElement !!}
+                @endif
+                    
                     <hr class="article_lign">
                     <div class="article_info">
                         <h1 class="name" >{{ $article->name }}</h1>
@@ -95,7 +113,7 @@
                     </div>
                 </article>
 
-            @endforeach
+    @endforeach
     </section>
 
 @endsection

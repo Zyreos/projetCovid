@@ -1,6 +1,5 @@
 @import 'general';
-@import 'nav_bar';
-@import 'footer';
+
 
 
 .categ_container
@@ -24,13 +23,7 @@
 
 .categ_image button
 {
-    background-color: $red;
-    color: $white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    width: 150px;
-    height: 50px;
+    @include red-button;
 }
 
 .lign
@@ -62,7 +55,7 @@
     margin: 20px 60px 70px 70px;
 }
 
-.article_image
+.img_article
 {
     width: 300px;
     height: 300px;
@@ -71,11 +64,6 @@
     background-repeat: no-repeat;
     display: block;
     margin: 0 auto;
-}
-
-#image1
-{
-    background-image: url('../img/article2.png');
 }
 
 .article_lign
@@ -101,7 +89,7 @@
 
 .buy_button button
 {
-    background-color: $red;
+    /*background-color: $red;
     color: $white;
     border: none;
     text-align: center;
@@ -109,7 +97,8 @@
     width: 150px;
     height: 50px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: bold;*/
+    @include red-button;
 }
 
 .name
