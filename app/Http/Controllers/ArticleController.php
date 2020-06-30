@@ -148,7 +148,7 @@ class ArticleController extends Controller
             $pictures -> save();
 
             $article -> save();
-
+           
         }
         
         return redirect()->route('articles.index')->with('info', 'Larticle a bien été misà jour');
